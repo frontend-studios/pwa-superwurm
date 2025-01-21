@@ -4,7 +4,7 @@
       class="flex justify-between items-center flex-wrap md:flex-nowrap px-4 md:px-10 py-1 w-full border-0 bg-primary-500 border-neutral-200"
       data-testid="navbar-top"
     >
-      <div class="flex items-center">
+      <div class="flex items-center classForPush">
         <div>
           <ul class="flex">
             <li class="mr-2 hidden xl:block">
