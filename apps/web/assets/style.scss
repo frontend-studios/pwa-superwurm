@@ -283,6 +283,9 @@ header {
   }
   .feedback {
     flex: 1 0 80%;
+    @media (min-width: 640px) {
+      flex: 1 0 40%;
+    }
     @media (min-width: 1024px) {
       flex: 0;
     }

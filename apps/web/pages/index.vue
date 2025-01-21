@@ -12,7 +12,7 @@
           />
           <div class="cat-wrapper absolute">
             <span class="mb-3 block">ANGELWÜRMER</span>
-            <span class="custom-font text-4xl lg:text-7xl font-bold mb-5 block">Der perfekte Köder</span>
+            <span class="custom-font text-4xl xl:text-7xl font-bold mb-5 block">Der perfekte Köder</span>
             <span class="mb-3 block font-bold">Fange mehr - Entdecke unsere hochwertigen Angelwürmer!</span>
             <button
               href="#"
@@ -35,7 +35,7 @@
             height="360"
           />
           <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl lg:text-7xl font-bold block">Garten <br />würmer</span>
+            <span class="custom-font text-4xl xl:text-7xl font-bold block">Garten <br />würmer</span>
             <button
               href="#"
               class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
@@ -56,7 +56,7 @@
             height="360"
           />
           <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl lg:text-7xl font-bold block">Futter <br />würmer</span>
+            <span class="custom-font text-4xl xl:text-7xl font-bold block">Futter <br />würmer</span>
             <button
               href="#"
               class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
@@ -75,7 +75,7 @@
         <a :href="link">
           <img class="border-25" :src="image" :alt="title + title2nd" width="500" height="360" />
           <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl lg:text-7xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
+            <span class="custom-font text-4xl xl:text-7xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
             <button
               :href="link"
               class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
@@ -129,10 +129,10 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-0">
-        <div class="mb-5 mx-3 md:mx-0 flex justify-between items-center">
+        <div class="mb-5 mx-3 lg:mx-0 flex justify-between items-center">
           <div>
             <p class="mb-0 block text-secondary-500">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
-            <p class="custom-font text-secondary-500 text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
+            <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
           </div>
           <div>
             <a
@@ -180,7 +180,7 @@
           <a :href="link">
             <img class="border-25" :src="image" :alt="title + title2nd" width="500" height="360" />
             <div class="cat-wrapper absolute">
-              <span class="custom-font text-4xl lg:text-7xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
+              <span class="custom-font text-4xl xl:text-7xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
               <button
                 :href="link"
                 class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
@@ -195,10 +195,10 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-0">
-        <div class="mb-5 mx-3 md:mx-0 flex justify-between items-center">
+        <div class="mb-5 mx-3 lg:mx-0 flex justify-between items-center">
           <div>
             <p class="mb-0 block text-secondary-500">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
-            <p class="custom-font text-secondary-500 text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
+            <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
           </div>
           <div>
             <a
@@ -216,19 +216,19 @@
     </NuxtLazyHydrate>
 
     <NuxtLazyHydrate when-visible>
-      <section class="max-w-screen-2xl relative w-full mx-3 md:mx-auto mb-5 md:mb-0">
-        <p class="custom-font text-secondary-500 text-4xl font-bold block mx-3 md:mx-0 mb-5 md:mb-0">
+      <section class="max-w-screen-2xl relative w-full mx-auto mb-5 md:mb-0">
+        <p class="custom-font text-secondary-500 text-2xl lg:text-4xl font-bold block mx-3 lg:mx-0 mb-5 lg:mb-0">
           "ECHT WURMIG!" - DAS SAGEN UNSERE KUNDEN
         </p>
         <div
-          class="flex overflow-x-scroll md:grid md:gap-2 md:grid-cols-5 md:overflow-auto scrollbar-hidden ml-3 md:ml-0"
+          class="flex overflow-x-scroll lg:grid lg:gap-2 lg:grid-cols-5 lg:overflow-auto scrollbar-hidden ml-3 lg:ml-0"
         >
           <div
             v-for="{ stars, name, date, text } in feedback"
             :key="name"
-            class="feedback border-25 bg-white p-3 mb-3 md:mb-0 mr-2 md:mr-0"
+            class="feedback border-25 bg-white p-3 mb-3 md:mb-0 mr-2 lg:mr-0"
           >
-            <div class="headline flex justify-between items-center mb-2">
+            <div class="headline flex flex-wrap justify-between items-center mb-2">
               <div class="leading-3">
                 <SfIconStarFilled size="xs" class="text-orange-400" />
                 <SfIconStarFilled size="xs" class="text-orange-400" />

@@ -1,60 +1,59 @@
 <template>
-  <header ref="referenceRef" :class="headerClass" class="relative w-full md:sticky md:shadow-md z-10">
-    <div
-      class="flex justify-between items-center flex-wrap md:flex-nowrap px-4 md:px-10 py-1 w-full border-0 bg-primary-500 border-neutral-200"
-      data-testid="navbar-top"
-    >
-      <div class="flex items-center reverseClass">
-        <div>
-          <ul class="flex">
-            <li class="mr-2 hidden xl:block">
-              <SfIconCheck size="xs" class="text-white" />
-              <span class="text-sm font-medium text-white ml-2">Top-Preise</span>
-            </li>
-            <li class="mr-2 hidden xl:block">
-              <SfIconCheck size="xs" class="text-white" />
-              <span class="text-sm font-medium text-white ml-2">Hochwertige Qualität</span>
-            </li>
-            <li class="mr-2 hidden xl:block">
-              <SfIconCheck size="xs" class="text-white" />
-              <span class="text-sm font-medium text-white ml-2">Bester Service</span>
-            </li>
-            <li class="mr-2 flex items-center">
-              <SfIconStarFilled size="xs" class="text-orange-400" />
-              <SfIconStarFilled size="xs" class="text-orange-400" />
-              <SfIconStarFilled size="xs" class="text-orange-400" />
-              <SfIconStarFilled size="xs" class="text-orange-400" />
-              <SfIconStarFilled size="xs" class="text-orange-400" />
-              <span class="text-sm font-medium text-white ml-2">4,3</span>
-            </li>
-          </ul>
+  <header ref="referenceRef" :class="headerClass" class="relative w-full md:sticky xl:shadow-md z-10">
+    <div class="w-full mx-auto border-0 bg-primary-500 border-neutral-200 py-1 px-4 xl:px-0">
+      <div
+        class="max-w-screen-2xl mx-auto flex justify-between items-center flex-wrap md:flex-nowrap"
+        data-testid="navbar-top"
+      >
+        <div class="flex items-center">
+          <div>
+            <ul class="flex">
+              <li class="mr-2 hidden xl:block">
+                <SfIconCheck size="xs" class="text-white" />
+                <span class="text-sm font-medium text-white ml-2">Top-Preise</span>
+              </li>
+              <li class="mr-2 hidden xl:block">
+                <SfIconCheck size="xs" class="text-white" />
+                <span class="text-sm font-medium text-white ml-2">Hochwertige Qualität</span>
+              </li>
+              <li class="mr-2 hidden xl:block">
+                <SfIconCheck size="xs" class="text-white" />
+                <span class="text-sm font-medium text-white ml-2">Bester Service</span>
+              </li>
+              <li class="mr-2 flex items-center">
+                <SfIconStarFilled size="xs" class="text-orange-400" />
+                <SfIconStarFilled size="xs" class="text-orange-400" />
+                <SfIconStarFilled size="xs" class="text-orange-400" />
+                <SfIconStarFilled size="xs" class="text-orange-400" />
+                <SfIconStarFilled size="xs" class="text-orange-400" />
+                <span class="text-sm font-medium text-white ml-2">4,3</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <li v-if="viewport.isLessThan('lg')" class="custom-logo lessthan bg-white border-25">
-          <NuxtLink :to="localePath(paths.home)" :aria-label="t('goToHomepage')" class="flex px-5 py-1">
+        <slot />
+      </div>
+    </div>
+
+    <div v-if="viewport.isLessThan('lg')">
+      <div class="flex justify-between bg-white border-25 m-3 p-2">
+        <div class="custom-logo">
+          <NuxtLink :to="localePath(paths.home)" :aria-label="t('goToHomepage')" class="flex">
             <UiVsfLogo />
           </NuxtLink>
-        </li>
+        </div>
 
-        <UiButton
-          v-if="viewport.isLessThan('lg')"
-          variant="tertiary"
-          square
-          :aria-label="t('closeMenu')"
-          class="mr-5 bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-700 active:text-white"
-          @click="openMenu([])"
-        >
-          <SfIconMenu class="text-white" />
+        <UiButton square :aria-label="t('closeMenu')" class="mr-4" :noClass="true" @click="openMenu([])">
+          <SfIconMenu class="text-primary-500" />
         </UiButton>
       </div>
-
-      <slot />
     </div>
 
     <div v-if="viewport.isGreaterOrEquals('lg')">
       <nav ref="floatingRef">
         <ul
-          class="flex items-center justify-between px-4 py-2 fs-menu"
+          class="flex items-center justify-between px-4 py-2 fs-menu max-w-screen-2xl mx-auto"
           @blur="
             (event) => {
               if (!(event.currentTarget as Element).contains(event.relatedTarget as Element)) {
@@ -166,7 +165,7 @@
         class="right-12 max-w-96 bg-white overflow-y-auto z-[1000]"
       >
         <nav>
-          <div class="flex items-center justify-between px-4 py-2 fs-menu">
+          <div class="flex items-center justify-between px-4 py-2 fs-menu max-w-screen-2xl mx-auto">
             <p class="typography-text-base font-medium">Browse products</p>
             <UiButton variant="tertiary" square :aria-label="t('closeMenu')" class="ml-2" @click="close()">
               <SfIconClose class="text-neutral-500" />
