@@ -30,7 +30,7 @@
 const runtimeConfig = useRuntimeConfig();
 const storeName = runtimeConfig.public.storeName;
 const imageExtension = runtimeConfig.public.headerLogo.split('.').pop();
-const imagePath = '/images/logo.' + imageExtension;
+const imagePath = 'https://www.superwurm.de/images/gallery/shop/superlogo_withsub.png';
 const logo = ref<HTMLImageElement | null>(null);
 const imgWidth = ref<string>('');
 const imgHeight = ref<string>('');

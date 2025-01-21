@@ -1,6 +1,6 @@
 <template>
-  <div class="border border-neutral-200 rounded-md hover:shadow-lg flex flex-col" data-testid="product-card">
-    <div class="relative overflow-hidden">
+  <div class="hover:shadow-lg flex flex-col product-card" data-testid="product-card">
+    <div class="relative overflow-hidden bg-white item-image">
       <UiBadges
         :class="['absolute', isFromWishlist ? 'mx-2' : 'm-2']"
         :product="product"
@@ -28,73 +28,66 @@
           data-testid="image-slot"
         />
       </SfLink>
-
-      <slot name="wishlistButton">
-        <WishlistButton
-          square
-          class="absolute bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full"
-          :product="product"
-        />
-      </slot>
     </div>
-    <div class="p-2 border-t border-neutral-200 typography-text-sm flex flex-col flex-auto">
-      <SfLink :tag="NuxtLink" :to="productPath" class="no-underline" variant="secondary">
+    <div class="thumb-content typography-text-sm p-2 flex flex-col flex-auto bg-white">
+      <SfLink
+        :tag="NuxtLink"
+        :to="productPath"
+        class="no-underline line-clamp-2 font-bold text-secondary-500 mb-2"
+        variant="secondary"
+      >
         {{ name }}
       </SfLink>
-      <div class="flex items-center pt-1 gap-1" :class="{ 'mb-2': !productGetters.getShortDescription(product) }">
-        <SfRating size="xs" :half-increment="true" :value="rating ?? 0" :max="5" />
-        <SfCounter size="xs">{{ ratingCount }}</SfCounter>
-      </div>
-      <div
-        v-if="productGetters.getShortDescription(product)"
-        class="block py-2 font-normal typography-text-xs text-neutral-700 text-justify whitespace-pre-line break-words"
-      >
-        <span class="line-clamp-3">
-          {{ productGetters.getShortDescription(product) }}
-        </span>
-      </div>
       <LowestPrice :product="product" />
       <div v-if="showBasePrice" class="mb-2">
         <BasePriceInLine :base-price="basePrice" :unit-content="unitContent" :unit-name="unitName" />
       </div>
-      <div class="flex flex-col-reverse items-start md:flex-row md:items-center mt-auto">
-        <span class="block pb-2 font-bold typography-text-sm" data-testid="product-card-vertical-price">
-          <span v-if="!productGetters.canBeAddedToCartFromCategoryPage(product)" class="mr-1">
-            {{ t('account.ordersAndReturns.orderDetails.priceFrom') }}
+
+      <div class="flex flex-col-reverse items-start md:flex-row md:items-center mt-auto justify-between">
+        <div class="availability">
+          <p class="text-xs availability-preview text-center tt-wrap relative">
+            <SfIconCircle
+              class="mr-1"
+              size="xs"
+              :class="[
+                'availability-' + product.variation.availability.id,
+                { 'text-primary-500': product.variation.availability.id === 1 },
+              ]"
+            />
+            <span class="text-secondary-500 font-semibold">
+              {{
+                [1, 2].includes(product.variation.availability.id)
+                  ? 'Auf Lager'
+                  : [3, 4].includes(product.variation.availability.id)
+                    ? 'Bald verfügbar'
+                    : product.variation.availability.names.name
+              }}
+            </span>
+          </p>
+        </div>
+        <div class="prices flex flex-wrap justify-end flex-col-reverse justify-start h-100">
+          <span
+            class="block custom-font font-bold text-lg leading-4 text-secondary-500 text-right"
+            data-testid="product-card-vertical-price"
+          >
+            <span v-if="!productGetters.canBeAddedToCartFromCategoryPage(product)" class="mr-1">
+              {{ t('account.ordersAndReturns.orderDetails.priceFrom') }}
+            </span>
+            <span>{{ n(price, 'currency') }}</span>
+            <span v-if="showNetPrices">{{ t('asterisk') }} </span>
           </span>
-          <span>{{ n(price, 'currency') }}</span>
-          <span v-if="showNetPrices">{{ t('asterisk') }} </span>
-        </span>
-        <span v-if="crossedPrice" class="typography-text-sm text-neutral-500 line-through md:ml-3 md:pb-2">
-          {{ n(crossedPrice, 'currency') }}
-        </span>
+          <span v-if="crossedPrice" class="line-through">
+            {{ n(crossedPrice, 'currency') }}
+          </span>
+        </div>
       </div>
-      <UiButton
-        v-if="productGetters.canBeAddedToCartFromCategoryPage(product)"
-        size="sm"
-        class="min-w-[80px] w-fit"
-        data-testid="add-to-basket-short"
-        :disabled="loading"
-        @click="addWithLoader(Number(productGetters.getId(product)))"
-      >
-        <template v-if="!loading" #prefix>
-          <SfIconShoppingCart size="sm" />
-        </template>
-        <SfLoaderCircular v-if="loading" class="flex justify-center items-center" size="sm" />
-        <span v-else>
-          {{ t('addToCartShort') }}
-        </span>
-      </UiButton>
-      <UiButton v-else type="button" :tag="NuxtLink" :to="productPath" size="sm" class="w-fit">
-        <span>{{ t('showOptions') }}</span>
-      </UiButton>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { productGetters } from '@plentymarkets/shop-api';
-import { SfLink, SfIconShoppingCart, SfLoaderCircular, SfRating, SfCounter } from '@storefront-ui/vue';
+import { SfLink, SfIconShoppingCart, SfLoaderCircular, SfRating, SfCounter, SfIconCircle } from '@storefront-ui/vue';
 import type { ProductCardProps } from '~/components/ui/ProductCard/types';
 import { defaults } from '~/composables';
 

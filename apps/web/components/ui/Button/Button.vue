@@ -3,11 +3,15 @@
     :is="tagWithDefaults"
     :type="type"
     :disabled="disabled"
-    :class="[
-      'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
-      sizeClasses,
-      variantClasses[variant],
-    ]"
+    :class="
+      noClass
+        ? []
+        : [
+            'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
+            sizeClasses,
+            variantClasses[variant],
+          ]
+    "
     data-testid="button"
   >
     <slot v-if="$slots.prefix" name="prefix" />
@@ -41,11 +45,16 @@ const props = defineProps({
     type: [String, Object] as PropType<string | ConcreteComponent>,
     default: undefined,
   },
+  noClass: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-const { size, tag, square } = toRefs(props);
+const { size, tag, square, noClass } = toRefs(props);
 
 const sizeClasses = computed(() => {
+  if (noClass.value) return [];
   switch (size.value) {
     case SfButtonSize.sm: {
       return [square.value ? 'p-1.5' : 'leading-5 text-sm py-1.5 px-3', 'gap-1.5'];

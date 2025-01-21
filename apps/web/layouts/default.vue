@@ -8,7 +8,9 @@
     <main>
       <slot />
     </main>
-    <UiNavbarBottom v-if="viewport.isLessThan('lg')" />
+    <!-- Bottom Navbar deaktiviern
+      <UiNavbarBottom v-if="viewport.isLessThan('lg')" />
+     -->
     <Cookiebar />
     <PreviewMode />
     <NuxtLazyHydrate when-visible>

@@ -115,3 +115,187 @@ apple-pay-button {
     vertical-align: middle;
   }
 }
+
+/* Custom Dan */
+$color-neutral: #eeeadb !default;
+$border-radius: 25px !default;
+
+@font-face {
+  font-family: 'DynaPuff';
+  src: url('https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/fonts/DynaPuff-Regular.ttf')
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff';
+  src: url('https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/fonts/DynaPuff-Bold.ttf')
+    format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.custom-font {
+  font-family: DynaPuff;
+}
+.border-25 {
+  border-radius: $border-radius !important;
+}
+body {
+  background-color: $color-neutral;
+}
+.bg-custom {
+  background-color: $color-neutral;
+}
+.text-custom {
+  color: $color-neutral;
+}
+
+header {
+  nav {
+    > ul {
+      background-color: $color-neutral;
+      .custom-logo {
+        transform: translateY(-30px);
+        a {
+          justify-content: space-around;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.fs-homepage {
+  .single-cat {
+    flex: 0 0 83%;
+    a {
+      position: relative;
+      color: $color-neutral;
+      .cat-wrapper {
+        bottom: 2%;
+        @media (min-width: 1024px) {
+          bottom: 10%;
+        }
+        left: 10%;
+        right: unset;
+        transform: translate(-5%, -5%);
+        z-index: 2;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(93, 74, 51, 1) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 25px;
+        z-index: 1;
+        pointer-events: none;
+      }
+    }
+    &.primary {
+      a {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, rgba(33, 123, 45, 1) 0%, rgba(255, 255, 255, 0) 70%);
+          border-radius: 25px;
+          z-index: 1;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .hero {
+    flex: 1 0 100%;
+    a {
+      position: relative;
+      color: $color-neutral;
+      .cat-wrapper {
+        bottom: 2%;
+        @media (min-width: 1024px) {
+          bottom: 10%;
+        }
+        left: 10%;
+        right: unset;
+        transform: translate(-5%, -5%);
+        z-index: 2;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(93, 74, 51, 1) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 25px;
+        z-index: 1;
+        pointer-events: none;
+      }
+    }
+    &.primary {
+      a {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, rgba(33, 123, 45, 1) 0%, rgba(255, 255, 255, 0) 70%);
+          border-radius: 25px;
+          z-index: 1;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .social-icons {
+    .social-item {
+      &:hover {
+        background-color: $color-neutral;
+      }
+    }
+  }
+  .items {
+    .show-all {
+      &:hover {
+        background-color: $color-neutral;
+      }
+    }
+  }
+  .lazy-image-container {
+    .wrapper {
+      left: 5%;
+      bottom: 50%;
+      right: unset;
+      transform: translate(-5%, 50%);
+      z-index: 2;
+    }
+  }
+  .feedback {
+    flex: 1 0 80%;
+    @media (min-width: 1024px) {
+      flex: 0;
+    }
+  }
+}
+
+.product-card {
+  .item-image {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+  .thumb-content {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}

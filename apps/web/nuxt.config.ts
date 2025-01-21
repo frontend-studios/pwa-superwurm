@@ -194,9 +194,9 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
     },
     manifest: {
-      name: 'plentyshop PWA',
-      short_name: 'plentyshopPWA',
-      theme_color: '#0C7992',
+      name: 'superwurm PWA',
+      short_name: 'superwurmPWA',
+      theme_color: '#217b2d',
       icons: [
         {
           src: 'icons/icon-192x192.png',
