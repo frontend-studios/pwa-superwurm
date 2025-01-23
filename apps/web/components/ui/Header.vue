@@ -2,7 +2,7 @@
   <MegaMenu :categories="categoryTree">
     <template v-if="viewport.isGreaterOrEquals('xs')">
       <nav class="md:flex md:flex-row md:flex-nowrap md:items-center">
-        <span class="text-white"><SfIconCall /> Kontakt</span>
+        <span class="text-white testPush"><SfIconCall /> Kontakt</span>
         <template v-if="localeCodes.length > 1">
           <UiButton
             variant="tertiary"
