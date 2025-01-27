@@ -1,23 +1,22 @@
 <template>
   <UiButton
-    variant="tertiary"
     size="sm"
     :aria-label="
       isWishlistItem(variationId)
         ? t('removeProductFromWishlist', { label: productName })
         : t('addProductToWishlist', { label: productName })
     "
-    :class="{ 'p-[0.5rem]': !isCloseButton }"
-    class="m-2"
+    class="single-wish font-bold mb-0 text-secondary-500 text-sm flex flex-row-reverse"
+    :noClass="true"
     :disabled="wishlistLoading"
     data-testid="wishlist-trigger"
     @click="onWishlistClick"
   >
-    <SfLoaderCircular v-if="actionLoading" class="flex justify-center items-center" size="sm" />
+    <SfLoaderCircular v-if="actionLoading" class="flex justify-center items-center ml-1" size="sm" />
     <template v-else>
-      <SfIconClose v-if="isCloseButton" size="sm" />
-      <SfIconFavoriteFilled v-else-if="isWishlistItem(variationId)" size="sm" />
-      <SfIconFavorite v-else size="sm" />
+      <SfIconClose v-if="isCloseButton" size="sm" class="ml-1" />
+      <SfIconFavoriteFilled v-else-if="isWishlistItem(variationId)" size="sm" class="ml-1" />
+      <SfIconFavorite v-else size="sm" class="ml-1" />
       <slot />
     </template>
   </UiButton>

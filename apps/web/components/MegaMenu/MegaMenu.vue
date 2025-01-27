@@ -53,7 +53,7 @@
     <div v-if="viewport.isGreaterOrEquals('lg')">
       <nav ref="floatingRef">
         <ul
-          class="flex items-center justify-between px-4 py-2 fs-menu max-w-screen-2xl mx-auto"
+          class="flex items-center justify-between px-4 md:px-0 py-2 fs-menu max-w-screen-2xl mx-auto"
           @blur="
             (event) => {
               if (!(event.currentTarget as Element).contains(event.relatedTarget as Element)) {
@@ -165,7 +165,7 @@
         class="right-12 max-w-96 bg-white overflow-y-auto z-[1000]"
       >
         <nav>
-          <div class="flex items-center justify-between px-4 py-2 fs-menu max-w-screen-2xl mx-auto">
+          <div class="flex items-center justify-between px-4 md:px-0 py-2 fs-menu max-w-screen-2xl mx-auto">
             <p class="typography-text-base font-medium">Browse products</p>
             <UiButton variant="tertiary" square :aria-label="t('closeMenu')" class="ml-2" @click="close()">
               <SfIconClose class="text-neutral-500" />

@@ -293,12 +293,113 @@ header {
 }
 
 .product-card {
+  .property-badge {
+    top: 1rem;
+    .badge-content {
+      background-color: $color-neutral;
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
   .item-image {
+    background-color: #fbf9f0;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
+    img {
+      mix-blend-mode: multiply;
+    }
   }
   .thumb-content {
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
+    background-color: #fbf9f0;
+  }
+  &.fs-new {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgb(33, 123, 45) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 25px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .item-image {
+      // z-index: 2;
+      // background: transparent;
+    }
+    .thumb-content {
+      z-index: 2;
+      background: transparent;
+      a {
+        color: white;
+        text-align: center;
+      }
+    }
+    .prices * {
+      color: white;
+    }
+  }
+}
+
+.breadcrumbs {
+  .peer {
+    &:last-child {
+      flex: 1 0 100%;
+      &:before {
+        content: unset;
+      }
+    }
+  }
+}
+
+.grid-cols-product-page {
+  .tech-data {
+    ul {
+      li {
+        margin: 0;
+        padding: 0 0 5px 25px;
+        list-style: none;
+        background-image: url(https://placehold.co/20x20);
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 20px;
+      }
+    }
+  }
+
+  .buy-box {
+    background-color: #fbf8f0;
+    .single-usp {
+      li {
+        margin: 0;
+        padding: 0 0 5px 25px;
+        list-style: none;
+        background-image: url(https://placehold.co/20x20);
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 20px;
+      }
+    }
+    .fs-quantity {
+      background-color: white !important;
+      button {
+        &:hover {
+          background: #217b2d;
+          color: $color-neutral;
+        }
+      }
+    }
+    .fs-addbtn {
+      button {
+        border-radius: $border-radius;
+        &:hover {
+          background-color: #1a6224;
+        }
+      }
+    }
   }
 }

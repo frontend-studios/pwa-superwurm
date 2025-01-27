@@ -25,7 +25,7 @@
       </SfScrollable>
     </div>
 
-    <div class="md:-order-1 overflow-hidden flex-shrink-0 basis-auto">
+    <div class="hidden md:-order-1 overflow-hidden flex-shrink-0 basis-auto">
       <SfScrollable
         ref="thumbsReference"
         wrapper-class="hidden md:inline-flex"

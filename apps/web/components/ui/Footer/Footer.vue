@@ -1,7 +1,7 @@
 <template>
   <footer class="pt-10 bg-neutral-100 md:mb-0" data-testid="footer" :class="simplifiedFooter ? 'mb-0' : 'mb-[58px]'">
     <div
-      class="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-screen-3xl mx-auto"
+      class="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-screen-2xl mx-auto"
       data-testid="section-top"
     >
       <div v-for="{ key, subcategories } in categories" :key="key" class="min-w-[25%] xs:min-w-[50%] flex flex-col">
@@ -29,7 +29,7 @@
     <hr />
 
     <div class="bg-neutral-900" data-testid="section-bottom">
-      <div class="justify-end px-4 py-10 md:flex md:py-6 max-w-screen-3xl mx-auto">
+      <div class="justify-end px-4 py-10 md:flex md:py-6 max-w-screen-2xl mx-auto">
         <p class="flex items-center justify-center leading-5 text-center typography-text-sm text-white/50 md:ml-6">
           {{ companyName }}
         </p>

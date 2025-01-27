@@ -7,7 +7,13 @@ import { fontFamilyNuxtConfig } from './configuration/fontFamily.config';
 
 export default defineNuxtConfig({
   telemetry: false,
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   typescript: {
     typeCheck: true,
   },

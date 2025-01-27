@@ -5,13 +5,13 @@
         <section class="grid-in-left-top md:h-full xl:max-h-[700px]">
           <Gallery :images="addModernImageExtensionForGallery(productGetters.getGallery(product))" />
         </section>
-        <section class="mb-10 grid-in-right md:mb-0">
+        <section class="mb-10 md:mb-0">
           <NuxtLazyHydrate when-idle>
             <UiPurchaseCard v-if="product" :product="product" :review-average="countsProductReviews" />
           </NuxtLazyHydrate>
         </section>
         <section class="grid-in-left-bottom md:mt-8">
-          <UiDivider class="mt-4 mb-2 md:mt-8" />
+          <!-- <UiDivider class="mt-4 mb-2 md:mt-8" />-->
           <NuxtLazyHydrate when-visible>
             <ProductAccordion v-if="product" :product="product" />
           </NuxtLazyHydrate>

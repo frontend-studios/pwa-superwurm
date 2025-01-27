@@ -1,5 +1,8 @@
 <template>
-  <nav data-testid="breadcrumbs" class="inline-flex items-center text-sm font-normal">
+  <nav
+    data-testid="breadcrumbs"
+    class="breadcrumbs inline-flex items-center text-sm font-normal px-4 xl:px-0 mb-5 w-full"
+  >
     <ol class="flex w-auto leading-none group md:flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500 z-10">
         <NuxtLazyHydrate :on-interaction="['click', 'touchstart']">
@@ -39,19 +42,22 @@
       <li
         v-for="(item, index) in breadcrumbs"
         :key="item.name"
-        class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+        class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-['>'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-secondary-500 text-secondary-500 last-of-type:text-secondary-500 last-of-type:font-medium"
       >
         <SfLink
           v-if="index < breadcrumbs.length - 1"
           :tag="NuxtLink"
           :to="localePath(item.link)"
           variant="secondary"
-          class="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
+          class="uppercase text-secondary-500 font-semibold no-underline hover:underline active:underline whitespace-nowrap"
         >
           {{ item.name }}
         </SfLink>
-        <span v-else>
-          {{ item.name }}
+        <span
+          v-else
+          class="custom-font text-3xl text-secondary-500 font-semibold no-underline hover:underline active:underline whitespace-nowrap"
+        >
+          <h1>{{ item.name }}</h1>
         </span>
       </li>
     </ol>

@@ -1,13 +1,13 @@
 <template>
   <NuxtLazyHydrate when-visible>
     <div
-      class="flex flex-col md:flex-row flex-wrap gap-6 max-w-screen-3xl mx-auto px-4 md:px-10 mb-10"
+      class="flex flex-col md:flex-row flex-wrap gap-6 max-w-screen-2xl mx-auto px-4 md:px-10 mb-10"
       data-testid="display"
     >
       <div
         v-for="item in items"
         :key="item.title"
-        class="relative flex md:max-w-screen-3xl md:[&:not(:first-of-type)]:flex-1 md:first-of-type:w-full first:bg-secondary-50 last:bg-warning-200 even:bg-negative-200"
+        class="relative flex md:max-w-screen-2xl md:[&:not(:first-of-type)]:flex-1 md:first-of-type:w-full first:bg-secondary-50 last:bg-warning-200 even:bg-negative-200"
       >
         <div
           :class="[

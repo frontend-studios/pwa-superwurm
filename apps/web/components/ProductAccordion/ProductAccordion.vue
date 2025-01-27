@@ -1,4 +1,5 @@
 <template>
+  <!--
   <div data-testid="product-accordion">
     <UiAccordionItem
       v-if="productGetters.getDescription(product)?.length"
@@ -27,6 +28,12 @@
     </UiAccordionItem>
     <UiDivider v-if="technicalDataOpen && productGetters.getTechnicalData(product)?.length" class="mb-2 mt-2" />
   </div>
+   -->
+
+  <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap">
+    {{ $t('productDetails') }}
+  </h2>
+  <div v-html="productGetters.getDescription(product)" />
 </template>
 
 <script setup lang="ts">
