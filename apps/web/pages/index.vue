@@ -1,5 +1,5 @@
 <template>
-  <div class="fs-homepage">
+  <div class="fs-homepage commitTest">
     <div class="max-w-screen-2xl relative mx-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-2">
       <div class="relative hero md:row-span-2 md:col-span-2 mb-2 md:mb-0">
         <a href="#Neuheiten"
