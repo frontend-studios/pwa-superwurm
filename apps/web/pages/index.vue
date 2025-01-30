@@ -1,5 +1,5 @@
 <template>
-  <div class="fs-homepage">
+  <div class="fs-homepage releaseTest">
     <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
       <a href="#asdasd">
         <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
