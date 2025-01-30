@@ -1,5 +1,5 @@
 <template>
-  <header ref="referenceRef" :class="headerClass" class="relative w-full md:sticky xl:shadow-md z-10">
+  <header ref="referenceRef" :class="headerClass" class="relative w-full md:sticky z-10">
     <div class="w-full mx-auto border-0 bg-primary-500 border-neutral-200 py-1 px-4 xl:px-0">
       <div
         class="max-w-screen-2xl mx-auto flex justify-between items-center flex-wrap md:flex-nowrap"

@@ -91,10 +91,10 @@
             class="block custom-font font-bold text-lg leading-4 text-secondary-500 text-right"
             data-testid="product-card-vertical-price"
           >
-            <span v-if="!productGetters.canBeAddedToCartFromCategoryPage(product)" class="mr-1">
+            <span v-if="!productGetters.canBeAddedToCartFromCategoryPage(product)" class="mr-1 text-xs">
               {{ t('account.ordersAndReturns.orderDetails.priceFrom') }}
             </span>
-            <span class="text-3xl">{{ n(price, 'currency') }}</span>
+            <span class="text-2xl">{{ n(price, 'currency') }}</span>
             <span v-if="showNetPrices">{{ t('asterisk') }} </span>
           </span>
           <span v-if="crossedPrice" :class="hasNewProperty ? 'text-center' : 'text-right'" class="line-through">

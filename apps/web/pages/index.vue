@@ -1,67 +1,97 @@
 <template>
-  <div class="fs-homepage commitTest">
+  <div class="fs-homepage">
+    <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
+      <a href="#asdasd">
+        <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
+          <source
+            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/4238310-hd_1920_1080_30fps.mp4"
+            type="video/mp4"
+          />
+          Dein Browser unterstützt kein HTML5-Video.
+        </video>
+        <div class="controls">
+          <button onclick="document.getElementById('introVideo').play()">Play</button>
+          <button onclick="document.getElementById('introVideo').pause()">Stop</button>
+        </div>
+        <div class="wrapper absolute">
+          <span class="mb-0 block font-bold">Autoplay loop und muted</span>
+          <span class="custom-font text-4xl xl:text-7xl font-bold mb-5 block">was ein tolles Video</span>
+          <button
+            :href="$t('custom.fshomepage.hero.btnLinkTo')"
+            class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
+          >
+            <span>Zum Artikel!</span>
+          </button>
+        </div>
+      </a>
+    </div>
+
     <div class="max-w-screen-2xl relative mx-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-2">
       <div class="relative hero md:row-span-2 md:col-span-2 mb-2 md:mb-0">
-        <a href="#Neuheiten"
+        <a :href="$t('custom.fshomepage.hero.btnLinkTo')"
           ><img
             class="border-25"
-            src="https://picsum.photos/seed/picsum/1024/740"
+            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/1video.png"
             alt="Der peferfekte Köder"
             width="1024"
             height="1024"
           />
           <div class="cat-wrapper absolute">
-            <span class="mb-3 block">ANGELWÜRMER</span>
-            <span class="custom-font text-4xl xl:text-7xl font-bold mb-5 block">Der perfekte Köder</span>
-            <span class="mb-3 block font-bold">Fange mehr - Entdecke unsere hochwertigen Angelwürmer!</span>
+            <span class="mb-0 block font-bold">{{ $t('custom.fshomepage.hero.subheadline') }}</span>
+            <span class="custom-font text-4xl xl:text-7xl font-bold mb-5 block">{{
+              $t('custom.fshomepage.hero.headline')
+            }}</span>
+            <span class="mb-3 block font-bold">{{ $t('custom.fshomepage.hero.text') }}</span>
             <button
-              href="#"
+              :href="$t('custom.fshomepage.hero.btnLinkTo')"
               class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
             >
-              <span>Zu den Angelwürmern!</span>
+              <span>{{ $t('custom.fshomepage.hero.btnText') }}</span>
             </button>
           </div>
         </a>
       </div>
 
       <div class="single-cat mb-2 md:mb-0">
-        <a href="#Neuheiten"
+        <a :href="$t('custom.fshomepage.heroCatTop.btnLinkTo')"
           ><img
             class="border-25"
-            src="https://picsum.photos/seed/picsum/500/360
-  "
-            alt="Gartenwürmer"
+            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/2kompostwuemer.png"
+            alt="Kompostwürmern"
             width="500"
             height="360"
           />
           <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl xl:text-7xl font-bold block">Garten <br />würmer</span>
+            <span class="custom-font text-4xl xl:text-6xl font-bold block text-wrap">{{
+              $t('custom.fshomepage.heroCatTop.headline')
+            }}</span>
             <button
-              href="#"
+              :href="$t('custom.fshomepage.heroCatTop.btnLinkTo')"
               class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
             >
-              <span>Zu den Kompostwürmer</span>
+              <span>{{ $t('custom.fshomepage.heroCatTop.btnText') }}</span>
             </button>
           </div>
         </a>
       </div>
       <div class="single-cat primary mb-2 md:mb-0">
-        <a href="#Topseller"
+        <a :href="$t('custom.fshomepage.heroCatBottom.btnLinkTo')"
           ><img
             class="border-25"
-            src="https://picsum.photos/seed/picsum/500/360
-  "
+            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/3terraverm_hoverstate.png"
             alt="Futterwürmer"
             width="500"
             height="360"
           />
           <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl xl:text-7xl font-bold block">Futter <br />würmer</span>
+            <span class="custom-font text-4xl xl:text-6xl font-bold block">{{
+              $t('custom.fshomepage.heroCatBottom.headline')
+            }}</span>
             <button
               href="#"
               class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
             >
-              <span>Zu den Futterwürmer</span>
+              <span>{{ $t('custom.fshomepage.heroCatBottom.btnText') }}</span>
             </button>
           </div>
         </a>
@@ -75,7 +105,7 @@
         <a :href="link">
           <img class="border-25" :src="image" :alt="title + title2nd" width="500" height="360" />
           <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl xl:text-7xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
+            <span class="custom-font text-4xl xl:text-6xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
             <button
               :href="link"
               class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
@@ -93,7 +123,7 @@
           class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
         >
           <a href="" target="_blank">
-            <div class="py-4 px-3">
+            <div class="py-2">
               <span class="font-bold flex items-center justify-center"
                 ><SfIconFacebook class="mr-2" size="base" />
                 <span v-if="viewport.isGreaterOrEquals('sm')">Facebook</span>
@@ -105,7 +135,7 @@
           class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
         >
           <a href="" target="_blank">
-            <div class="py-4 px-3">
+            <div class="py-2">
               <span class="font-bold flex items-center justify-center"
                 ><SfIconYoutube class="mr-2" size="base" /> <span v-if="viewport.isGreaterOrEquals('sm')">Youtube</span>
               </span>
@@ -116,7 +146,7 @@
           class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
         >
           <a href="" target="_blank">
-            <div class="py-4 px-3">
+            <div class="py-2">
               <span class="font-bold flex items-center justify-center"
                 ><SfIconInstagram class="mr-2" size="base" />
                 <span v-if="viewport.isGreaterOrEquals('sm')">Instagram</span>
@@ -137,7 +167,7 @@
           <div>
             <a
               href=""
-              class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-3 hidden md:block"
+              class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-3 px-4 hidden md:block"
               ><SfIconArrowForward class="mr-2" size="base" />Zu den Topsellern</a
             >
           </div>
@@ -169,31 +199,6 @@
     </NuxtLazyHydrate>
 
     <NuxtLazyHydrate when-visible>
-      <div
-        class="max-w-screen-2xl mx-auto relative mt-2 mb-5 flex overflow-x-scroll scrollbar-hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-2"
-      >
-        <div
-          v-for="{ title, title2nd, image, link, btntext } in bottom_categories"
-          :key="title"
-          class="single-cat mb-2 md:mb-0"
-        >
-          <a :href="link">
-            <img class="border-25" :src="image" :alt="title + title2nd" width="500" height="360" />
-            <div class="cat-wrapper absolute">
-              <span class="custom-font text-4xl xl:text-7xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
-              <button
-                :href="link"
-                class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
-              >
-                <span>{{ btntext }}</span>
-              </button>
-            </div>
-          </a>
-        </div>
-      </div>
-    </NuxtLazyHydrate>
-
-    <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-0">
         <div class="mb-5 mx-3 lg:mx-0 flex justify-between items-center">
           <div>
@@ -213,6 +218,31 @@
           <ProductRecommendedProducts cache-key="homepage" :category-id="customProductsCategoryIdBottom" />
         </div>
       </section>
+    </NuxtLazyHydrate>
+
+    <NuxtLazyHydrate when-visible>
+      <div
+        class="max-w-screen-2xl mx-auto relative mt-2 mb-5 flex overflow-x-scroll scrollbar-hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-2"
+      >
+        <div
+          v-for="{ title, title2nd, image, link, btntext } in bottom_categories"
+          :key="title"
+          class="single-cat mb-2 md:mb-0"
+        >
+          <a :href="link">
+            <img class="border-25" :src="image" :alt="title + title2nd" width="500" height="360" />
+            <div class="cat-wrapper absolute">
+              <span class="custom-font text-4xl xl:text-6xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
+              <button
+                :href="link"
+                class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
+              >
+                <span>{{ btntext }}</span>
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
     </NuxtLazyHydrate>
 
     <NuxtLazyHydrate when-visible>
@@ -288,7 +318,7 @@ const viewport = useViewport();
 const getImageUrl = () => {
   switch (viewport.breakpoint.value) {
     case 'lg': {
-      return 'https://placehold.co/1366x455';
+      return 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/7salebanner.png';
     }
     case 'md': {
       return 'https://picsum.photos/seed/picsum/1024/250';
@@ -306,22 +336,22 @@ const categories = [
     title: 'Garten',
     title2nd: 'würmer',
     link: '#Neuheiten',
-    image: 'https://picsum.photos/seed/picsum/500/360\n',
-    btntext: 'BtnText 1',
+    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/4gartenwuermer.png',
+    btntext: 'Zu den Kompostwürmern!',
   },
   {
     title: 'Futter',
     title2nd: 'würmer',
     link: '#Topseller',
-    image: 'https://picsum.photos/seed/picsum/500/360\n',
-    btntext: 'BtnText 2',
+    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/5futterwuermer.png',
+    btntext: 'Zu den Wurmhumus!',
   },
   {
     title: 'Mehl',
     title2nd: 'würmer',
     link: '#Kategorie3',
-    image: 'https://picsum.photos/seed/picsum/500/360\n',
-    btntext: 'BtnText 3',
+    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/6mehlwuermer.png',
+    btntext: 'Zu den Wurmhumus!',
   },
 ];
 
@@ -329,24 +359,24 @@ const categories = [
 const bottom_categories = [
   {
     title: 'Garten',
-    title2nd: 'würmer Bottom',
+    title2nd: 'würmer',
     link: '#Neuheiten',
-    image: 'https://picsum.photos/seed/picsum/500/360\n',
-    btntext: 'BtnText 1',
+    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/4gartenwuermer.png',
+    btntext: 'Zu den Gartenwürmern!',
   },
   {
     title: 'Futter',
-    title2nd: 'würmer Bottom',
+    title2nd: 'würmer',
     link: '#Topseller',
-    image: 'https://picsum.photos/seed/picsum/500/360\n',
-    btntext: 'BtnText 2',
+    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/5futterwuermer.png',
+    btntext: 'Zu den Futterwürmern!',
   },
   {
     title: 'Mehl',
-    title2nd: 'würmer Bottom',
+    title2nd: 'würmer',
     link: '#Kategorie3',
-    image: 'https://picsum.photos/seed/picsum/500/360\n',
-    btntext: 'BtnText 3',
+    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/6mehlwuermer.png',
+    btntext: 'Zu den Mehrwürmern!',
   },
 ];
 
