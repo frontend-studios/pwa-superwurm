@@ -1,8 +1,14 @@
 <template>
   <MegaMenu :categories="categoryTree">
     <template v-if="viewport.isGreaterOrEquals('xs')">
-      <nav class="md:flex md:flex-row md:flex-nowrap md:items-center">
-        <span class="text-white testPush"><SfIconCall /> Kontakt</span>
+      <nav class="flex md:flex-row md:flex-nowrap items-center">
+        <UiButton
+          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
+          variant="tertiary"
+          square
+          ><a href="tel:123"><SfIconCall /> <span class="hidden md:inline text-sm">Kontakt</span></a>
+        </UiButton>
+
         <template v-if="localeCodes.length > 1">
           <UiButton
             variant="tertiary"

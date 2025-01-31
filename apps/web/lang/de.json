@@ -202,30 +202,6 @@
     }
   },
 
-  "custom": {
-    "fshomepage": {
-      "hero": {
-        "subheadline": "ANGELWÜRMER",
-        "headline": "Der perfekte Köder",
-        "text": "Fange mehr - Entdecke unsere hochwertigen Angelwürmer!",
-        "heroImagePath": "https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/1video.png",
-        "btnText": "Zu den Angelwürmern!",
-        "btnLinkTo": "/angelwuermern"
-      },
-      "heroCatTop": {
-        "btnLinkTo": "/kompostwuermern",
-        "imagePath": "https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/2kompostwuemer.png",
-        "headline": "Kompost würmern",
-        "btnText": "Zu den Kompostwürmern!"
-      },
-      "heroCatBottom": {
-        "btnLinkTo": "/Wurmhumus",
-        "imagePath": "https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/3terraverm_hoverstate.png",
-        "headline": "Terraverm Wurmhumus",
-        "btnText": "Zum Wurmhumus!"
-      }
-    }
-  },
   "addProductToWishlist": "{label} zur Wunschliste hinzufügen",
   "addToCart": "In den Warenkorb",
   "addToCartShort": "Hinzufügen",
