@@ -21,19 +21,26 @@
             :total-reviews="reviewGetters.getTotalReviews(countsProductReviews)"
           />
 
-          <div class="p-4 flex">
-            <p class="font-bold leading-6 cursor-pointer" @click="openDrawer()">
+          <div class="py-4 flex">
+            <p
+              class="custom-font text-secondary-500 font-semibold whitespace-nowrap mt-5 cursor-pointer"
+              data-testid="open-manufacturer-drawer"
+              @click="openDrawer()"
+            >
               <span>{{ t('legalDetails') }}</span>
               <SfIconChevronRight />
             </p>
           </div>
         </section>
+        <section class="grid-in-right-bottom md:mt-8 fs-xselling">
+          <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap mb-3">
+            Passendes Zubehör
+          </h2>
+          <NuxtLazyHydrate when-visible>
+            <ProductRecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" />
+          </NuxtLazyHydrate>
+        </section>
       </div>
-      <section class="mx-4 mt-28 mb-20">
-        <NuxtLazyHydrate when-visible>
-          <ProductRecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" />
-        </NuxtLazyHydrate>
-      </section>
     </NarrowContainer>
 
     <UiReviewModal />
@@ -54,7 +61,7 @@ definePageMeta({
 const { t } = useI18n();
 const route = useRoute();
 const { setCurrentProduct } = useProducts();
-const { setProductMetaData, setProductRobotsMetaData } = useStructuredData();
+const { setProductMetaData, setProductRobotsMetaData, setProductCanonicalMetaData } = useStructuredData();
 const { buildProductLanguagePath } = useLocalization();
 const { addModernImageExtensionForGallery } = useModernImage();
 const { productParams, productId } = createProductParams(route.params);
@@ -114,6 +121,7 @@ watch(
         setProductMetaData(product.value, categoryTree);
         setProductRobotsMetaData(product.value);
       }
+      setProductCanonicalMetaData(product.value);
     }
   },
   { immediate: true },

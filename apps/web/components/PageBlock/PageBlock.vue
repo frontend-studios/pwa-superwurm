@@ -1,9 +1,16 @@
 <template>
   <div
     :class="[
-      block.name === 'UiHeroCarousel'
-        ? 'relative mb-10 group'
-        : 'relative max-w-screen-2xl mx-auto md:px-6 lg:px-10 mt-3 mb-10 group',
+      'relative group',
+      {
+        'mb-s': blockSize === 's',
+        'mb-m': blockSize === 'm',
+        'mb-l': blockSize === 'l',
+        'mb-xl': blockSize === 'xl',
+      },
+      {
+        'max-w-screen-3xl mx-auto md:px-6 lg:px-10 mt-3': block.name !== 'UiCarousel',
+      },
       {
         'outline outline-4 outline-[#538AEA]':
           isPreview && disableActions && isClicked && isTablet && clickedBlockIndex === index,
@@ -32,14 +39,13 @@
         },
       ]"
       :index="index"
+      :blocks="block"
+      :is-last-block="isLastBlock(index)"
       @edit="handleEdit"
       @delete="deleteBlock"
+      @change-position="changeBlockPosition"
     />
-    <component
-      :is="getComponent && getComponent(block.name)"
-      v-if="block.name !== 'NewsletterSubscribe' || showNewsletter"
-      v-bind="block.options"
-    />
+    <component :is="getComponent && getComponent(block.name)" v-bind="block.options" />
     <button
       v-if="disableActions && isPreview"
       class="z-[0] md:z-[1] lg:z-[10] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rounded-[18px] p-[6px] bg-[#538aea] text-white opacity-0 group-hover:opacity-100 group-focus:opacity-100"
@@ -63,14 +69,17 @@ interface Props {
   isClicked: boolean;
   clickedBlockIndex: number | null;
   isTablet: boolean;
-  showNewsletter: boolean;
   blockHasData?: (block: Block) => boolean;
   getComponent?: (name: string) => unknown;
   tabletEdit: (index: number) => void;
   addNewBlock: (index: number, position: number) => void;
+  changeBlockPosition: (index: number, position: number) => void;
+  isLastBlock: (index: number) => boolean;
   handleEdit: (index: number) => void;
   deleteBlock: (index: number) => void;
 }
 
 defineProps<Props>();
+
+const { blockSize } = useSiteConfiguration();
 </script>

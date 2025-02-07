@@ -10,23 +10,23 @@
             <ul class="flex">
               <li class="mr-2 hidden xl:block">
                 <SfIconCheck size="xs" class="text-white" />
-                <span class="text-sm font-medium text-white ml-2">Top-Preise</span>
+                <span class="text-sm font-medium text-white ml-1">Top-Preise</span>
               </li>
               <li class="mr-2 hidden xl:block">
                 <SfIconCheck size="xs" class="text-white" />
-                <span class="text-sm font-medium text-white ml-2">Hochwertige Qualität</span>
+                <span class="text-sm font-medium text-white ml-1">Hochwertige Qualität</span>
               </li>
               <li class="mr-2 hidden xl:block">
                 <SfIconCheck size="xs" class="text-white" />
-                <span class="text-sm font-medium text-white ml-2">Bester Service</span>
+                <span class="text-sm font-medium text-white ml-1">Bester Service</span>
               </li>
               <li class="mr-2 flex items-center">
                 <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <span class="text-sm font-medium text-white ml-2">4,3</span>
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                <span class="text-sm font-medium text-white">4,3</span>
               </li>
             </ul>
           </div>
@@ -51,9 +51,9 @@
     </div>
 
     <div v-if="viewport.isGreaterOrEquals('lg')">
-      <nav ref="floatingRef">
+      <nav ref="floatingRef" class="fs-menu">
         <ul
-          class="flex items-center justify-between px-4 md:px-0 py-2 fs-menu max-w-screen-2xl mx-auto"
+          class="flex items-center justify-between px-4 xl:px-0 py-2 max-w-screen-2xl mx-auto"
           @blur="
             (event) => {
               if (!(event.currentTarget as Element).contains(event.relatedTarget as Element)) {
@@ -75,9 +75,11 @@
                   @mouseenter="menuNode.childCount > 0 ? openMenu([menuNode.id]) : openMenu([])"
                   @click="menuNode.childCount > 0 ? openMenu([menuNode.id]) : openMenu([])"
                 >
-                  <span class="text-secondary-500 font-semibold text-sm">{{
-                    categoryTreeGetters.getName(menuNode)
-                  }}</span>
+                  <span
+                    class="text-secondary-500 font-semibold text-sm"
+                    :class="categoryTreeGetters.getName(menuNode)"
+                    >{{ categoryTreeGetters.getName(menuNode) }}</span
+                  >
                   <SfIconChevronRight
                     v-if="menuNode.childCount > 0"
                     class="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900"
@@ -164,8 +166,8 @@
         placement="left"
         class="right-12 max-w-96 bg-white overflow-y-auto z-[1000]"
       >
-        <nav>
-          <div class="flex items-center justify-between px-4 md:px-0 py-2 fs-menu max-w-screen-2xl mx-auto">
+        <nav class="fs-menu">
+          <div class="flex items-center justify-between px-4 xl:px-0 py-2 max-w-screen-2xl mx-auto">
             <p class="typography-text-base font-medium">Browse products</p>
             <UiButton variant="tertiary" square :aria-label="t('closeMenu')" class="ml-2" @click="close()">
               <SfIconClose class="text-neutral-500" />

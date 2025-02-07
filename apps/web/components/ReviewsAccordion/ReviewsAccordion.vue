@@ -1,38 +1,38 @@
 <template>
-  <div ref="reviewArea" class="relative col-span-5 h-fit" :class="{ 'pointer-events-none opacity-50': loadingReviews }">
+  <div
+    ref="reviewArea"
+    class="relative col-span-5 h-fit mt-3 lg:mt-6"
+    :class="{ 'pointer-events-none opacity-50': loadingReviews }"
+  >
     <SfLoaderCircular v-if="loadingReviews" class="absolute top-[130px] right-0 left-0 m-auto z-[999]" size="2xl" />
 
     <div id="customerReviewsAccordion" data-testid="reviews-accordion">
-      <UiAccordionItem
-        v-model="reviewsOpen"
-        summary-class="md:rounded-md w-full hover:bg-neutral-100 py-2 pl-4 pr-3 flex justify-between items-center select-none"
+      <h2
+        id="customerReviewsClick"
+        class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap mb-3"
       >
-        <template #summary>
-          <h2 id="customerReviewsClick" class="font-bold font-headings text-lg leading-6 md:text-2xl">
-            {{ t('customerReviews') }}
-          </h2>
-        </template>
+        {{ t('customerReviews') }}
+      </h2>
 
-        <UiReviewStatistics :product="product" />
+      <UiReviewStatistics :product="product" />
 
-        <UiReview v-for="(reviewItem, key) in paginatedProductReviews" :key="key" :review-item="reviewItem" />
-        <p
-          v-if="paginatedProductReviews.length === 0"
-          data-testid="no-review-text"
-          class="font-bold leading-6 w-full py-2"
-        >
-          {{ t('customerReviewsNone') }}
-        </p>
-        <UiPagination
-          v-if="paginatedProductReviews.length > 0"
-          :key="pagination.totalCount"
-          :current-page="currentPage"
-          :total-items="pagination.totalCount"
-          :page-size="config.defaultItemsPerPage"
-          :max-visible-pages="maxVisiblePages"
-          current-page-name="feedbackPage"
-        />
-      </UiAccordionItem>
+      <UiReview v-for="(reviewItem, key) in paginatedProductReviews" :key="key" :review-item="reviewItem" />
+      <p
+        v-if="paginatedProductReviews.length === 0"
+        data-testid="no-review-text"
+        class="font-bold leading-6 w-full py-2"
+      >
+        {{ t('customerReviewsNone') }}
+      </p>
+      <UiPagination
+        v-if="paginatedProductReviews.length > 0"
+        :key="pagination.totalCount"
+        :current-page="currentPage"
+        :total-items="pagination.totalCount"
+        :page-size="config.defaultItemsPerPage"
+        :max-visible-pages="maxVisiblePages"
+        current-page-name="feedbackPage"
+      />
     </div>
   </div>
 </template>

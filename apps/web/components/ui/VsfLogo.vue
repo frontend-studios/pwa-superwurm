@@ -5,9 +5,9 @@
         ref="logo"
         :src="imagePath"
         :alt="`${{ storeName }} logo`"
-        class="w-100 h-10 py-2"
-        width="150"
-        height="40"
+        class="w-100 max-h-28"
+        width="253"
+        height="52"
         preload
       />
     </template>
@@ -30,7 +30,7 @@
 const runtimeConfig = useRuntimeConfig();
 const storeName = runtimeConfig.public.storeName;
 const imageExtension = runtimeConfig.public.headerLogo.split('.').pop();
-const imagePath = 'https://www.superwurm.de/images/gallery/shop/superlogo_withsub.png';
+const imagePath = 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/prev-logo-cropped.png';
 const logo = ref<HTMLImageElement | null>(null);
 const imgWidth = ref<string>('');
 const imgHeight = ref<string>('');

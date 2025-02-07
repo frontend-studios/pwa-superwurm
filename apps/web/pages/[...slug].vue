@@ -3,7 +3,7 @@
     name="default"
     :breadcrumbs="breadcrumbs"
     class="relative"
-    :class="{ 'pointer-events-none opacity-50': loading }"
+    :class="{ 'pointer-events-none  opacity-50': loading }"
   >
     <SfLoaderCircular
       v-if="loading || checkingPermission"
@@ -21,7 +21,7 @@
         <template #sidebar>
           <CategoryTree :category="productsCatalog.category" />
           <CategorySorting />
-          <CategoryItemsPerPage class="mt-6" :total-products="productsCatalog.pagination.totals" />
+
           <CategoryFilters v-if="facetGetters.hasFilters(productsCatalog.facets)" :facets="productsCatalog.facets" />
         </template>
       </CategoryPageContent>
@@ -38,7 +38,8 @@ definePageMeta({ layout: false, middleware: ['category-guard'] });
 const { t, locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const { data: productsCatalog, productsPerPage, loading, checkingPermission } = useProducts();
+const { data: productsCatalog, loading, checkingPermission } = useProducts();
+const productsPerPage = ref(28);
 const { data: categoryTree } = useCategoryTree();
 const { buildCategoryLanguagePath } = useLocalization();
 
@@ -58,7 +59,7 @@ const breadcrumbs = computed(() => {
 
 watch(
   () => locale.value,
-  (changedLocale: any) => {
+  (changedLocale: string) => {
     router.push({
       path: buildCategoryLanguagePath(`${productsCatalog.value.languageUrls[changedLocale]}`),
       query: route.query,

@@ -5,19 +5,31 @@ export const appConfiguration = {
       lang: process.env.DEFAULTLANGUAGE ?? 'en',
     },
     meta: [
-      { name: 'shop-name', content: process.env.STORENAME || 'PLENTYSYSTEMS AG' },
-      { name: 'description', content: process.env.METADESC || 'Demo shop for plentyShop PWA' },
-      { name: 'keywords', content: process.env.METAKEYWORDS || 'PlentyONE, plentyshop, pwa' },
+      { name: 'shop-name', content: process.env.STORENAME || 'SUPERWURM' },
+      {
+        name: 'description',
+        content: process.env.METADESC || 'SUPERWURM | Angelwürmer, Garten-/ Kompostwürmer, Futterwürmer',
+      },
+      {
+        name: 'keywords',
+        content: process.env.METAKEYWORDS || 'Würmer, Wurm, Angelwürmer, Gartenwürmer, Kompostwürmer, Futterwürmer',
+      },
       { name: 'theme-color', content: '#0C7992' },
-      { property: 'og:title', content: process.env.OGTITLE || 'plentyShop PWA Demo' },
+      { property: 'og:title', content: process.env.OGTITLE || 'SUPERWURM' },
       { property: 'og:type', content: 'website' },
       { property: 'og:image', content: process.env.OGIMAGE || '' },
       { property: 'og:url', content: process.env.API_ENDPOINT },
     ],
     link: [
-      { rel: 'icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/favicon.ico' },
+      {
+        rel: 'icon',
+        href: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/ListItemIcon-preview.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/ListItemIcon-preview.png',
+      },
     ],
-    title: process.env.STORENAME || 'plentyShop PWA',
+    title: process.env.STORENAME || 'SUPERWURM | Angelwürmer, Garten-/ Kompostwürmer, Futterwürmer',
   },
 };

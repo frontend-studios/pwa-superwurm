@@ -1,5 +1,5 @@
 <template>
-  <div class="fs-homepage releaseTest">
+  <div class="fs-homepage">
     <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
       <a href="#asdasd">
         <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
@@ -15,10 +15,10 @@
         </div>
         <div class="wrapper absolute">
           <span class="mb-0 block font-bold">Autoplay loop und muted</span>
-          <span class="custom-font text-4xl xl:text-7xl font-bold mb-5 block">was ein tolles Video</span>
+          <span class="custom-font text-4xl xl:text-7xl font-bold block lg:mb-7">was ein tolles Video</span>
           <button
             href="#"
-            class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
+            class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
           >
             <span>Zum Artikel!</span>
           </button>
@@ -26,72 +26,80 @@
       </a>
     </div>
 
-    <div class="max-w-screen-2xl relative mx-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-      <div class="relative hero md:row-span-2 md:col-span-2 mb-2 md:mb-0">
-        <a href="#"
-          ><img
-            class="border-25"
-            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/1video.png"
-            alt="Der peferfekte Köder"
-            width="1024"
-            height="1024"
-          />
-          <div class="cat-wrapper absolute">
-            <span class="mb-0 block font-bold">ANGELWÜRMER</span>
-            <span class="custom-font text-4xl xl:text-7xl font-bold mb-5 block"> Der perfekte Köder </span>
-            <span class="mb-3 block font-bold">Fange mehr - Entdecke unsere hochwertigen Angelwürmer!</span>
-            <button
-              href="#"
-              class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
-            >
-              <span>Zu den Angelwürmern!</span>
-            </button>
-          </div>
-        </a>
-      </div>
-
-      <div class="single-cat mb-2 md:mb-0">
-        <a href="#"
-          ><img
-            class="border-25"
-            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/2kompostwuemer.png"
-            alt="Kompostwürmern"
-            width="500"
-            height="360"
-          />
-          <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl xl:text-6xl font-bold block text-wrap">Kompost würmern</span>
-            <button
-              href=""
-              class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
-            >
-              <span>Zu den Kompostwürmern!</span>
-            </button>
-          </div>
-        </a>
-      </div>
-      <div class="single-cat primary mb-2 md:mb-0">
-        <a href=""
-          ><img
-            class="border-25"
-            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/3terraverm_hoverstate.png"
-            alt="Futterwürmer"
-            width="500"
-            height="360"
-          />
-          <div class="cat-wrapper absolute">
-            <span class="custom-font text-4xl xl:text-6xl font-bold block">Terraverm Wurmhumus</span>
-            <button
-              href="#"
-              class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
-            >
-              <span>Zum Wurmhumus!</span>
-            </button>
-          </div>
-        </a>
-      </div>
+    <div class="max-w-screen-2xl relative mx-auto my-5 lg:my-10 text-center">
+      <span class="mb-0 block font-bold text-secondary-500 xl:text-2xl">Willkommen bei Superwurm</span>
+      <span class="custom-font text-4xl text-secondary-500 xl:text-5xl font-bold block"
+        >Finde die perfekten Produkte für deinen Garten, <br />deine Tiere und dein Hobby
+      </span>
     </div>
 
+    <NuxtLazyHydrate when-visible>
+      <div class="max-w-screen-2xl relative mx-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div class="relative hero md:row-span-2 md:col-span-2 mb-2 md:mb-0">
+          <a href="#"
+            ><img
+              class="border-25"
+              src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/1video.png"
+              alt="Der peferfekte Köder"
+              width="1024"
+              height="1024"
+            />
+            <div class="cat-wrapper absolute">
+              <span class="mb-0 block font-bold">ANGELWÜRMER</span>
+              <span class="custom-font text-4xl xl:text-7xl font-bold block lg:mb-7"> Das perfekte Köder </span>
+              <span class="block font-bold">Fange mehr - Entdecke unsere hochwertigen Angelwürmer!</span>
+              <button
+                href="#"
+                class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
+              >
+                <span>Zu den Angelwürmern!</span>
+              </button>
+            </div>
+          </a>
+        </div>
+
+        <div class="single-cat mb-2 md:mb-0">
+          <a href="#"
+            ><img
+              class="border-25"
+              src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/2kompostwuemer.png"
+              alt="Kompostwürmern"
+              width="500"
+              height="360"
+            />
+            <div class="cat-wrapper absolute">
+              <span class="custom-font text-4xl xl:text-6xl font-bold block text-wrap">Kompost würmern</span>
+              <button
+                href=""
+                class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
+              >
+                <span>Zu den Kompostwürmern!</span>
+              </button>
+            </div>
+          </a>
+        </div>
+        <div class="single-cat primary mb-2 md:mb-0">
+          <a href=""
+            ><img
+              class="border-25"
+              src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/3terraverm_hoverstate.png"
+              alt="Futterwürmer"
+              width="500"
+              height="360"
+            />
+            <div class="cat-wrapper absolute">
+              <span class="custom-font text-4xl xl:text-6xl font-bold block">Terraverm Wurmhumus</span>
+              <button
+                href="#"
+                class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
+              >
+                <span>Zum Wurmhumus!</span>
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+    </NuxtLazyHydrate>
     <div
       class="max-w-screen-2xl mx-auto relative mt-2 mb-5 lg:mb-10 flex overflow-x-scroll scrollbar-hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-2"
     >
@@ -102,7 +110,7 @@
             <span class="custom-font text-4xl xl:text-6xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
             <button
               :href="link"
-              class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
+              class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
             >
               <span>{{ btntext }}</span>
             </button>
@@ -153,15 +161,15 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-10">
-        <div class="mb-5 mx-3 lg:mx-0 flex justify-between items-center">
+        <div class="mx-3 lg:mx-0 mb-5 lg:mb-10 flex justify-between items-center">
           <div>
-            <p class="mb-0 block text-secondary-500">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
+            <p class="mb-0 block text-secondary-500 font-bold">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
             <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
           </div>
           <div>
             <a
               href=""
-              class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-3 px-4 hidden md:block"
+              class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
               ><SfIconArrowForward class="mr-2" size="base" />Zu den Topsellern</a
             >
           </div>
@@ -182,7 +190,7 @@
               <p class="custom-font text-custom text-4xl lg:text-7xl font-bold mb-0">Mehlwürmer</p>
               <button
                 href="#"
-                class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
+                class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
                 <span>Jetzt sparen!</span>
               </button>
@@ -194,15 +202,15 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-10">
-        <div class="mb-5 mx-3 lg:mx-0 flex justify-between items-center">
+        <div class="mx-3 lg:mx-0 mb-5 lg:mb-10 flex justify-between items-center">
           <div>
-            <p class="mb-0 block text-secondary-500">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
+            <p class="mb-0 block text-secondary-500 font-bold">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
             <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
           </div>
           <div>
             <a
               href=""
-              class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-3 hidden md:block"
+              class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
               ><SfIconArrowForward class="mr-2" size="base" />Zu den Topsellern</a
             >
           </div>
@@ -216,7 +224,7 @@
 
     <NuxtLazyHydrate when-visible>
       <div
-        class="max-w-screen-2xl mx-auto relative mt-2 mb-10 flex overflow-x-scroll scrollbar-hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-2"
+        class="max-w-screen-2xl mx-auto relative mt-2 mb-5 lg:mb-10 flex overflow-x-scroll scrollbar-hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-2"
       >
         <div
           v-for="{ title, title2nd, image, link, btntext } in bottom_categories"
@@ -229,7 +237,7 @@
               <span class="custom-font text-4xl xl:text-6xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
               <button
                 :href="link"
-                class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500"
+                class="btn block border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
                 <span>{{ btntext }}</span>
               </button>
@@ -241,7 +249,7 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl relative w-full mx-auto mb-5 lg:mb-10">
-        <p class="custom-font text-secondary-500 text-2xl lg:text-3xl font-bold block mx-3 lg:mx-0 mb-5 lg:mb-3">
+        <p class="custom-font text-secondary-500 text-2xl lg:text-3xl font-bold block mx-3 lg:mx-0 mb-5 lg:mb-10">
           "ECHT WURMIG!" - DAS SAGEN UNSERE KUNDEN
         </p>
         <div
@@ -255,10 +263,10 @@
             <div class="headline flex flex-wrap justify-between items-center mb-2">
               <div class="leading-3">
                 <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400" v-if="stars === 5" />
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" v-if="stars === 5" />
               </div>
               <span class="text-xs text-gray-400">{{ name }} {{ date }}</span>
               <SfIconCheckCircle class="text-primary-500" size="sm" />
@@ -286,7 +294,7 @@ import {
 // Adding SocialMedia Icons from https://docs.storefrontui.io/v2/vue/components/iconbase ENDE
 
 const { data, fetchPageTemplate, dataIsEmpty } = useHomepage();
-const { showNewsletter } = useNewsletter();
+
 const { $i18n } = useNuxtApp();
 
 // Adding Items from specific Cat START

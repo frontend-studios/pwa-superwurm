@@ -143,7 +143,7 @@ $border-radius: 25px !default;
   border-radius: $border-radius !important;
 }
 body {
-  background-color: $color-neutral;
+  background-color: $color-neutral !important;
 }
 .bg-custom {
   background-color: $color-neutral;
@@ -153,9 +153,9 @@ body {
 }
 
 header {
-  nav {
-    > ul {
-      background-color: $color-neutral;
+  .fs-menu {
+    background-color: $color-neutral;
+    ul {
       .custom-logo {
         transform: translateY(-30px);
         a {
@@ -163,6 +163,27 @@ header {
           margin: 0 auto;
         }
       }
+      li {
+        .Bewegungsapparat {
+          position: relative;
+          &:after {
+            content: 'beliebt';
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 10px;
+            padding: 0px 2px;
+            background: rgb(var(--colors-2-secondary-500));
+            color: $color-neutral;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+  .opensearch {
+    @media (min-width: 1024px) {
+      width: 255px;
     }
   }
 }
@@ -174,42 +195,42 @@ header {
       position: relative;
       color: $color-neutral;
       .cat-wrapper {
-        bottom: 2%;
+        bottom: 2rem;
         @media (min-width: 1024px) {
-          bottom: 10%;
+          bottom: 2rem;
         }
-        left: 10%;
-        right: unset;
-        transform: translate(-5%, -5%);
+        left: 2rem;
+        right: 0;
+        top: auto;
         z-index: 2;
       }
-      // &:after {
-      //   content: '';
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      //   width: 100%;
-      //   height: 100%;
-      //   background: linear-gradient(0deg, rgba(93, 74, 51, 1) 0%, rgba(255, 255, 255, 0) 70%);
-      //   border-radius: 25px;
-      //   z-index: 1;
-      //   pointer-events: none;
-      // }
-    }
-    &.primary {
-      a {
-        // &:after {
-        //   content: '';
-        //   position: absolute;
-        //   top: 0;
-        //   left: 0;
-        //   width: 100%;
-        //   height: 100%;
-        //   background: linear-gradient(0deg, rgba(33, 123, 45, 1) 0%, rgba(255, 255, 255, 0) 70%);
-        //   border-radius: 25px;
-        //   z-index: 1;
-        //   pointer-events: none;
-        // }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(93, 74, 51, 1) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 25px;
+        z-index: 1;
+        pointer-events: none;
+        transition: 0.3s;
+      }
+      &:hover {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, rgba(33, 123, 45, 1) 0%, rgba(255, 255, 255, 0) 70%);
+          border-radius: 25px;
+          z-index: 1;
+          pointer-events: none;
+          transition: 0.3s;
+        }
       }
     }
   }
@@ -218,7 +239,10 @@ header {
     video {
       width: 100%;
       height: auto;
-      max-height: 400px;
+      max-height: 500px;
+      @media (min-width: 1024px) {
+        max-height: 700px;
+      }
       object-fit: cover;
     }
     .controls {
@@ -234,14 +258,15 @@ header {
       button {
         background: rgba(93, 74, 51, 0.8);
         color: $color-neutral;
-        border: none;
-        padding: 10px 20px;
+        border: 2px solid;
+        padding: 12px 16px;
         cursor: pointer;
         font-size: 16px;
         border-radius: 25px;
         &:hover {
           background-color: $color-neutral;
           color: rgb(93, 74, 51);
+          border-color: rgba(93, 74, 51, 1);
         }
       }
     }
@@ -253,13 +278,13 @@ header {
     }
     .wrapper {
       color: $color-neutral;
-      bottom: 2%;
+      bottom: 2rem;
       @media (min-width: 1024px) {
-        bottom: 10%;
+        bottom: 2rem;
       }
-      left: 10%;
-      right: unset;
-      transform: translate(-5%, -5%);
+      left: 2rem;
+      right: 0;
+      top: auto;
       z-index: 2;
     }
     &:after {
@@ -282,42 +307,40 @@ header {
       position: relative;
       color: $color-neutral;
       .cat-wrapper {
-        bottom: 2%;
+        bottom: 2rem;
         @media (min-width: 1024px) {
-          bottom: 5%;
+          bottom: 2rem;
         }
-        left: 10%;
-        right: unset;
-        transform: translate(-5%, -5%);
+        left: 2rem;
+        right: 0;
+        top: auto;
         z-index: 2;
       }
-      // &:after {
-      //   content: '';
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      //   width: 100%;
-      //   height: 100%;
-      //   background: linear-gradient(0deg, rgba(93, 74, 51, 1) 0%, rgba(255, 255, 255, 0) 70%);
-      //   border-radius: 25px;
-      //   z-index: 1;
-      //   pointer-events: none;
-      // }
-    }
-    &.primary {
-      a {
-        // &:after {
-        //   content: '';
-        //   position: absolute;
-        //   top: 0;
-        //   left: 0;
-        //   width: 100%;
-        //   height: 100%;
-        //   background: linear-gradient(0deg, rgba(33, 123, 45, 1) 0%, rgba(255, 255, 255, 0) 70%);
-        //   border-radius: 25px;
-        //   z-index: 1;
-        //   pointer-events: none;
-        // }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(93, 74, 51, 1) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 25px;
+        z-index: 1;
+        pointer-events: none;
+      }
+      &:hover {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, rgba(33, 123, 45, 1) 0%, rgba(255, 255, 255, 0) 70%);
+          border-radius: 25px;
+          z-index: 1;
+          pointer-events: none;
+        }
       }
     }
   }
@@ -337,10 +360,14 @@ header {
   }
   .lazy-image-container {
     .wrapper {
-      left: 5%;
-      bottom: 50%;
-      right: unset;
-      transform: translate(-5%, 50%);
+      bottom: 2rem;
+      @media (min-width: 1024px) {
+        bottom: 50%;
+        transform: translate(0, 50%);
+      }
+      left: 2rem;
+      right: 0;
+      top: auto;
       z-index: 2;
     }
   }
@@ -385,7 +412,7 @@ header {
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(0deg, rgb(33, 123, 45) 0%, rgba(255, 255, 255, 0) 70%);
+      background: linear-gradient(0deg, rgb(71, 187, 90) 0%, rgba(255, 255, 255, 0) 70%);
       border-radius: 25px;
       z-index: 1;
       pointer-events: none;
@@ -424,12 +451,14 @@ header {
     ul {
       li {
         margin: 0;
-        padding: 0 0 5px 25px;
+        padding-left: 25px;
         list-style: none;
-        background-image: url(https://placehold.co/20x20);
+        background-image: url(https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/ListItemIcon-preview.png);
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 20px;
+        color: rgb(var(--colors-2-secondary-500));
+        margin-bottom: 3px;
       }
     }
   }
@@ -439,12 +468,14 @@ header {
     .single-usp {
       li {
         margin: 0;
-        padding: 0 0 5px 25px;
+        padding-left: 25px;
         list-style: none;
-        background-image: url(https://placehold.co/20x20);
+        background-image: url(https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/ListItemIcon-preview.png);
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 20px;
+        color: rgb(var(--colors-2-secondary-500));
+        margin-bottom: 3px;
       }
     }
     .fs-quantity {
@@ -466,3 +497,6 @@ header {
     }
   }
 }
+// .drift-open {
+//   display: none !important;
+// }

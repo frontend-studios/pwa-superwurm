@@ -3,13 +3,13 @@
     <div class="relative">
       <div class="drift-zoom-image">
         <section class="p-4 xl:p-6">
-          <div class="tst">
+          <div class="">
             <!-- <span class="manufacturer font-bold mb-0 text-secondary-500 text-sm" v-if="product.item.manufacturer.name">
               {{ product.item.manufacturer.name }}</span
             >
             -->
             <h1
-              class="font-bold typography-headline-4 custom-font text-secondary-500 text-lg"
+              class="font-bold typography-headline-4 custom-font text-secondary-500 text-lg xl:text-3xl"
               data-testid="product-name"
             >
               {{ productGetters.getName(product) }}
@@ -35,10 +35,13 @@
 
             <div class="">
               <div class="tech-data" v-html="productGetters.getTechnicalData(product)" />
-              <span class="flex font-bold mb-0 text-secondary-500 text-sm w-100 justify-end">
+              <span class="flex font-bold mb-0 text-secondary-500 text-sm w-100 justify-end mb-3 items-center">
                 Der Umwelt zu liebe
-
-                <img src="https://placehold.co/20x20" class="ml-2" alt="Der Umwelt zu liebe" />
+                <img
+                  src="https://cdn02.plentymarkets.com/ln590pyonzot/plugin/34/superwurmdevtools/images/2015_gruen.png"
+                  class="ml-2 max-h-7"
+                  alt="Der Umwelt zu liebe"
+                />
               </span>
             </div>
           </div>
@@ -221,7 +224,6 @@ onMounted(() => {
   resetInvalidFields();
   resetAttributeFields();
 });
-
 onBeforeRouteLeave(() => {
   if (invalidFields.value.length > 0 || invalidAttributeFields.value.length > 0) clear();
 });

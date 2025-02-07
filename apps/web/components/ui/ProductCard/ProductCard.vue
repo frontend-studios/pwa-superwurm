@@ -38,7 +38,7 @@
 
       <div v-if="specialProperty" class="property-badge absolute">
         <span class="badge-content uppercase text-xs font-semibold p-0.5 pr-2">
-          {{ specialProperty?.values?.value || 'Standardwert' }}
+          {{ specialProperty?.values?.value || 'BELIEBT' }}
         </span>
       </div>
     </div>
@@ -95,7 +95,7 @@
               {{ t('account.ordersAndReturns.orderDetails.priceFrom') }}
             </span>
             <span class="text-2xl">{{ n(price, 'currency') }}</span>
-            <span v-if="showNetPrices">{{ t('asterisk') }} </span>
+            <span>{{ t('asterisk') }} </span>
           </span>
           <span v-if="crossedPrice" :class="hasNewProperty ? 'text-center' : 'text-right'" class="line-through">
             {{ n(crossedPrice, 'currency') }}
@@ -153,8 +153,6 @@ const { addToCart } = useCart();
 const { price, crossedPrice } = useProductPrice(product);
 const { send } = useNotification();
 const loading = ref(false);
-
-const { showNetPrices } = useCustomer();
 
 const path = computed(() => productGetters.getCategoryUrlPath(product, categoryTree.value));
 const productSlug = computed(() => productGetters.getSlug(product) + `_${productGetters.getItemId(product)}`);

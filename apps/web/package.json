@@ -12,8 +12,8 @@
     "docs:build": "yarn publish-typedoc && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "publish-typedoc": "yarn typedoc && mkdir -p docs/reference && mv reference/composables/ docs/reference",
-    "lint": "nuxi prepare && eslint .",
-    "lint:fix": "nuxi prepare && eslint . --fix",
+    "lint": "nuxi prepare && eslint . --max-warnings 0",
+    "lint:fix": "nuxi prepare && eslint . --fix --max-warnings 0",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest run",
@@ -25,7 +25,7 @@
     "test:cypress-dev": "cypress open --e2e"
   },
   "dependencies": {
-    "@plentymarkets/tailwind-colors": "^1.0.0",
+    "@plentymarkets/tailwind-colors": "^1.0.1",
     "@vue-storefront/sdk": "^1.5.0",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",

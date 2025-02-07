@@ -8,6 +8,7 @@ const useLocaleSpecificHomepageTemplate = (locale: string) =>
 export const useHomepage: UseHomepageDataReturn = () => {
   const state = useState<UseHomepageDataState>('useHomepageState', () => ({
     data: { blocks: [], meta: { isDefault: null } } as HomepageData,
+    initialBlocks: [],
     dataIsEmpty: false,
     loading: false,
     showErrors: false,
@@ -27,8 +28,11 @@ export const useHomepage: UseHomepageDataReturn = () => {
       if (block.name === 'ProductRecommendedProducts') {
         const options = block.options as ProductRecommendedProductsOptions;
         const id = options.categoryId;
-        const { fetchProductRecommended } = useProductRecommended(id);
-        fetchProductRecommended(id);
+
+        if (tryUseNuxtApp()) {
+          const { fetchProductRecommended } = useProductRecommended(id);
+          fetchProductRecommended(id);
+        }
       }
     });
   };
@@ -46,6 +50,8 @@ export const useHomepage: UseHomepageDataReturn = () => {
     } else {
       state.value.data = useLocaleSpecificHomepageTemplate(currentLocale.value);
     }
+
+    state.value.initialBlocks = state.value.data.blocks.map((block) => toRaw(block));
 
     await fetchRecommendedProducts();
   };

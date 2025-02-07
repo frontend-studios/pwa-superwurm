@@ -1,7 +1,7 @@
 <template>
   <nav
     data-testid="breadcrumbs"
-    class="breadcrumbs inline-flex items-center text-sm font-normal px-4 xl:px-0 mb-5 w-full"
+    class="breadcrumbs inline-flex items-center text-sm font-normal px-4 xl:px-0 mb-3 lg:mb-0 w-full"
   >
     <ol class="flex w-auto leading-none group md:flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500 z-10">

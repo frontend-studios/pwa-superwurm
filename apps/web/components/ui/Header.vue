@@ -3,23 +3,24 @@
     <template v-if="viewport.isGreaterOrEquals('xs')">
       <nav class="flex md:flex-row md:flex-nowrap items-center">
         <UiButton
+          v-if="viewport.isLessThan('lg')"
+          variant="tertiary"
+          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
+          square
+          :aria-label="t('openSearchModalButtonLabel')"
+          @click="searchModalOpen"
+        >
+          <SfIconSearch />
+        </UiButton>
+
+        <UiSearch class="opensearch flex-1" v-if="viewport.isGreaterOrEquals('lg')" />
+
+        <UiButton
           class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
           variant="tertiary"
           square
           ><a href="tel:123"><SfIconCall /> <span class="hidden md:inline text-sm">Kontakt</span></a>
         </UiButton>
-
-        <template v-if="localeCodes.length > 1">
-          <UiButton
-            variant="tertiary"
-            class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
-            square
-            :aria-label="t('openSearchModalButtonLabel')"
-            @click="searchModalOpen"
-          >
-            <SfIconSearch />
-          </UiButton>
-        </template>
         <UiButton
           class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           :tag="NuxtLink"
@@ -85,16 +86,7 @@
         >
           <SfIconPerson />
         </UiButton>
-        <UiButton
-          v-if="showConfigurationDrawer"
-          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
-          variant="tertiary"
-          :aria-label="t('openConfigurationDrawer')"
-          square
-          @click="open = true"
-        >
-          <SfIconTune />
-        </UiButton>
+
         <UiButton
           class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           :tag="NuxtLink"
@@ -158,7 +150,6 @@
       <UiSearch :close="searchModalClose" />
     </SfModal>
   </NuxtLazyHydrate>
-  <LazyConfigurationDrawer v-if="showConfigurationDrawer" />
 </template>
 
 <script setup lang="ts">
@@ -192,7 +183,7 @@ const localePath = useLocalePath();
 const { isOpen: isAccountDropdownOpen, toggle: accountDropdownToggle } = useDisclosure();
 const { isOpen: isAuthenticationOpen, open: openAuthentication, close: closeAuthentication } = useDisclosure();
 const { open: searchModalOpen, isOpen: isSearchModalOpen, close: searchModalClose } = useDisclosure();
-const { open } = useConfigurationDrawer();
+
 const { toggle: toggleLanguageSelect, isOpen: isLanguageSelectOpen } = useLocalization();
 const { data: categoryTree } = useCategoryTree();
 const { data: user, isAuthorized, logout } = useCustomer();

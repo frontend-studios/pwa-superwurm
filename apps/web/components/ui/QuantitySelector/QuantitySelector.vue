@@ -1,6 +1,6 @@
 <template>
   <div class="inline-flex flex-col items-center" data-testid="quantity-selector">
-    <div class="flex h-full w-full">
+    <div class="flex rounded-md h-full w-full">
       <SfTooltip
         v-if="count <= minValue"
         :label="$t('minimumOrderQuantity', minValue)"
