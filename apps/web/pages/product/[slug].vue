@@ -32,7 +32,7 @@
             </p>
           </div>
         </section>
-        <section class="grid-in-right-bottom md:mt-8 fs-xselling">
+        <section class="grid-in-right-bottom md:mt-8 fs-xselling overflow-x-scroll scrollbar-hidden">
           <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap mb-3">
             Passendes Zubehör
           </h2>

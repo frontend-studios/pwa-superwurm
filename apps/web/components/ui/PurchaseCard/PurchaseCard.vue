@@ -3,11 +3,12 @@
     <div class="relative">
       <div class="drift-zoom-image">
         <section class="p-4 xl:p-6">
-          <div class="">
+          <div>
             <!-- <span class="manufacturer font-bold mb-0 text-secondary-500 text-sm" v-if="product.item.manufacturer.name">
               {{ product.item.manufacturer.name }}</span
             >
             -->
+
             <h1
               class="font-bold typography-headline-4 custom-font text-secondary-500 text-lg xl:text-3xl"
               data-testid="product-name"

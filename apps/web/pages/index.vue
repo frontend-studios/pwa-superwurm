@@ -39,8 +39,8 @@
           <a href="#"
             ><img
               class="border-25"
-              src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/1video.png"
-              alt="Der peferfekte Köder"
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/angelwuermer-fischer-boot-nebel.png"
+              alt="Ein Fischer in einem kleinen Boot auf einem ruhigen See, umgeben von Nebel, perfekt für das Angeln mit Angelwürmern."
               width="1024"
               height="1024"
             />
@@ -62,18 +62,18 @@
           <a href="#"
             ><img
               class="border-25"
-              src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/2kompostwuemer.png"
-              alt="Kompostwürmern"
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/gartenwuermer-erde-pflanzen.png"
+              alt="Rote Würmer in fruchtbarer Erde zwischen frischen, grünen Pflanzen – ideale Gartenwürmer für gesunden Boden."
               width="500"
               height="360"
             />
             <div class="cat-wrapper absolute">
-              <span class="custom-font text-4xl xl:text-6xl font-bold block text-wrap">Kompost würmern</span>
+              <span class="custom-font text-4xl xl:text-6xl font-bold block text-wrap">Garten würmer</span>
               <button
                 href=""
                 class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
-                <span>Zu den Kompostwürmern!</span>
+                <span>Zu den Gartenwürmer!</span>
               </button>
             </div>
           </a>
@@ -82,18 +82,18 @@
           <a href=""
             ><img
               class="border-25"
-              src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/3terraverm_hoverstate.png"
-              alt="Futterwürmer"
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/futterwuermer-schale-natur.png"
+              alt="Eine Schale mit lebenden Futterwürmern in natürlicher Umgebung, perfekt als Nahrungsquelle für Reptilien und Vögel."
               width="500"
               height="360"
             />
             <div class="cat-wrapper absolute">
-              <span class="custom-font text-4xl xl:text-6xl font-bold block">Terraverm Wurmhumus</span>
+              <span class="custom-font text-4xl xl:text-6xl font-bold block">Futter würmer</span>
               <button
                 href="#"
                 class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
-                <span>Zum Wurmhumus!</span>
+                <span>Zu den Futterwürmern!</span>
               </button>
             </div>
           </a>
@@ -103,9 +103,13 @@
     <div
       class="max-w-screen-2xl mx-auto relative mt-2 mb-5 lg:mb-10 flex overflow-x-scroll scrollbar-hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-2"
     >
-      <div v-for="{ title, title2nd, image, link, btntext } in categories" :key="title" class="single-cat mb-2 md:mb-0">
+      <div
+        v-for="{ title, title2nd, image, link, btntext, alt } in categories"
+        :key="title"
+        class="single-cat mb-2 md:mb-0"
+      >
         <a :href="link">
-          <img class="border-25" :src="image" :alt="title + title2nd" width="500" height="360" />
+          <img class="border-25" :src="image" :alt="alt" width="500" height="360" />
           <div class="cat-wrapper absolute">
             <span class="custom-font text-4xl xl:text-6xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
             <button
@@ -227,12 +231,12 @@
         class="max-w-screen-2xl mx-auto relative mt-2 mb-5 lg:mb-10 flex overflow-x-scroll scrollbar-hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-2"
       >
         <div
-          v-for="{ title, title2nd, image, link, btntext } in bottom_categories"
+          v-for="{ title, title2nd, image, link, btntext, alt } in bottom_categories"
           :key="title"
           class="single-cat mb-2 md:mb-0"
         >
           <a :href="link">
-            <img class="border-25" :src="image" :alt="title + title2nd" width="500" height="360" />
+            <img class="border-25" :src="image" :alt="alt" width="500" height="360" />
             <div class="cat-wrapper absolute">
               <span class="custom-font text-4xl xl:text-6xl font-bold block">{{ title }} <br />{{ title2nd }}</span>
               <button
@@ -335,50 +339,60 @@ const getImageUrl = () => {
 // Categorie Schleife
 const categories = [
   {
-    title: 'Garten',
-    title2nd: 'würmer',
-    link: '#Neuheiten',
-    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/4gartenwuermer.png',
-    btntext: 'Zu den Kompostwürmern!',
-  },
-  {
-    title: 'Futter',
-    title2nd: 'würmer',
-    link: '#Topseller',
-    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/5futterwuermer.png',
-    btntext: 'Zu den Wurmhumus!',
-  },
-  {
     title: 'Mehl',
     title2nd: 'würmer',
+    link: '#Neuheiten',
+    image:
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/getrocknete-mehlwuermer-schale.png',
+    btntext: 'Zu den Mehlwürmern!',
+    alt: 'Eine Holzschale voller getrockneter Mehlwürmer, eine proteinreiche Futterquelle für Wildvögel und Haustiere.',
+  },
+  {
+    title: 'Wurm',
+    title2nd: 'zucht',
+    link: '#Topseller',
+    image:
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/wurmzucht-haende-erde-wuermer.png',
+    btntext: 'Alles zur Wurmzucht!',
+    alt: 'Hände graben in dunkler, feuchter Erde voller aktiver Würmer – das perfekte Bild für die Wurmzucht.',
+  },
+  {
+    title: 'Kompost',
+    title2nd: 'würmer',
     link: '#Kategorie3',
-    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/6mehlwuermer.png',
-    btntext: 'Zu den Wurmhumus!',
+    image:
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/kompostwuermer-erde-organisch.png',
+    btntext: 'Zu den Kompostwürmern!',
+    alt: 'Rote Kompostwürmer in nährstoffreichem Boden mit organischen Abfällen – für eine nachhaltige Kompostierung',
   },
 ];
 
 // Categorie Schleife
 const bottom_categories = [
   {
-    title: 'Garten',
-    title2nd: 'würmer',
+    title: 'Terraverm',
+    title2nd: 'Wurmhumus',
     link: '#Neuheiten',
-    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/4gartenwuermer.png',
-    btntext: 'Zu den Gartenwürmern!',
+    image:
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/terraverm-wurmhumus-schaufel.png',
+    btntext: 'Zu den Terraverm Wurmhumus!',
+    alt: 'Eine Schaufel steckt in dunklem, nährstoffreichem Wurmhumus, umgeben von gesunden Pflanzen.',
   },
   {
-    title: 'Futter',
-    title2nd: 'würmer',
+    title: 'Wurmie',
+    title2nd: 'Maskottchen',
     link: '#Topseller',
     image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/5futterwuermer.png',
     btntext: 'Zu den Futterwürmern!',
+    alt: 'altText',
   },
   {
-    title: 'Mehl',
+    title: 'Fehlende',
     title2nd: 'würmer',
     link: '#Kategorie3',
     image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/6mehlwuermer.png',
     btntext: 'Zu den Mehrwürmern!',
+    alt: 'altText',
   },
 ];
 

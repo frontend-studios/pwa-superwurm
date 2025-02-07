@@ -1,9 +1,6 @@
 <template>
   <div class="flex-col md:flex-row h-full flex relative scroll-smooth md:gap-4 relative" data-testid="gallery">
-    <div
-      class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full max-h-[600px]"
-      data-testid="gallery-images"
-    >
+    <div class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full max-h-[600px]">
       <SfScrollable
         class="flex items-center snap-x snap-mandatory scrollbar-hidden w-full h-full"
         wrapper-class="!absolute top-0 left-0 w-full h-full"
@@ -21,61 +18,66 @@
           :index="index"
           :active-index="activeIndex"
           :is-first-image="index === 0"
+          @click="openLightbox(index)"
         />
       </SfScrollable>
+
+      <!-- Dots Navigation -->
+      <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex justify-center z-10">
+        <span
+          v-for="(image, index) in images"
+          :key="`dot-${index}`"
+          @click="onChangeIndex(index)"
+          class="w-3 h-3 mx-1 rounded-full cursor-pointer"
+          :class="{ 'bg-primary-800': activeIndex === index, 'bg-primary-500': activeIndex !== index }"
+        >
+        </span>
+      </div>
     </div>
   </div>
 
-  <template v-for="(image, index) in images" :key="index">
-    <img :src="productImageGetters.getImageUrl(image)" class="hidden" />
-  </template>
+  <div
+    v-if="lightboxOpen"
+    class="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center z-50"
+    @click="closeLightbox"
+  >
+    <div class="relative max-w-3xl" @click.stop>
+      <button @click="closeLightbox" class="absolute top-2 right-2 text-primary-500">
+        <SfIconClose size="xl" />
+      </button>
+      <button
+        v-if="lightboxIndex > 0"
+        @click="prevImage"
+        class="absolute left-2 top-1/2 transform -translate-y-1/2 text-primary-500"
+      >
+        <SfIconChevronLeft size="2xl" />
+      </button>
+      <button
+        v-if="lightboxIndex < images.length - 1"
+        @click="nextImage"
+        class="absolute right-2 top-1/2 transform -translate-y-1/2 text-primary-500"
+      >
+        <SfIconChevronRight size="2xl" />
+      </button>
+      <img :src="productImageGetters.getImageUrl(images[lightboxIndex])" class="max-w-full max-h-screen" />
+      <div class="text-white mt-2 text-center">Bild {{ lightboxIndex + 1 }} von {{ images.length }}</div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { SfScrollable, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
+import { SfScrollable, SfIconChevronLeft, SfIconChevronRight, SfIconClose } from '@storefront-ui/vue';
 import { productImageGetters } from '@plentymarkets/shop-api';
 import { clamp, type SfScrollableOnScrollData } from '@storefront-ui/shared';
-import { useTimeoutFn, useIntersectionObserver, unrefElement } from '@vueuse/core';
+import { useTimeoutFn } from '@vueuse/core';
 import type { ImagesData } from '@plentymarkets/shop-api';
 
 const props = defineProps<{ images: ImagesData[] }>();
 
 const { isPending, start, stop } = useTimeoutFn(() => {}, 50);
-
-const thumbsReference = ref<HTMLElement>();
-const firstThumbReference = ref<HTMLButtonElement>();
-const lastThumbReference = ref<HTMLButtonElement>();
-const firstVisibleThumbnailIntersected = ref(true);
-const lastVisibleThumbnailIntersected = ref(true);
 const activeIndex = ref(0);
-
-const registerThumbsWatch = (
-  singleThumbReference: Ref<HTMLButtonElement | undefined>,
-  thumbnailIntersected: Ref<boolean>,
-) => {
-  watch(
-    thumbsReference,
-    (reference) => {
-      if (reference) {
-        useIntersectionObserver(
-          singleThumbReference,
-          ([{ isIntersecting }]) => {
-            thumbnailIntersected.value = isIntersecting;
-          },
-          {
-            root: unrefElement(reference),
-            rootMargin: '0px',
-            threshold: 1,
-          },
-        );
-      }
-    },
-    { immediate: true },
-  );
-};
-
-registerThumbsWatch(firstThumbReference, firstVisibleThumbnailIntersected);
-registerThumbsWatch(lastThumbReference, lastVisibleThumbnailIntersected);
+const lightboxOpen = ref(false);
+const lightboxIndex = ref(0);
 
 const onChangeIndex = (index: number) => {
   stop();
@@ -87,14 +89,24 @@ const onScroll = ({ left, scrollWidth }: SfScrollableOnScrollData) => {
   if (!isPending.value) onChangeIndex(Math.round(left / (scrollWidth / props.images.length)));
 };
 
-const assignReference = (element: Element | ComponentPublicInstance | null, index: number) => {
-  if (!element) return;
+const openLightbox = (index: number) => {
+  lightboxIndex.value = index;
+  lightboxOpen.value = true;
+};
 
-  if (index === props.images.length - 1) {
-    lastThumbReference.value = element as HTMLButtonElement;
-    return;
+const closeLightbox = () => {
+  lightboxOpen.value = false;
+};
+
+const prevImage = () => {
+  if (lightboxIndex.value > 0) {
+    lightboxIndex.value--;
   }
+};
 
-  if (index === 0) firstThumbReference.value = element as HTMLButtonElement;
+const nextImage = () => {
+  if (lightboxIndex.value < props.images.length - 1) {
+    lightboxIndex.value++;
+  }
 };
 </script>
