@@ -82,6 +82,7 @@ const toggle = () => {
 
 const NuxtLink = resolveComponent('NuxtLink');
 const route = useRoute();
+
 const items = route.path.split('/');
 const itemListElement = [] as Array<any>;
 let name = '';

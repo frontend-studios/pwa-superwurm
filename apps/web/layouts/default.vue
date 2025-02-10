@@ -1,9 +1,12 @@
 <template>
   <div>
     <UiHeader />
-    <NarrowContainer v-if="breadcrumbs?.length" class="p-4 md:px-0">
-      <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
-    </NarrowContainer>
+    <!-- Breadcrumb nicht singleItem anzeigen -->
+    <div v-if="route.name != 'custom-single-meta___de___default'">
+      <NarrowContainer v-if="breadcrumbs?.length" class="p-4 md:px-0">
+        <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
+      </NarrowContainer>
+    </div>
     <main>
       <slot />
     </main>
@@ -25,4 +28,6 @@ const { setLogoMeta } = useStructuredData();
 const { isOpen, product } = useQuickCheckout();
 const viewport = useViewport();
 setLogoMeta();
+
+const route = useRoute();
 </script>

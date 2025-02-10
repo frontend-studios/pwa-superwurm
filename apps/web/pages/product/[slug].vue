@@ -5,10 +5,15 @@
         <section class="grid-in-left-top md:h-full xl:max-h-[700px]">
           <Gallery :images="addModernImageExtensionForGallery(productGetters.getGallery(product))" />
         </section>
-        <section class="mb-10 md:mb-0">
+        <section class="grid-in-right-top mb-10 md:mb-0">
           <NuxtLazyHydrate when-idle>
             <UiPurchaseCard v-if="product" :product="product" :review-average="countsProductReviews" />
           </NuxtLazyHydrate>
+        </section>
+        <section class="grid-in-full-width single-bread">
+          <NarrowContainer v-if="breadcrumbs?.length" class="">
+            <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
+          </NarrowContainer>
         </section>
         <section class="grid-in-left-bottom md:mt-8">
           <!-- <UiDivider class="mt-4 mb-2 md:mt-8" />-->
@@ -32,7 +37,7 @@
             </p>
           </div>
         </section>
-        <section class="grid-in-right-bottom md:mt-8 fs-xselling overflow-x-scroll scrollbar-hidden">
+        <section class="grid-in-right-bottom md:mt-8 fs-xselling overflow-x-scroll scrollbar-hidden xl:px-6">
           <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap mb-3">
             Passendes Zubehör
           </h2>
@@ -56,10 +61,12 @@ import { productGetters, reviewGetters, categoryTreeGetters } from '@plentymarke
 definePageMeta({
   layout: false,
   path: '/:slug*_:itemId',
+  name: 'custom-single-meta',
 });
 
 const { t } = useI18n();
 const route = useRoute();
+
 const { setCurrentProduct } = useProducts();
 const { setProductMetaData, setProductRobotsMetaData, setProductCanonicalMetaData } = useStructuredData();
 const { buildProductLanguagePath } = useLocalization();

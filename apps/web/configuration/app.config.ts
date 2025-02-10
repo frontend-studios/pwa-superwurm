@@ -23,11 +23,11 @@ export const appConfiguration = {
     link: [
       {
         rel: 'icon',
-        href: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/ListItemIcon-preview.png',
+        href: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Bildmarke_RGB_cropped.png',
       },
       {
         rel: 'apple-touch-icon',
-        href: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/ListItemIcon-preview.png',
+        href: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Bildmarke_RGB_cropped.png',
       },
     ],
     title: process.env.STORENAME || 'SUPERWURM | Angelwürmer, Garten-/ Kompostwürmer, Futterwürmer',
