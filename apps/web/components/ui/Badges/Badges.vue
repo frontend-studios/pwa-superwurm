@@ -20,7 +20,7 @@
 
       <li
         v-if="availabilityEnabled && productGetters.getAvailabilityName(product)"
-        class="font-bold text-sm"
+        class="font-bold text-sm flex items-center"
         :style="availabilityStyles"
       >
         <SfIconCircle

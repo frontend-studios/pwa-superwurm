@@ -46,7 +46,7 @@
             />
             <div class="cat-wrapper absolute">
               <span class="mb-0 block font-bold">ANGELWÜRMER</span>
-              <span class="custom-font text-4xl xl:text-7xl font-bold block lg:mb-7"> Das perfekte Köder </span>
+              <span class="custom-font text-4xl xl:text-7xl font-bold block lg:mb-7"> Der perfekte Köder</span>
               <span class="block font-bold">Fange mehr - Entdecke unsere hochwertigen Angelwürmer!</span>
               <button
                 href="#"

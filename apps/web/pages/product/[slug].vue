@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="default" :breadcrumbs="breadcrumbs">
     <NarrowContainer>
-      <div class="md:grid gap-x-6 grid-areas-product-page grid-cols-product-page">
+      <div class="md:grid gap-x-6 grid-areas-product-page grid-cols-product-page relative">
         <section class="grid-in-left-top md:h-full xl:max-h-[700px]">
           <Gallery :images="addModernImageExtensionForGallery(productGetters.getGallery(product))" />
         </section>
@@ -10,12 +10,14 @@
             <UiPurchaseCard v-if="product" :product="product" :review-average="countsProductReviews" />
           </NuxtLazyHydrate>
         </section>
-        <section class="grid-in-full-width single-bread">
-          <NarrowContainer v-if="breadcrumbs?.length" class="">
-            <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
-          </NarrowContainer>
-        </section>
-        <section class="grid-in-left-bottom md:mt-8">
+        <NuxtLazyHydrate when-visible>
+          <section class="grid-in-full-width single-bread">
+            <NarrowContainer v-if="breadcrumbs?.length" class="">
+              <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
+            </NarrowContainer>
+          </section>
+        </NuxtLazyHydrate>
+        <section class="grid-in-left-bottom md:mt-l">
           <!-- <UiDivider class="mt-4 mb-2 md:mt-8" />-->
           <NuxtLazyHydrate when-visible>
             <ProductAccordion v-if="product" :product="product" />
@@ -37,7 +39,7 @@
             </p>
           </div>
         </section>
-        <section class="grid-in-right-bottom md:mt-8 fs-xselling overflow-x-scroll scrollbar-hidden xl:px-6">
+        <section class="grid-in-right-bottom md:mt-l fs-xselling overflow-x-scroll scrollbar-hidden xl:px-6">
           <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap mb-3">
             Passendes Zubehör
           </h2>
@@ -102,6 +104,7 @@ setBreadcrumbs();
  *  It changes the url of the product page while on the page and switching the locale.
  *  Should be removed when the item search is refactored.
  */
+
 watch(
   () => product.value.texts.urlPath,
   (value, oldValue) => {
