@@ -156,8 +156,8 @@
                       </div>
                     </template>
                     <!-- sub wrapper end-->
-                    <div v-if="menuNode.id === 472" class="static-element">Hier kommt Inhalt</div>
                   </div>
+                  <div v-if="menuNode.id === 472" class="static-element">Hier kommt Inhalt</div>
                 </div>
               </li>
               <!-- Statisches <li> wird nach dem vorletzten Element eingefügt
