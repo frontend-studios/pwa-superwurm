@@ -22,7 +22,11 @@
           variant="tertiary"
           square
         >
-          <SfIconCall /> <SfIconEmail /> <span class="hidden md:inline text-sm">Kundensupport</span>
+          <img
+            src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/header/help_icon.png"
+            alt="Kundensupport"
+          />
+          <span class="hidden md:inline text-sm">Kundensupport</span>
         </UiButton>
         <!-- Main modal -->
         <UiModal
