@@ -156,14 +156,15 @@
                       </div>
                     </template>
                     <!-- sub wrapper end-->
-                    <div v-if="menuNode.id === 486" class="static-element">Hier kommt Inhalt</div>
+                    <div v-if="menuNode.id === 472" class="static-element">Hier kommt Inhalt</div>
                   </div>
                 </div>
               </li>
-              <!-- Statisches <li> wird nach dem vorletzten Element eingefügt -->
+              <!-- Statisches <li> wird nach dem vorletzten Element eingefügt
               <li v-if="index === categoryTree.length - 2" class="static">
                 <a href="#"><span class="text-secondary-500 font-semibold text-sm">statischer Text</span></a>
               </li>
+               -->
             </template>
           </ul>
         </nav>
@@ -202,7 +203,7 @@
               <template v-for="node in activeMenu.children" :key="node.id">
                 <li v-if="node.childCount === 0">
                   <SfListItem size="lg" :tag="NuxtLink" :href="localePath(generateCategoryLink(node))" @click="close()">
-                    <div class="flex items-center line202">
+                    <div class="flex items-center">
                       <p class="text-left">{{ categoryTreeGetters.getName(node) }}</p>
                       <SfCounter class="ml-2">{{ categoryTreeGetters.getCount(node) }}</SfCounter>
                     </div>
@@ -210,7 +211,7 @@
                 </li>
                 <li v-else>
                   <SfListItem size="lg" tag="button" type="button" class="!p-0">
-                    <div class="flex items-center w-100 line210">
+                    <div class="flex items-center w-100">
                       <NuxtLink
                         class="flex-1 m-0 p-4 pr-0"
                         :to="localePath(generateCategoryLink(node))"

@@ -309,8 +309,8 @@ const customProductsCategoryIdBottom = ref('');
 watch(
   () => categoryTree.value,
   async () => {
-    const categoryIdTop = 486; // Hier die gewünschte category.id setzen
-    const categoryIdBottom = 510; // Neue ID für customProductsCategoryIdBottom
+    const categoryIdTop = 472; // Hier die gewünschte category.id setzen
+    const categoryIdBottom = 500; // Neue ID für customProductsCategoryIdBottom
     customProductsCategoryId.value = categoryIdTop.toString();
     customProductsCategoryIdBottom.value = categoryIdBottom.toString();
   },
