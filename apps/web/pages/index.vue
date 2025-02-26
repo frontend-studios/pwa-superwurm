@@ -3,10 +3,7 @@
     <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
       <a href="#asdasd">
         <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
-          <source
-            src="https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/4238310-hd_1920_1080_30fps.mp4"
-            type="video/mp4"
-          />
+          <source src="http://superwurm.frontend-studios.de/image_video.mp4" type="video/mp4" />
           Dein Browser unterstützt kein HTML5-Video.
         </video>
         <div class="controls">

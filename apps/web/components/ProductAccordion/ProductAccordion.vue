@@ -1,6 +1,6 @@
 <template>
   <div data-testid="product-accordion">
-    <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap mb-3 lg:mb-6">
+    <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap my-3 lg:my-6">
       {{ $t('productDetails') }}
     </h2>
 

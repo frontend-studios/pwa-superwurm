@@ -9,7 +9,7 @@
         'mb-xl': blockSize === 'xl',
       },
       {
-        'max-w-screen-3xl mx-auto md:px-6 lg:px-10 mt-3': block.name !== 'UiCarousel',
+        'max-w-screen-2xl mx-auto md:px-6 lg:px-10 mt-3': block.name !== 'UiCarousel',
       },
       {
         'outline outline-4 outline-[#538AEA]':

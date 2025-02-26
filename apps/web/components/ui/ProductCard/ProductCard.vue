@@ -23,7 +23,7 @@
         class="flex items-center justify-center"
       >
         <NuxtImg
-          :src="imageUrl"
+          :src="currentImageUrl"
           :alt="imageAlt"
           :title="imageTitle"
           :loading="lazy && !priority ? 'lazy' : 'eager'"
@@ -33,7 +33,10 @@
           :height="getHeight()"
           class="object-contain rounded-md aspect-square w-full"
           data-testid="image-slot"
+          @mouseover="showHoverImage"
+          @mouseleave="showDefaultImage"
         />
+        <span class="dump hidden"> {{ product.images }} </span>
       </SfLink>
 
       <div v-if="specialProperty" class="property-badge absolute">
@@ -73,15 +76,29 @@
               :class="[
                 'availability-' + product.variation.availability.id,
                 { 'text-primary-500': product.variation.availability.id === 1 },
+                { 'text-yellow-500': product.variation.availability.id === 2 },
+                { 'text-orange-500': product.variation.availability.id === 3 },
+                { 'text-red-500': product.variation.availability.id === 4 },
+                { 'text-black': product.variation.availability.id === 5 },
               ]"
             />
-            <span class="text-secondary-500 font-semibold hidden md:inline">
+            <span class="font-bold text-secondary-500">
               {{
-                [1, 2].includes(product.variation.availability.id)
+                [1].includes(product.variation.availability.id)
                   ? 'Auf Lager'
-                  : [3, 4].includes(product.variation.availability.id)
-                    ? 'Bald verfügbar'
-                    : product.variation.availability.names.name
+                  : [2].includes(product.variation.availability.id)
+                    ? 'Kurzfristig verfügbar'
+                    : [3].includes(product.variation.availability.id)
+                      ? 'Lieferzeit ca. 2 Wochen'
+                      : [4].includes(product.variation.availability.id)
+                        ? 'Lieferzeit ca. 4 Wochen'
+                        : [5].includes(product.variation.availability.id)
+                          ? 'Auf Anfrage'
+                          : [6].includes(product.variation.availability.id)
+                            ? 'Nicht auf Lager'
+                            : [7, 8].includes(product.variation.availability.id)
+                              ? 'Vergriffen'
+                              : product.variation.availability.names.name
               }}
             </span>
           </p>
@@ -168,6 +185,20 @@ const getHeight = () => {
     return imageHeight;
   }
   return '';
+};
+
+const currentImageUrl = ref(imageUrl);
+
+const hoverImageUrl = computed(() => {
+  return product.images?.variation?.[1]?.url || imageUrl;
+});
+
+const showHoverImage = () => {
+  currentImageUrl.value = hoverImageUrl.value;
+};
+
+const showDefaultImage = () => {
+  currentImageUrl.value = imageUrl;
 };
 
 const addWithLoader = async (productId: number, quickCheckout = true) => {

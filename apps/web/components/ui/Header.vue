@@ -1,6 +1,6 @@
 <template>
   <MegaMenu :categories="categoryTree">
-    <template>
+    <template #navbar-content>
       <nav class="flex md:flex-row md:flex-nowrap items-center">
         <UiButton
           v-if="viewport.isLessThan('lg')"
@@ -13,7 +13,7 @@
           <SfIconSearch />
         </UiButton>
 
-        <UiSearch class="opensearch flex-1 mr-2" v-if="viewport.isGreaterOrEquals('lg')" />
+        <UiSearch class="opensearch flex-1 mr-2 z-20" v-if="viewport.isGreaterOrEquals('lg')" />
 
         <!-- Modal toggle -->
         <UiButton
@@ -47,11 +47,8 @@
             </UiButton>
           </header>
           <div class="p-4">
-            <h3 id="contact-modal-title" class="font-bold typography-headline-4 mb-4">
-              {{ t('contactSupport') }}
-            </h3>
-            <!-- Hier kannst du den Inhalt des Modals hinzufügen -->
-            <p>{{ t('contactSupportDescription') }}</p>
+            <p id="h3 contact-modal-title" class="font-bold typography-headline-4 mb-4">Contact Header</p>
+            <p>Lorem Ipsum zeug</p>
           </div>
         </UiModal>
 

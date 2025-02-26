@@ -1,5 +1,9 @@
 <template>
-  <header ref="referenceRef" :class="headerClass" class="mb-2 relative w-full md:sticky z-10">
+  <header
+    ref="referenceRef"
+    :class="[headerClass, { scrolled: isScrolled }]"
+    class="mb-2 w-full md:sticky md:top-0 z-20"
+  >
     <div class="w-full mx-auto border-0 bg-primary-500 border-neutral-200 py-1 px-4 xl:px-0">
       <div
         class="max-w-screen-2xl mx-auto flex justify-between items-center flex-wrap md:flex-nowrap"
@@ -32,12 +36,12 @@
           </div>
         </div>
 
-        <slot />
+        <slot name="navbar-content" />
       </div>
     </div>
 
-    <div class="text-center">
-      <div class="flex justify-between lg:inline-block bg-white border-25 px-2 mx-3 my-2">
+    <div class="text-center logo-row">
+      <div class="flex justify-between lg:inline-block bg-white border-25 px-2 mx-3">
         <div class="custom-logo">
           <NuxtLink :to="localePath(paths.home)" :aria-label="t('goToHomepage')" class="flex">
             <UiVsfLogo />
@@ -115,11 +119,24 @@
                   @mouseleave="close()"
                   @keydown.esc="focusTrigger(index)"
                 >
-                  <div class="sub-wrapper max-w-screen-2xl mx-auto md:grid gap-x-6 grid-cols-4">
-                    <template v-for="node in activeMenu.children" :key="node.id">
-                      <template v-if="node.childCount === 0">
-                        <ul class="ul-121">
-                          <SfListItem
+                  <div class="flex max-w-screen-2xl mx-auto w-full justify-between">
+                    <div class="sub-wrapper md:grid gap-x-6 grid-cols-4">
+                      <template v-for="node in activeMenu.children" :key="node.id">
+                        <template v-if="node.childCount === 0">
+                          <ul class="ul-121">
+                            <SfListItem
+                              :tag="NuxtLink"
+                              size="sm"
+                              :href="localePath(generateCategoryLink(node))"
+                              class="hover:font-bold"
+                              :noClass="true"
+                            >
+                              {{ categoryTreeGetters.getName(node) }}
+                            </SfListItem>
+                          </ul>
+                        </template>
+                        <div v-else class="ul-133">
+                          <a
                             :tag="NuxtLink"
                             size="sm"
                             :href="localePath(generateCategoryLink(node))"
@@ -127,44 +144,45 @@
                             :noClass="true"
                           >
                             {{ categoryTreeGetters.getName(node) }}
-                          </SfListItem>
-                        </ul>
+                          </a>
+                          <ul class="mt-2">
+                            <li v-for="child in node.children" :key="child.id">
+                              <SfListItem
+                                v-if="categoryTreeGetters.getName(child)"
+                                :tag="NuxtLink"
+                                size="sm"
+                                :href="localePath(generateCategoryLink(child))"
+                                class="typography-text-sm py-1.5"
+                              >
+                                {{ categoryTreeGetters.getName(child) }}
+                              </SfListItem>
+                            </li>
+                          </ul>
+                        </div>
                       </template>
-                      <div v-else class="ul-133">
-                        <a
-                          :tag="NuxtLink"
-                          size="sm"
-                          :href="localePath(generateCategoryLink(node))"
-                          class="hover:font-bold"
-                          :noClass="true"
-                        >
-                          {{ categoryTreeGetters.getName(node) }}
-                        </a>
-                        <ul class="mt-2">
-                          <li v-for="child in node.children" :key="child.id">
-                            <SfListItem
-                              v-if="categoryTreeGetters.getName(child)"
-                              :tag="NuxtLink"
-                              size="sm"
-                              :href="localePath(generateCategoryLink(child))"
-                              class="typography-text-sm py-1.5"
-                            >
-                              {{ categoryTreeGetters.getName(child) }}
-                            </SfListItem>
-                          </li>
-                        </ul>
+                    </div>
+                    <div
+                      v-if="menuNode.id === 486"
+                      class="static-element w-full min-h-full bg-primary-500 border-25 max-w-80"
+                    >
+                      <div class="flex flex-col p-5 h-full justify-center">
+                        <img
+                          src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Bildmarke_RGB_cropped.png"
+                          alt="Superwurm W"
+                          class="max-w-8 mx-auto"
+                        />
+                        <p class="custom-font text-white text-2xl text-center mb-2">Unser Wurmfinder</p>
+                        <p class="custom-font text-white text-xl text-center mb-2">
+                          Finde den passenden Köder für deinen Fang!
+                        </p>
+                        <div class="relative text-center mt-3">
+                          <a href="#" class="bg-secondary-500 text-white border-25 p-3">Zu unserem Finder!</a>
+                        </div>
                       </div>
-                    </template>
-                    <!-- sub wrapper end-->
+                    </div>
                   </div>
-                  <div v-if="menuNode.id === 472" class="static-element">Hier kommt Inhalt</div>
                 </div>
               </li>
-              <!-- Statisches <li> wird nach dem vorletzten Element eingefügt
-              <li v-if="index === categoryTree.length - 2" class="static">
-                <a href="#"><span class="text-secondary-500 font-semibold text-sm">statischer Text</span></a>
-              </li>
-               -->
             </template>
           </ul>
         </nav>
@@ -342,4 +360,24 @@ watch(
 const headerClass = computed(() => ({
   'z-[10]': isOpen.value,
 }));
+
+const isScrolled = ref(false);
+let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+
+const handleScroll = () => {
+  if (scrollTimeout) clearTimeout(scrollTimeout);
+
+  scrollTimeout = setTimeout(() => {
+    isScrolled.value = window.scrollY > 50;
+  }, 100); // 100ms Verzögerung, kannst du anpassen
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  if (scrollTimeout) clearTimeout(scrollTimeout);
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>

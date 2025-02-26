@@ -4,7 +4,8 @@
       <div class="drift-zoom-image">
         <section class="p-4 xl:p-6">
           <div>
-            <!-- <span class="manufacturer font-bold mb-0 text-secondary-500 text-sm" v-if="product.item.manufacturer.name">
+            <!--
+            <span class="manufacturer font-bold mb-0 text-secondary-500 text-sm" v-if="product.item.manufacturer.name">
               {{ product.item.manufacturer.name }}</span
             >
             -->
@@ -49,7 +50,7 @@
 
           <div class="buy-box border-25 p-5">
             <div class="price-box flex justify-between mt-5">
-              <ul class="single-usp flex flex-col justify-between">
+              <ul class="single-usp flex flex-col">
                 <li>Top Preise</li>
                 <li>gleichbleibende Qualität</li>
                 <li>Bester Service</li>
@@ -132,8 +133,10 @@
               </div>
 
               <template v-if="showPayPalButtons">
-                <PayPalExpressButton type="SingleItem" class="mt-4" @validation-callback="paypalHandleAddToCart" />
-                <PayPalPayLaterBanner placement="product" :amount="priceWithProperties * quantitySelectorValue" />
+                <div class="flex flex-col gap-4 mt-4">
+                  <PayPalExpressButton type="SingleItem" class="mt-4" @validation-callback="paypalHandleAddToCart" />
+                  <PayPalPayLaterBanner placement="product" :amount="priceWithProperties * quantitySelectorValue" />
+                </div>
               </template>
             </div>
 

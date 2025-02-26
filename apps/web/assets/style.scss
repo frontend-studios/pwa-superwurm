@@ -161,31 +161,29 @@ body {
 }
 
 header {
+  background: $color-neutral;
+  .logo-row {
+    @media (min-width: 1024px) {
+      transition: all 300ms;
+      transform: translateY(-25px);
+      margin-bottom: -25px;
+    }
+    @media (max-width: 1023px) {
+      margin-top: 0.5rem;
+    }
+  }
   .fs-menu {
     background-color: $color-neutral;
     ul {
       .custom-logo {
-        transform: translateY(-30px);
         a {
           justify-content: space-around;
           margin: 0 auto;
         }
-      }
-      li {
-        // .Bewegungsapparat {
-        //   position: relative;
-        //   &:after {
-        //     content: 'beliebt';
-        //     position: absolute;
-        //     top: -20px;
-        //     left: -10px;
-        //     font-size: 10px;
-        //     padding: 0px 2px;
-        //     background: rgb(var(--colors-2-secondary-500));
-        //     color: $color-neutral;
-        //     border-radius: 5px;
-        //   }
-        // }
+        img {
+          transition: all 300ms;
+          max-width: 16rem;
+        }
       }
     }
     .fs-submenu {
@@ -194,7 +192,21 @@ header {
   }
   .opensearch {
     @media (min-width: 1024px) {
-      width: 355px;
+      width: 325px;
+    }
+  }
+  &.scrolled {
+    .logo-row {
+      transition: all 300ms;
+      transform: translateY(-42px);
+      margin-bottom: -42px;
+
+      .custom-logo {
+        transition: all 300ms;
+        img {
+          max-width: 10rem;
+        }
+      }
     }
   }
 }
@@ -453,6 +465,14 @@ header {
       &:before {
         content: unset;
       }
+    }
+  }
+}
+
+.fssingle {
+  .breadcrumbs {
+    h1 {
+      font-size: 20px;
     }
   }
 }

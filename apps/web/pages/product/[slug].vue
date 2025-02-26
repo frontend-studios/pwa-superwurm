@@ -17,8 +17,7 @@
             </NarrowContainer>
           </section>
         </NuxtLazyHydrate>
-        <section class="grid-in-left-bottom md:mt-l">
-          <!-- <UiDivider class="mt-4 mb-2 md:mt-8" />-->
+        <section class="grid-in-left-bottom md:mt-xl">
           <NuxtLazyHydrate when-visible>
             <ProductAccordion v-if="product" :product="product" />
           </NuxtLazyHydrate>
@@ -39,8 +38,8 @@
             </p>
           </div>
         </section>
-        <section class="grid-in-right-bottom md:mt-l fs-xselling overflow-x-scroll scrollbar-hidden xl:px-6">
-          <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap mb-3">
+        <section class="grid-in-right-bottom md:mt-xl fs-xselling overflow-x-scroll scrollbar-hidden xl:px-6">
+          <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap my-3 lg:my-6">
             Passendes Zubehör
           </h2>
           <NuxtLazyHydrate when-visible>
