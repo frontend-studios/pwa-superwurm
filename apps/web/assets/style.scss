@@ -194,6 +194,9 @@ header {
     @media (min-width: 1024px) {
       width: 325px;
     }
+    span {
+      border-radius: 25px;
+    }
   }
   &.scrolled {
     .logo-row {
