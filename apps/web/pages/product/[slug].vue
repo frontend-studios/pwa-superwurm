@@ -11,13 +11,13 @@
           </NuxtLazyHydrate>
         </section>
         <NuxtLazyHydrate when-visible>
-          <section class="grid-in-full-width single-bread">
+          <section class="grid-in-full-width single-bread hidden md:block">
             <NarrowContainer v-if="breadcrumbs?.length" class="">
               <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
             </NarrowContainer>
           </section>
         </NuxtLazyHydrate>
-        <section class="grid-in-left-bottom md:mt-xl">
+        <section class="grid-in-left-bottom md:mt-xl p-4 xl:p-0">
           <NuxtLazyHydrate when-visible>
             <ProductAccordion v-if="product" :product="product" />
           </NuxtLazyHydrate>
@@ -38,7 +38,7 @@
             </p>
           </div>
         </section>
-        <section class="grid-in-right-bottom md:mt-xl fs-xselling overflow-x-scroll scrollbar-hidden xl:px-6">
+        <section class="grid-in-right-bottom md:mt-xl fs-xselling overflow-x-scroll scrollbar-hidden p-4 xl:px-6">
           <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap my-3 lg:my-6">
             Passendes Zubehör
           </h2>

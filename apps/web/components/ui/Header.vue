@@ -53,7 +53,7 @@
         </UiModal>
 
         <UiButton
-          v-if="viewport.isLessThan('lg')"
+          v-if="viewport.isLessThan('lg') && viewport.isGreaterOrEquals('md')"
           class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           :tag="NuxtLink"
           :to="localePath(paths.wishlist)"

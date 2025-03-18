@@ -188,6 +188,16 @@ header {
     }
     .fs-submenu {
       background-color: #fbf9f0;
+      .sub-wrapper {
+        .submenu {
+          .item {
+            background: #47bb5a;
+            border-radius: 25px;
+            font-size: 14px;
+            color: #fbf9f0;
+          }
+        }
+      }
     }
   }
   .opensearch {
@@ -353,6 +363,7 @@ header {
         border-radius: $border-radius;
         z-index: 1;
         pointer-events: none;
+        transition: background 1s ease;
       }
       &:hover {
         &:after {
@@ -419,15 +430,15 @@ header {
   }
   .item-image {
     background-color: #fbf9f0;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius / 2;
+    border-top-right-radius: $border-radius / 2;
     img {
       mix-blend-mode: multiply;
     }
   }
   .thumb-content {
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius / 2;
+    border-bottom-right-radius: $border-radius / 2;
     background-color: #fbf9f0;
   }
   &.fs-new {
@@ -458,12 +469,16 @@ header {
     .prices * {
       color: white;
     }
+    .availability {
+      padding-bottom: 1px;
+    }
   }
 }
 
 .breadcrumbs {
   .peer {
     &:last-child {
+      margin-left: 1rem;
       flex: 1 0 100%;
       &:before {
         content: unset;
@@ -474,16 +489,19 @@ header {
 
 .fssingle {
   .breadcrumbs {
+    padding: 7px;
     h1 {
-      font-size: 20px;
+      font-size: 14px;
     }
   }
 }
 
 .grid-cols-product-page {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Zwei Spalten */
-  grid-template-rows: auto auto auto; /* Drei Zeilen */
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Zwei Spalten */
+    grid-template-rows: auto auto auto; /* Drei Zeilen */
+  }
   .tech-data {
     ul {
       li {

@@ -1,15 +1,15 @@
 <template>
   <nav
     data-testid="breadcrumbs"
-    class="breadcrumbs inline-flex items-center text-sm font-normal px-4 xl:px-0 mb-3 lg:mb-0 w-full"
+    class="breadcrumbs inline-flex items-center text-sm font-normal px-0 xl:px-0 mb-3 lg:mb-0 w-full"
   >
-    <ol class="flex w-auto leading-none group md:flex-wrap">
+    <ol class="flex w-auto leading-none group md:flex-wrap items-center flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500 z-10">
         <NuxtLazyHydrate :on-interaction="['click', 'touchstart']">
           <SfDropdown v-model="dropdownOpened" strategy="absolute" placement="bottom-start" @update:model-value="close">
             <template #trigger>
               <UiButton
-                class="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+                class="relative hidden w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
                 :aria-label="$t('breadcrumbsDropdownText')"
                 variant="tertiary"
                 square
@@ -42,7 +42,7 @@
       <li
         v-for="(item, index) in breadcrumbs"
         :key="item.name"
-        class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-['>'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-secondary-500 text-secondary-500 last-of-type:text-secondary-500 last-of-type:font-medium"
+        class="peer sm:flex items-center peer-[:nth-of-type(even)]:before:content-['>'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-secondary-500 text-secondary-500 last-of-type:text-secondary-500 last-of-type:font-medium"
       >
         <SfLink
           v-if="index < breadcrumbs.length - 1"
@@ -53,10 +53,7 @@
         >
           {{ item.name }}
         </SfLink>
-        <span
-          v-else
-          class="custom-font text-3xl text-secondary-500 font-semibold no-underline hover:underline active:underline whitespace-nowrap"
-        >
+        <span v-else class="font-semibold text-secondary-500 no-underline active:underline whitespace-nowrap">
           <h1>{{ item.name }}</h1>
         </span>
       </li>

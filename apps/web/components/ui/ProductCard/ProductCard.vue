@@ -2,8 +2,8 @@
   <div
     :class="[
       hasNewProperty
-        ? 'hover:shadow-lg border-25 flex flex-col product-card relative fs-new'
-        : 'hover:shadow-lg border-25 flex flex-col product-card relative',
+        ? 'hover:shadow-lg border-25 flex flex-col product-card relative mb-5 sm:mb-0 fs-new'
+        : 'hover:shadow-lg border-25 flex flex-col product-card relative mb-5 sm:mb-0',
     ]"
     data-testid="product-card"
   >
@@ -18,7 +18,7 @@
         :tag="NuxtLink"
         rel="preload"
         :to="productPath"
-        :class="{ 'size-48': isFromSlider }"
+        :class="{ 'size-48 mx-auto': isFromSlider }"
         as="image"
         class="flex items-center justify-center"
       >
@@ -64,10 +64,7 @@
         <BasePriceInLine :base-price="basePrice" :unit-content="unitContent" :unit-name="unitName" />
       </div>
 
-      <div
-        class="flex items-start flex-row items-end mt-auto"
-        :class="hasNewProperty ? 'justify-center' : 'justify-between'"
-      >
+      <div class="flex flex-row items-end mt-auto" :class="hasNewProperty ? 'justify-center' : 'justify-between'">
         <div v-if="!hasNewProperty" class="availability whitespace-nowrap">
           <p class="text-xs availability-preview text-center tt-wrap relative">
             <SfIconCircle

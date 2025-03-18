@@ -41,7 +41,7 @@
     </div>
 
     <div class="text-center logo-row">
-      <div class="flex justify-between lg:inline-block bg-white border-25 px-2 mx-3">
+      <div class="flex justify-between lg:inline-block bg-white border-25 px-2 mx-2 mx-md-3">
         <div class="custom-logo">
           <NuxtLink :to="localePath(paths.home)" :aria-label="t('goToHomepage')" class="flex">
             <UiVsfLogo />
@@ -96,10 +96,6 @@
                       :class="categoryTreeGetters.getName(menuNode)"
                       >{{ categoryTreeGetters.getName(menuNode) }}</span
                     >
-                    <SfIconChevronRight
-                      v-if="menuNode.childCount > 0"
-                      class="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900"
-                    />
                   </button>
                 </NuxtLink>
 
@@ -135,12 +131,12 @@
                             </SfListItem>
                           </ul>
                         </template>
-                        <div v-else class="ul-133">
+                        <div v-else class="submenu">
                           <a
                             :tag="NuxtLink"
                             size="sm"
                             :href="localePath(generateCategoryLink(node))"
-                            class="hover:font-bold"
+                            class="item px-4 py-1"
                             :noClass="true"
                           >
                             {{ categoryTreeGetters.getName(node) }}
@@ -198,7 +194,7 @@
         >
           <nav class="fs-mobile-menu">
             <div class="flex items-center justify-between px-4 xl:px-0 py-2 max-w-screen-2xl mx-auto">
-              <p class="typography-text-base font-medium">Browse products</p>
+              <p class="typography-text-base font-medium">Kategorien</p>
               <UiButton variant="tertiary" square :aria-label="t('closeMenu')" class="ml-2" @click="close()">
                 <SfIconClose class="text-neutral-500" />
               </UiButton>
@@ -219,21 +215,28 @@
                 </SfListItem>
               </li>
               <template v-for="node in activeMenu.children" :key="node.id">
-                <li v-if="node.childCount === 0">
-                  <SfListItem size="lg" :tag="NuxtLink" :href="localePath(generateCategoryLink(node))" @click="close()">
+                <li v-if="node.childCount === 0" :class="`cat-${categoryTreeGetters.getName(node)}`">
+                  <SfListItem
+                    size="lg"
+                    :tag="NuxtLink"
+                    :href="localePath(generateCategoryLink(node))"
+                    @click="close()"
+                    :data-id="node.id"
+                  >
                     <div class="flex items-center">
                       <p class="text-left">{{ categoryTreeGetters.getName(node) }}</p>
                       <SfCounter class="ml-2">{{ categoryTreeGetters.getCount(node) }}</SfCounter>
                     </div>
                   </SfListItem>
                 </li>
-                <li v-else>
+                <li v-else :class="`cat-${categoryTreeGetters.getName(node)}`">
                   <SfListItem size="lg" tag="button" type="button" class="!p-0">
                     <div class="flex items-center w-100">
                       <NuxtLink
                         class="flex-1 m-0 p-4 pr-0"
                         :to="localePath(generateCategoryLink(node))"
                         @click="close()"
+                        :data-id="node.id"
                       >
                         <div class="flex items-center">
                           <p class="text-left">{{ categoryTreeGetters.getName(node) }}</p>
@@ -364,12 +367,21 @@ const headerClass = computed(() => ({
 const isScrolled = ref(false);
 let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
 
+const SCROLL_THRESHOLD = 50;
+const SCROLL_HYSTERESIS = 10; // Pufferbereich
+
 const handleScroll = () => {
   if (scrollTimeout) clearTimeout(scrollTimeout);
 
   scrollTimeout = setTimeout(() => {
-    isScrolled.value = window.scrollY > 50;
-  }, 100); // 100ms Verzögerung, kannst du anpassen
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > SCROLL_THRESHOLD + SCROLL_HYSTERESIS && !isScrolled.value) {
+      isScrolled.value = true;
+    } else if (currentScrollY < SCROLL_THRESHOLD - SCROLL_HYSTERESIS && isScrolled.value) {
+      isScrolled.value = false;
+    }
+  }, 100);
 };
 
 onMounted(() => {

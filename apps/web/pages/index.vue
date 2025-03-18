@@ -3,7 +3,10 @@
     <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
       <a href="#asdasd">
         <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
-          <source src="http://superwurm.frontend-studios.de/image_video.mp4" type="video/mp4" />
+          <source
+            src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/image_video_komp.mp4"
+            type="video/mp4"
+          />
           Dein Browser unterstützt kein HTML5-Video.
         </video>
         <div class="controls">
@@ -162,7 +165,7 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-10">
-        <div class="mx-3 lg:mx-0 mb-5 lg:mb-10 flex justify-between items-center">
+        <div class="mx-3 lg:mx-0 mt-5 lg:mt-0 lg:mb-10 flex justify-between items-center">
           <div>
             <p class="mb-0 block text-secondary-500 font-bold">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
             <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
@@ -203,7 +206,7 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-10">
-        <div class="mx-3 lg:mx-0 mb-5 lg:mb-10 flex justify-between items-center">
+        <div class="mx-3 lg:mx-0 mt-5 lg:mt-0 lg:mb-10 flex justify-between items-center">
           <div>
             <p class="mb-0 block text-secondary-500 font-bold">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
             <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>

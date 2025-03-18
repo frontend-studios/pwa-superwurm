@@ -1,5 +1,5 @@
 <template>
-  <div data-testid="product-accordion">
+  <div data-testid="product-accordion" class="product-details">
     <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap my-3 lg:my-6">
       {{ $t('productDetails') }}
     </h2>

@@ -9,15 +9,14 @@
               {{ product.item.manufacturer.name }}</span
             >
             -->
-
             <h1
-              class="font-bold typography-headline-4 custom-font text-secondary-500 text-lg xl:text-3xl"
+              class="font-bold typography-headline-4 custom-font text-secondary-500 text-lg xl:text-3xl mb-3"
               data-testid="product-name"
             >
               {{ productGetters.getName(product) }}
             </h1>
 
-            <div class="inline-flex items-center mb-5">
+            <div v-if="reviewGetters.getTotalReviews(reviewAverage) > 0" class="inline-flex items-center mb-5">
               <SfRating
                 size="xs"
                 :half-increment="true"
@@ -49,7 +48,7 @@
           </div>
 
           <div class="buy-box border-25 p-5">
-            <div class="price-box flex justify-between mt-5">
+            <div class="price-box flex justify-between mt-5 flex-wrap lg:flex-nowrap">
               <ul class="single-usp flex flex-col">
                 <li>Top Preise</li>
                 <li>gleichbleibende Qualität</li>

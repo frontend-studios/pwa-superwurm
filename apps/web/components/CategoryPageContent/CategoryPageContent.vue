@@ -18,7 +18,7 @@
 
         <section
           v-if="products?.length"
-          class="grid grid-cols-1 2xs:grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-3 3xl:grid-cols-4 mb-10 md:mb-5"
+          class="sm:grid sm:grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-3 3xl:grid-cols-4 mb-10 md:mb-5"
           data-testid="category-grid"
         >
           <NuxtLazyHydrate

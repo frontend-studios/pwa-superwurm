@@ -22,7 +22,7 @@
             </NuxtLink>
           </div>
 
-          <div class="flex justify-center md:justify-start order-3">
+          <div class="flex justify-center order-3 max-w-64">
             <div class="social-item">
               <a href="" target="_blank">
                 <div class="p-3">
