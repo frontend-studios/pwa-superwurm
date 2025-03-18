@@ -479,10 +479,10 @@ header {
   .peer {
     &:last-child {
       margin-left: 1rem;
-      flex: 1 0 100%;
-      &:before {
-        content: unset;
-      }
+      //flex: 1 0 100%;
+      // &:before {
+      //   content: unset;
+      // }
     }
   }
 }
@@ -660,5 +660,10 @@ footer {
 .cat-505,
 .cat-507,
 .cat-542 {
+  display: none;
+}
+
+//Plenty Vorschau ausblenden
+.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-\[52px\] {
   display: none;
 }
