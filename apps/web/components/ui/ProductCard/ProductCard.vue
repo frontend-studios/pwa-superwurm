@@ -129,7 +129,8 @@ import Index from '~/pages/index.vue';
 
 const hasNewProperty = computed(() => {
   return (
-    product.variationProperties?.some((props) => props.properties?.some((vproperties) => vproperties.id === 9)) || false
+    product.variationProperties?.some((props) => props.properties?.some((vproperties) => vproperties.id === 24)) ||
+    false
   );
 });
 

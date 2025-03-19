@@ -50,9 +50,9 @@
           <div class="buy-box border-25 p-5">
             <div class="price-box flex justify-between mt-5 flex-wrap lg:flex-nowrap">
               <ul class="single-usp flex flex-col">
-                <li>Top Preise</li>
-                <li>gleichbleibende Qualität</li>
-                <li>Bester Service</li>
+                <li><SfIconCheck size="xs" class="mr-1" />Top Preise</li>
+                <li><SfIconCheck size="xs" class="mr-1" />gleichbleibende Qualität</li>
+                <li><SfIconCheck size="xs" class="mr-1" />Bester Service</li>
               </ul>
 
               <div class="flex flex-col items-end">
@@ -94,7 +94,7 @@
             <GraduatedPriceList :product="product" :count="quantitySelectorValue" />
 
             <div class="mt-4">
-              <div class="flex flex-col md:flex-row flex-wrap gap-4">
+              <div class="flex flex-col md:flex-row flex-wrap gap-4 mb-3">
                 <div class="fs-quantity bg-white border-25">
                   <UiQuantitySelector
                     :min-value="productGetters.getMinimumOrderQuantity(product)"
@@ -132,7 +132,7 @@
               </div>
 
               <template v-if="showPayPalButtons">
-                <div class="flex flex-col gap-4 mt-4">
+                <div class="flex flex-col gap-4 mt-4 hidden">
                   <PayPalExpressButton type="SingleItem" class="mt-4" @validation-callback="paypalHandleAddToCart" />
                   <PayPalPayLaterBanner placement="product" :amount="priceWithProperties * quantitySelectorValue" />
                 </div>
@@ -143,7 +143,7 @@
               <div
                 class="text-secondary-500 border-25 w-full text-center hover:text-white hover:bg-secondary-500 social-item"
               >
-                <a href="" target="_blank">
+                <a href="https://www.facebook.com/Wurmfarm/" target="_blank">
                   <div class="py-2 px-1">
                     <span class="font-bold flex items-center justify-center"
                       ><SfIconFacebook class="mr-2" size="base" />
@@ -155,7 +155,7 @@
               <div
                 class="text-secondary-500 border-25 w-full text-center hover:text-white hover:bg-secondary-500 social-item"
               >
-                <a href="" target="_blank">
+                <a href="https://www.youtube.com/user/SuperwurmTV" target="_blank">
                   <div class="py-2 px-1">
                     <span class="font-bold flex items-center justify-center"
                       ><SfIconYoutube class="mr-2" size="base" />
@@ -167,7 +167,7 @@
               <div
                 class="text-secondary-500 border-25 w-full text-center hover:text-white hover:bg-secondary-500 social-item"
               >
-                <a href="" target="_blank">
+                <a href="https://www.instagram.com/superwurm.de/" target="_blank">
                   <div class="py-2 px-1">
                     <span class="font-bold flex items-center justify-center"
                       ><SfIconInstagram class="mr-2" size="base" />
@@ -189,6 +189,7 @@ import { productGetters, reviewGetters, productBundleGetters } from '@plentymark
 import {
   SfCounter,
   SfRating,
+  SfIconCheck,
   SfIconShoppingCart,
   SfLoaderCircular,
   SfTooltip,

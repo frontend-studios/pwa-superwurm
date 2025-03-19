@@ -223,6 +223,12 @@ header {
     }
   }
 }
+.fs-mobile-menu {
+  li.cat-404,
+  li.cat-OS-Plattform {
+    display: none;
+  }
+}
 
 .fs-homepage {
   .single-cat {
@@ -478,8 +484,8 @@ header {
 .breadcrumbs {
   .peer {
     &:last-child {
-      margin-left: 1rem;
-      //flex: 1 0 100%;
+      // margin-left: 1rem;
+      // flex: 1 0 100%;
       // &:before {
       //   content: unset;
       // }
@@ -522,15 +528,6 @@ header {
     background-color: #fbf8f0;
     .single-usp {
       li {
-        margin: 0;
-        padding-left: 25px;
-        list-style: none;
-        background-image: url(https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/ListItemIcon-preview.png);
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 20px;
-        color: rgb(var(--colors-2-secondary-500));
-        margin-bottom: 3px;
       }
     }
     .fs-quantity {

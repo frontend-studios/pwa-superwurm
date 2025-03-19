@@ -4,15 +4,6 @@
       <div class="order-2 md:order-1">
         <div class="pt-2 font-semibold text-lg">Newsletter</div>
         <div id="footer_newsletter2go"><div class="inner-container"></div></div>
-        <div class="mb-6">
-          <label for="large-input" class="block mb-2 text-sm text-sm">E-Mail Adresse*</label>
-          <input
-            type="text"
-            id="large-input"
-            class="block p-4 text-gray-900 border rounded-lg bg-white text-base"
-            placeholder="KeineKorrektenDaten"
-          />
-        </div>
       </div>
       <div class="order-1 md:order-2 mx-auto md:mx-0">
         <div class="py-2">
@@ -24,21 +15,21 @@
 
           <div class="flex justify-center order-3 max-w-64">
             <div class="social-item">
-              <a href="" target="_blank">
+              <a href="https://www.facebook.com/Wurmfarm/" target="_blank">
                 <div class="p-3">
                   <span class="font-bold flex items-center justify-center"><SfIconFacebook size="base" /> </span>
                 </div>
               </a>
             </div>
             <div class="social-item">
-              <a href="" target="_blank">
+              <a href="https://www.youtube.com/user/SuperwurmTV" target="_blank">
                 <div class="p-3">
                   <span class="font-bold flex items-center justify-center"><SfIconYoutube size="base" /> </span>
                 </div>
               </a>
             </div>
             <div class="social-item">
-              <a href="" target="_blank">
+              <a href="https://www.instagram.com/superwurm.de/" target="_blank">
                 <div class="p-3">
                   <span class="font-bold flex items-center justify-center"><SfIconInstagram size="base" /> </span>
                 </div>

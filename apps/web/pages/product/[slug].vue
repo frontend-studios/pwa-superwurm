@@ -2,7 +2,7 @@
   <NuxtLayout name="default" :breadcrumbs="breadcrumbs">
     <NarrowContainer>
       <div class="md:grid gap-x-6 grid-areas-product-page grid-cols-product-page relative">
-        <section class="grid-in-left-top md:h-full xl:max-h-[700px]">
+        <section class="grid-in-left-top md:h-full xl:max-h-[700px] mb-5">
           <Gallery :images="addModernImageExtensionForGallery(productGetters.getGallery(product))" />
         </section>
         <section class="grid-in-right-top mb-10 md:mb-0">

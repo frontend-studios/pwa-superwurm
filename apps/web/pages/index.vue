@@ -1,5 +1,5 @@
 <template>
-  <div class="fs-homepage">
+  <div class="fs-homepage px-1 md:px-md-0">
     <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
       <a href="#asdasd">
         <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
@@ -128,7 +128,7 @@
         <div
           class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
         >
-          <a href="" target="_blank">
+          <a href="https://www.facebook.com/Wurmfarm/" target="_blank">
             <div class="py-2">
               <span class="font-bold flex items-center justify-center"
                 ><SfIconFacebook class="mr-2" size="base" />
@@ -140,7 +140,7 @@
         <div
           class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
         >
-          <a href="" target="_blank">
+          <a href="https://www.youtube.com/user/SuperwurmTV" target="_blank">
             <div class="py-2">
               <span class="font-bold flex items-center justify-center"
                 ><SfIconYoutube class="mr-2" size="base" /> <span v-if="viewport.isGreaterOrEquals('sm')">Youtube</span>
@@ -151,7 +151,7 @@
         <div
           class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
         >
-          <a href="" target="_blank">
+          <a href="https://www.instagram.com/superwurm.de/" target="_blank">
             <div class="py-2">
               <span class="font-bold flex items-center justify-center"
                 ><SfIconInstagram class="mr-2" size="base" />
