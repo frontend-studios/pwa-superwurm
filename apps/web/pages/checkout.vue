@@ -25,7 +25,6 @@
           <CheckoutPayment :disabled="disableShippingPayment" @update:active-payment="handlePaymentMethodUpdate" />
         </div>
         <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0 mb-10" />
-        <CheckoutGeneralTerms />
       </div>
       <div class="col-span-6 xl:col-span-5">
         <div v-for="(cartItem, index) in cart?.items" :key="cartItem.id">
@@ -77,6 +76,7 @@
               <template v-else>{{ t('buy') }}</template>
             </UiButton>
             <ModuleComponentRendering area="checkout.afterBuyButton" />
+            <CheckoutGeneralTerms />
           </OrderSummary>
         </div>
       </div>
