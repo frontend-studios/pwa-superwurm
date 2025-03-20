@@ -95,7 +95,7 @@
 
             <div class="mt-4">
               <div class="flex flex-col md:flex-row flex-wrap gap-4 mb-3">
-                <div class="fs-quantity bg-white border-25 w-full">
+                <div class="fs-quantity bg-white border-25">
                   <UiQuantitySelector
                     :min-value="productGetters.getMinimumOrderQuantity(product)"
                     :value="quantitySelectorValue"

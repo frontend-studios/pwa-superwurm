@@ -539,6 +539,9 @@ header {
     }
     .fs-quantity {
       background-color: white !important;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
       button {
         &:hover {
           background: #217b2d;
