@@ -322,7 +322,7 @@ header {
       color: $color-neutral;
       bottom: 2rem;
       @media (min-width: 1024px) {
-        bottom: 2rem;
+        bottom: 6rem;
       }
       left: 2rem;
       right: 0;
@@ -475,9 +475,6 @@ header {
     .prices * {
       color: white;
     }
-    .availability {
-      padding-bottom: 1px;
-    }
   }
 }
 
@@ -523,11 +520,22 @@ header {
       }
     }
   }
-
+  .product-details {
+    * {
+      color: rgb(var(--colors-2-secondary-500));
+    }
+  }
   .buy-box {
     background-color: #fbf8f0;
     .single-usp {
       li {
+      }
+    }
+    .single-wish {
+      @media (max-width: 768px) {
+        position: absolute;
+        top: 0;
+        right: 0;
       }
     }
     .fs-quantity {
@@ -663,4 +671,9 @@ footer {
 //Plenty Vorschau ausblenden
 .sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-\[52px\] {
   display: none;
+}
+
+.quick-checkout-modal,
+.contact-information-form-modal {
+  background: #eeeadb !important;
 }

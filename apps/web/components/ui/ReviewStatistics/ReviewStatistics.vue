@@ -1,9 +1,9 @@
 <template>
-  <div class="flex justify-center lg:justify-start mb-4 lg:mb-0" data-testid="average-section">
+  <div class="flex justify-start lg:justify-start mb-4 lg:mb-0" data-testid="average-section">
     <div class="lg:flex my-2">
       <div class="lg:w-1/2 flex flex-col lg:mr-8">
-        <p class="text-center text-sm" data-testid="average-info">{{ t('averageRating') }}</p>
-        <div class="flex justify-center">
+        <p class="text-left text-sm" data-testid="average-info">{{ t('averageRating') }}</p>
+        <div class="flex justify-start">
           <SfRating
             class="pb-2"
             size="lg"
@@ -15,10 +15,10 @@
             {{ reviewAverageText }}
           </h3>
         </div>
-        <p class="text-xs text-center" data-testid="review-count">{{ t('basedOnratings', { count: totalReviews }) }}</p>
+        <p class="text-xs text-left" data-testid="review-count">{{ t('basedOnratings', { count: totalReviews }) }}</p>
         <UiButton
           data-testid="add-review-button"
-          class="mt-2 mb-4 mx-auto"
+          class="mt-2 mb-4"
           size="base"
           @click="openReviewModal(defaults.DEFAULT_REVIEW_MODAL_TYPES.createReview)"
         >
@@ -28,10 +28,10 @@
 
       <div class="flex flex-col">
         <div v-for="(proportionalRating, key) in ratingPercentages" :key="key" class="flex items-center">
-          <p class="w-4 text-center">{{ 5 - key }}</p>
+          <p class="w-4 text-left">{{ 5 - key }}</p>
           <SfIconStarFilled class="mx-2 pb-1 text-warning-500" size="base" />
           <SfProgressLinear
-            class="self-center"
+            class="self-start"
             size="sm"
             :value="proportionalRating"
             aria-label="proportional-rating-in-percent"

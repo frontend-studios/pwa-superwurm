@@ -3,7 +3,7 @@
     v-if="isOpen"
     v-model="isOpen"
     tag="section"
-    class="h-full md:h-fit m-0 p-0 lg:w-[1000px] overflow-y-auto"
+    class="h-full md:h-fit m-0 p-0 lg:w-[1000px] overflow-y-auto quick-checkout-modal"
     aria-label="quick-checkout-modal"
     @mousemove="endTimer()"
   >

@@ -48,14 +48,14 @@
           </div>
 
           <div class="buy-box border-25 p-5">
-            <div class="price-box flex justify-between mt-5 flex-wrap lg:flex-nowrap">
-              <ul class="single-usp flex flex-col">
+            <div class="price-box flex justify-between mt-5 flex-wrap lg:flex-nowrap relative">
+              <ul class="single-usp flex flex-col w-full">
                 <li><SfIconCheck size="xs" class="mr-1" />Top Preise</li>
                 <li><SfIconCheck size="xs" class="mr-1" />gleichbleibende Qualität</li>
                 <li><SfIconCheck size="xs" class="mr-1" />Bester Service</li>
               </ul>
 
-              <div class="flex flex-col items-end">
+              <div class="flex flex-col items-end w-full">
                 <WishlistButton
                   :product="product"
                   :quantity="quantitySelectorValue"
@@ -95,7 +95,7 @@
 
             <div class="mt-4">
               <div class="flex flex-col md:flex-row flex-wrap gap-4 mb-3">
-                <div class="fs-quantity bg-white border-25">
+                <div class="fs-quantity bg-white border-25 w-full">
                   <UiQuantitySelector
                     :min-value="productGetters.getMinimumOrderQuantity(product)"
                     :value="quantitySelectorValue"

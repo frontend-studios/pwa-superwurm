@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex flex-col items-center" data-testid="quantity-selector">
+  <div class="flex flex-col items-center" data-testid="quantity-selector">
     <div class="flex rounded-md h-full w-full">
       <SfTooltip
         v-if="count <= minValue"

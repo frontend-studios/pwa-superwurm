@@ -25,7 +25,7 @@
       :disable-esc="!cart.customerEmail"
       tag="section"
       role="dialog"
-      class="h-full w-full overflow-auto md:w-[600px] md:h-fit"
+      class="h-full w-full overflow-auto md:w-[600px] md:h-fit contact-information-form-modal"
       aria-labelledby="contact-modal-title"
     >
       <header>

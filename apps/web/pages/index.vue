@@ -14,14 +14,8 @@
           <button onclick="document.getElementById('introVideo').pause()">Stop</button>
         </div>
         <div class="wrapper absolute">
-          <span class="mb-0 block font-bold">Autoplay loop und muted</span>
-          <span class="custom-font text-4xl xl:text-7xl font-bold block lg:mb-7">was ein tolles Video</span>
-          <button
-            href="#"
-            class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
-          >
-            <span>Zum Artikel!</span>
-          </button>
+          <span class="mb-0 block font-bold">SUPERWURM</span>
+          <span class="custom-font text-4xl xl:text-7xl font-bold block">Deutschlands größte Wurmfarm</span>
         </div>
       </a>
     </div>

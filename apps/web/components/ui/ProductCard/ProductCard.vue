@@ -2,8 +2,8 @@
   <div
     :class="[
       hasNewProperty
-        ? 'hover:shadow-lg border-25 flex flex-col product-card relative mb-5 sm:mb-0 fs-new'
-        : 'hover:shadow-lg border-25 flex flex-col product-card relative mb-5 sm:mb-0',
+        ? 'hover:shadow-lg border-25 flex flex-col product-card relative fs-new'
+        : 'hover:shadow-lg border-25 flex flex-col product-card relative',
     ]"
     data-testid="product-card"
   >
@@ -66,7 +66,7 @@
 
       <div class="flex flex-row items-end mt-auto" :class="hasNewProperty ? 'justify-center' : 'justify-between'">
         <div v-if="!hasNewProperty" class="availability whitespace-nowrap">
-          <p class="text-xs availability-preview text-center tt-wrap relative">
+          <p class="text-xs availability-preview text-center tt-wrap relativee flex items-center">
             <SfIconCircle
               class="mr-1"
               size="xs"
@@ -79,7 +79,7 @@
                 { 'text-black': product.variation.availability.id === 5 },
               ]"
             />
-            <span class="font-bold text-secondary-500">
+            <span class="hidden md:inline font-bold text-secondary-500">
               {{
                 [1].includes(product.variation.availability.id)
                   ? 'Auf Lager'
@@ -108,8 +108,7 @@
             <span v-if="!productGetters.canBeAddedToCartFromCategoryPage(product)" class="mr-1 text-xs">
               {{ t('account.ordersAndReturns.orderDetails.priceFrom') }}
             </span>
-            <span class="text-2xl">{{ n(price, 'currency') }}</span>
-            <span>{{ t('asterisk') }} </span>
+            <span class="text-2xl leading-none">{{ n(price, 'currency') }}</span>
           </span>
           <span v-if="crossedPrice" :class="hasNewProperty ? 'text-center' : 'text-right'" class="line-through">
             {{ n(crossedPrice, 'currency') }}

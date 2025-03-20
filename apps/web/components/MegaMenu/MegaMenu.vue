@@ -37,7 +37,7 @@
     </div>
 
     <div class="text-center logo-row">
-      <div class="flex justify-between lg:inline-block bg-white border-25 px-2 mx-2 mx-md-3">
+      <div class="flex justify-between lg:inline-block bg-white border-25 p-2 mx-2 mx-md-3">
         <div class="custom-logo">
           <NuxtLink :to="localePath(paths.home)" :aria-label="t('goToHomepage')" class="flex">
             <UiVsfLogo />
