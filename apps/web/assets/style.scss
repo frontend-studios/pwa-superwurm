@@ -510,7 +510,7 @@ header {
         margin: 0;
         padding-left: 25px;
         list-style: none;
-        background-image: url(https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/check.png);
+        background-image: url(https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/worm.png);
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 20px;
@@ -682,4 +682,29 @@ footer {
 
 .cart-icon {
   max-width: 30px;
+}
+
+.full-cart {
+  stroke: #5d4a33;
+  fill: transparent;
+}
+.cart-button {
+  &:hover {
+    svg {
+      stroke: #fff;
+      fill: #fff;
+    }
+  }
+}
+
+/* Order Confirmation Page */
+#order-items {
+  .border-neutral-200 {
+    background: white;
+  }
+}
+.order-success-page {
+  .bg-neutral-100 {
+    background: white;
+  }
 }

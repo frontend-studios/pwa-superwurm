@@ -115,16 +115,16 @@
                     <div class="sub-wrapper md:grid gap-x-6 grid-cols-4">
                       <template v-for="node in activeMenu.children" :key="node.id">
                         <template v-if="node.childCount === 0">
-                          <ul class="ul-121">
-                            <SfListItem
+                          <ul class="submenu mb-3">
+                            <a
                               :tag="NuxtLink"
                               size="sm"
                               :href="localePath(generateCategoryLink(node))"
-                              class="hover:font-bold"
+                              class="item px-4 py-1"
                               :noClass="true"
                             >
                               {{ categoryTreeGetters.getName(node) }}
-                            </SfListItem>
+                            </a>
                           </ul>
                         </template>
                         <div v-else class="submenu">
@@ -251,9 +251,9 @@
         </SfDrawer>
       </template>
       <div class="flex ml-5" v-if="viewport.isGreaterOrEquals('lg')">
-        <slot name="fscart"></slot>
-        <slot name="fsuser"></slot>
         <slot name="fswish"></slot>
+        <slot name="fsuser"></slot>
+        <slot name="fscart"></slot>
       </div>
     </div>
   </header>

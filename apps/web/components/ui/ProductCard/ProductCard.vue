@@ -36,7 +36,6 @@
           @mouseover="showHoverImage"
           @mouseleave="showDefaultImage"
         />
-        <span class="dump hidden"> {{ product.images }} </span>
       </SfLink>
 
       <div v-if="specialProperty" class="property-badge absolute">
@@ -187,7 +186,7 @@ const getHeight = () => {
 const currentImageUrl = ref(imageUrl);
 
 const hoverImageUrl = computed(() => {
-  return product.images?.variation?.[1]?.url || imageUrl;
+  return product.images?.all?.[1]?.url || imageUrl;
 });
 
 const showHoverImage = () => {

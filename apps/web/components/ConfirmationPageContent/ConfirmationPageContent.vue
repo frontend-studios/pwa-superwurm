@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 md:px-0 flex items-center flex-col" data-testid="order-success-page">
+  <div class="px-4 md:px-0 flex items-center flex-col order-success-page" data-testid="order-success-page">
     <div class="p-4 md:p-6 flex flex-col max-w-2xl mx-auto">
       <h1 class="mt-6 mb-1 text-2xl text-center" data-testid="success-header">
         {{ !orderGetters.isReturn(order) ? t('successInfoOrderHeader') : t('successInfoReturnHeader') }}
