@@ -233,8 +233,8 @@ header {
 .fs-homepage {
   .single-cat {
     flex: 0 0 83%;
+    position: relative;
     a {
-      position: relative;
       color: $color-neutral;
       .cat-wrapper {
         bottom: 2rem;
@@ -242,7 +242,7 @@ header {
           bottom: 2rem;
         }
         left: 2rem;
-        right: 0;
+        right: 1rem;
         top: auto;
         z-index: 2;
       }
@@ -346,7 +346,6 @@ header {
   .hero {
     flex: 1 0 100%;
     a {
-      position: relative;
       color: $color-neutral;
       .cat-wrapper {
         bottom: 2rem;
@@ -354,7 +353,7 @@ header {
           bottom: 2rem;
         }
         left: 2rem;
-        right: 0;
+        right: 1rem;
         top: auto;
         z-index: 2;
       }
