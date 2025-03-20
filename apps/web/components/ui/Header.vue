@@ -161,7 +161,11 @@
         square
       >
         <template #prefix>
-          <SfIconShoppingCart />
+          <img
+            src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/basket.svg"
+            alt="cart"
+            class="cart-icon"
+          />
           <SfBadge
             :content="cartItemsCount"
             class="outline outline-secondary-500 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
