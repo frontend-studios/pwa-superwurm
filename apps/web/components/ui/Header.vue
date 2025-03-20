@@ -724,7 +724,9 @@ onNuxtReady(() => {
 });
 
 const { isOpen, open, close } = useDisclosure();
-const cartTotalPrice = ref(0); //für den Preis
+const cartTotalPrice = computed(() => {
+  return cart.value?.items?.reduce((total, { quantity, price }) => total + quantity * price, 0) ?? 0;
+});
 
 watch(
   () => cart.value?.items,
@@ -732,8 +734,8 @@ watch(
     // Anzahl der Artikel berechnen
     cartItemsCount.value = cartItems?.reduce((count, { quantity }) => count + quantity, 0) ?? 0;
 
-    // Gesamtpreis berechnen
-    cartTotalPrice.value = cartItems?.reduce((total, { quantity, price }) => total + quantity * price, 0) ?? 0;
+    // Entferne diese Zeile, da cartTotalPrice automatisch aktualisiert wird:
+    // cartTotalPrice.value = cartItems?.reduce((total, { quantity, price }) => total + quantity * price, 0) ?? 0;
   },
 );
 
