@@ -21,6 +21,7 @@
         :class="{ 'size-48 mx-auto': isFromSlider }"
         as="image"
         class="flex items-center justify-center"
+        data-testid="productcard-name"
       >
         <NuxtImg
           :src="currentImageUrl"

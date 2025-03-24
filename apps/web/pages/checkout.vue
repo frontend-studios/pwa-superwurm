@@ -7,8 +7,8 @@
   >
     <div v-if="cart" class="lg:grid lg:grid-cols-12 lg:gap-x-6">
       <div class="col-span-6 xl:col-span-7 mb-10 lg:mb-0">
-        <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0" />
-        <ContactInformation />
+        <UiDivider id="top-contact-information-divider" class="w-screen md:w-auto -mx-4 md:mx-0" />
+        <ContactInformation id="contact-information" />
         <UiDivider id="top-shipping-divider" class="w-screen md:w-auto -mx-4 md:mx-0" />
         <AddressContainer id="shipping-address" :key="0" :type="AddressType.Shipping" />
         <UiDivider id="top-billing-divider" class="w-screen md:w-auto -mx-4 md:mx-0" />
@@ -25,6 +25,7 @@
           <CheckoutPayment :disabled="disableShippingPayment" @update:active-payment="handlePaymentMethodUpdate" />
         </div>
         <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0 mb-10" />
+        <CheckoutGeneralTerms />
       </div>
       <div class="col-span-6 xl:col-span-5">
         <div v-for="(cartItem, index) in cart?.items" :key="cartItem.id">
@@ -34,6 +35,7 @@
           <SfLoaderCircular v-if="cartLoading" class="absolute top-[130px] right-0 left-0 m-auto z-[999]" size="2xl" />
           <Coupon />
           <OrderSummary v-if="cart" :cart="cart" class="mt-4">
+            <CheckoutExportDeliveryHint v-if="cart.isExportDelivery" />
             <div v-if="selectedPaymentId === paypalPaymentId">
               <PayPalExpressButton
                 :disabled="!termsAccepted || disableBuyButton"
@@ -76,7 +78,6 @@
               <template v-else>{{ t('buy') }}</template>
             </UiButton>
             <ModuleComponentRendering area="checkout.afterBuyButton" />
-            <CheckoutGeneralTerms />
           </OrderSummary>
         </div>
       </div>
@@ -94,17 +95,17 @@
 </template>
 
 <script setup lang="ts">
+import { AddressType, cartGetters, paymentProviderGetters } from '@plentymarkets/shop-api';
 import { SfLoaderCircular } from '@storefront-ui/vue';
-import _ from 'lodash';
 import PayPalExpressButton from '~/components/PayPal/PayPalExpressButton.vue';
-import {
-  PayPalCreditCardPaymentKey,
-  PayPalPaymentKey,
-  PayPalGooglePayKey,
-  PayPalApplePayKey,
-} from '~/composables/usePayPal/types';
-import { AddressType, paymentProviderGetters, cartGetters } from '@plentymarkets/shop-api';
 import type { PayPalAddToCartCallback } from '~/components/PayPal/types';
+import {
+  PayPalApplePayKey,
+  PayPalCreditCardPaymentKey,
+  PayPalGooglePayKey,
+  PayPalPaymentKey,
+} from '~/composables/usePayPal/types';
+import { keyBy } from '~/utils/keyBy';
 
 definePageMeta({
   layout: 'simplified-header-and-footer',
@@ -118,7 +119,9 @@ const localePath = useLocalePath();
 const { isLoading: navigationInProgress } = useLoadingIndicator();
 const { loading: createOrderLoading, createOrder } = useMakeOrder();
 const { shippingPrivacyAgreement } = useAdditionalInformation();
+const { emit } = usePlentyEvent();
 const { checkboxValue: termsAccepted } = useAgreementCheckbox('checkoutGeneralTerms');
+const { isGuest, isAuthorized, validGuestEmail, backToContactInformation } = useCustomer();
 const {
   cart,
   cartIsEmpty,
@@ -142,6 +145,13 @@ const {
   handleShippingMethodUpdate,
   handlePaymentMethodUpdate,
 } = useCheckoutPagePaymentAndShipping();
+
+const { setPageMeta } = usePageMeta();
+
+const icon = 'page';
+setPageMeta(t('checkout'), icon);
+
+emit('frontend:beginCheckout', cart.value);
 
 const checkPayPalPaymentsEligible = async () => {
   if (import.meta.client) {
@@ -207,6 +217,10 @@ const paypalApplePayPaymentId = computed(() => {
 });
 
 const readyToBuy = () => {
+  if ((!isAuthorized.value && !isGuest.value) || (isGuest.value && !validGuestEmail.value)) {
+    return backToContactInformation();
+  }
+
   if (anyAddressFormIsOpen.value) {
     send({ type: 'secondary', message: t('unsavedAddress') });
     return backToFormEditing();
@@ -234,6 +248,7 @@ const handleRegularOrder = async () => {
   });
 
   if (data?.order?.id) {
+    emit('frontend:orderCreated', data);
     clearCartItems();
     navigateTo(localePath(paths.confirmation + '/' + data.order.id + '/' + data.order.accessKey));
   }
@@ -249,7 +264,7 @@ const order = async () => {
   if (!readyToBuy()) return;
 
   processingOrder.value = true;
-  const paymentMethodsById = _.keyBy(paymentMethods.value.list, 'id');
+  const paymentMethodsById = keyBy(paymentMethods.value.list, 'id');
 
   paymentMethodsById[selectedPaymentId.value].key === 'plentyPayPal'
     ? (paypalCardDialog.value = true)

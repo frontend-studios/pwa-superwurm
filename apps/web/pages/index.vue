@@ -174,7 +174,7 @@
         </div>
 
         <div class="thumbs">
-          <ProductRecommendedProducts cache-key="homepage" :category-id="customProductsCategoryId" />
+          <BlocksProductRecommendedProducts :text="{}" :category-id="customProductsCategoryId" />
         </div>
       </section>
     </NuxtLazyHydrate>
@@ -215,7 +215,7 @@
         </div>
 
         <div class="thumbs">
-          <ProductRecommendedProducts cache-key="homepage" :category-id="customProductsCategoryIdBottom" />
+          <BlocksProductRecommendedProducts :text="{}" :category-id="customProductsCategoryIdBottom" />
         </div>
       </section>
     </NuxtLazyHydrate>
@@ -291,9 +291,8 @@ import {
 } from '@storefront-ui/vue';
 // Adding SocialMedia Icons from https://docs.storefrontui.io/v2/vue/components/iconbase ENDE
 
-const { data, fetchPageTemplate, dataIsEmpty } = useHomepage();
-
-const { $i18n } = useNuxtApp();
+// Update const { data, fetchPageTemplate, dataIsEmpty } = useHomepage();
+// Update const { $i18n } = useNuxtApp();
 
 // Adding Items from specific Cat START
 const { data: categoryTree } = useCategoryTree();
@@ -423,4 +422,69 @@ const feedback = [
     text: 'elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.olor sit amet, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
 ];
+
+//neu nach Update
+import { watchDebounced } from '@vueuse/core';
+const { t } = useI18n();
+const {
+  isClicked,
+  clickedBlockIndex,
+  isTablet,
+  isPreview,
+  blockHasData,
+  tabletEdit,
+  deleteBlock,
+  changeBlockPosition,
+  isLastBlock,
+  togglePlaceholder,
+} = useBlockManager();
+
+const { settingsIsDirty, openDrawerWithView, updateNewBlockPosition } = useSiteConfiguration();
+
+const { data, fetchPageTemplate, dataIsEmpty, initialBlocks } = useHomepage();
+
+const { isEditingEnabled, disableActions } = useEditor();
+const { getRobots, setRobotForStaticPage } = useRobots();
+
+const { setPageMeta } = usePageMeta();
+
+const icon = 'home';
+setPageMeta(t('homepage.title'), icon);
+const openBlockList = (index: number, position: number) => {
+  const insertIndex = (position === -1 ? index : index + 1) || 0;
+  togglePlaceholder(index, position === -1 ? 'top' : 'bottom');
+  updateNewBlockPosition(insertIndex);
+  openDrawerWithView('blocksList');
+};
+
+await getRobots();
+setRobotForStaticPage('Homepage');
+
+onMounted(() => {
+  isEditingEnabled.value = false;
+  window.addEventListener('beforeunload', handleBeforeUnload);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('beforeunload', handleBeforeUnload);
+});
+
+const hasUnsavedChanges = () => {
+  return !isEditingEnabled.value && !settingsIsDirty.value;
+};
+
+const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+  if (hasUnsavedChanges()) return;
+  event.preventDefault();
+};
+
+fetchPageTemplate();
+
+watchDebounced(
+  () => data.value.blocks,
+  () => {
+    isEditingEnabled.value = !deepEqual(initialBlocks.value, data.value.blocks);
+  },
+  { debounce: 100, deep: true },
+);
 </script>

@@ -5,6 +5,7 @@ import type {
   SetTailwindColorProperties,
   SetColorPalette,
   DrawerView,
+  SaveSettings,
 } from '~/composables/useSiteConfiguration/types';
 import type { TailwindPalette } from '~/utils/tailwindHelper';
 import { getPaletteFromColor } from '~/utils/tailwindHelper';
@@ -14,23 +15,30 @@ import { getPaletteFromColor } from '~/utils/tailwindHelper';
  * @returns UseSiteConfigurationReturn
  * @example
  * ``` ts
- * const { data, drawerOpen, loading, currentFont, drawerView } = UseSiteConfiguration();
+ * const { data, drawerOpen, loading, currentFont, drawerView, settingsIsDirty, saveSettings } = UseSiteConfiguration();
  * ```
  */
 export const useSiteConfiguration: UseSiteConfigurationReturn = () => {
   const state = useState<UseSiteConfigurationState>('siteConfiguration', () => ({
     data: [],
     drawerOpen: false,
+    pageModalOpen: false,
     loading: false,
+    placement: 'left',
+    newBlockPosition: 0,
     currentFont: useRuntimeConfig().public.font,
     primaryColor: useRuntimeConfig().public.primaryColor,
     secondaryColor: useRuntimeConfig().public.secondaryColor,
-    drawerView: 'settings',
-    blockSize: 'm',
+    drawerView: null,
+    blockType: '',
+    blockIndex: 0,
+    blockSize: useRuntimeConfig().public.blockSize,
     selectedFont: { caption: useRuntimeConfig().public.font, value: useRuntimeConfig().public.font },
     initialData: {
-      blockSize: 'm',
+      blockSize: useRuntimeConfig().public.blockSize,
       selectedFont: { caption: useRuntimeConfig().public.font, value: useRuntimeConfig().public.font },
+      primaryColor: useRuntimeConfig().public.primaryColor,
+      secondaryColor: useRuntimeConfig().public.secondaryColor,
     },
   }));
 
@@ -91,34 +99,96 @@ export const useSiteConfiguration: UseSiteConfigurationReturn = () => {
     },
   );
 
-  const openDrawerWithView = (view: DrawerView) => {
+  const openDrawerWithView = (view: DrawerView, type: string = '', blockIndex: number = 0) => {
+    const { setIndex } = useHomepage();
+
+    setIndex(blockIndex, 0);
+
     state.value.drawerView = view;
     state.value.drawerOpen = true;
+
+    state.value.blockType = type;
+    state.value.blockIndex = blockIndex;
+
+    state.value.placement = view === 'blocksSettings' ? 'right' : 'left';
   };
 
   const closeDrawer = () => {
     state.value.drawerOpen = false;
+    state.value.drawerView = null;
   };
 
   const updateBlockSize: UpdateBlockSize = (size: string) => {
     state.value.blockSize = size;
   };
 
+  const updateNewBlockPosition = (position: number) => {
+    state.value.newBlockPosition = position;
+  };
+
   const settingsIsDirty = computed(() => {
     return (
       state.value.blockSize !== state.value.initialData.blockSize ||
+      state.value.primaryColor !== state.value.initialData.primaryColor ||
+      state.value.secondaryColor !== state.value.initialData.secondaryColor ||
       JSON.stringify(state.value.selectedFont) !== JSON.stringify(state.value.initialData.selectedFont)
     );
   });
+
+  const saveSettings: SaveSettings = async (): Promise<boolean> => {
+    state.value.loading = true;
+
+    const settings = [
+      {
+        key: 'blockSize',
+        value: state.value.blockSize,
+      },
+      {
+        key: 'font',
+        value: state.value.selectedFont.value,
+      },
+      {
+        key: 'primaryColor',
+        value: state.value.primaryColor,
+      },
+      {
+        key: 'secondaryColor',
+        value: state.value.secondaryColor,
+      },
+    ];
+    const { error } = await useAsyncData(() => useSdk().plentysystems.setConfiguration({ settings }));
+
+    if (error.value) {
+      state.value.loading = false;
+      return false;
+    }
+
+    state.value.initialData = {
+      blockSize: state.value.blockSize,
+      selectedFont: { caption: state.value.selectedFont.value, value: state.value.selectedFont.value },
+      primaryColor: state.value.primaryColor,
+      secondaryColor: state.value.secondaryColor,
+    };
+
+    state.value.loading = false;
+    return true;
+  };
+
+  const togglePageModal = (value: boolean) => {
+    state.value.pageModalOpen = value;
+  };
 
   return {
     updatePrimaryColor,
     updateSecondaryColor,
     ...toRefs(state.value),
+    updateNewBlockPosition,
     loadGoogleFont,
     updateBlockSize,
     openDrawerWithView,
     closeDrawer,
     settingsIsDirty,
+    saveSettings,
+    togglePageModal,
   };
 };

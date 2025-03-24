@@ -43,9 +43,26 @@
             Passendes Zubehör
           </h2>
           <NuxtLazyHydrate when-visible>
-            <ProductRecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" />
+            <ProductSlider v-if="crossSellingItems" :items="crossSellingItems.products"></ProductSlider>
+
+            <div v-if="crossSellingItems?.products?.length">
+              <div
+                v-for="(product, index) in crossSellingItems.products"
+                :key="index"
+                class="cmp-xselling-item flex align-center justify-between"
+              >
+                <p class="hidden">{{ product }}</p>
+                <a :href="'/' + product.texts.urlPath">
+                  <img :src="product.images?.all?.[0]?.urlPreview" :alt="product.texts.name1" />
+                </a>
+                <a :href="'/' + product.texts.urlPath">
+                  <span class="">{{ product.texts.name1 }}</span>
+                </a>
+              </div>
+            </div>
           </NuxtLazyHydrate>
         </section>
+        <!-- <BlocksProductRecommendedProducts :text="{}" :category-id="productGetters.getCategoryIds(product)[0]" /> -->
       </div>
     </NarrowContainer>
 
@@ -64,6 +81,9 @@ definePageMeta({
   path: '/:slug*_:itemId',
   name: 'custom-single-meta',
 });
+import type { ProductCardProps } from '~/components/ui/ProductCard/types';
+const { imageUrl } = defineProps<ProductCardProps>();
+const currentImageUrl = ref(imageUrl);
 
 const { t } = useI18n();
 const route = useRoute();
@@ -77,6 +97,11 @@ const { data: product, fetchProduct, setProductMeta, setBreadcrumbs, breadcrumbs
 const { data: productReviews, fetchProductReviews } = useProductReviews(Number(productId));
 const { data: categoryTree } = useCategoryTree();
 const { open, openDrawer } = useProductLegalDetailsDrawer();
+
+const { setPageMeta } = usePageMeta();
+const productName = computed(() => productGetters.getName(product.value));
+const icon = 'sell';
+setPageMeta(productName.value, icon);
 
 const countsProductReviews = computed(() => reviewGetters.getReviewCounts(productReviews.value));
 
@@ -135,4 +160,25 @@ watch(
   },
   { immediate: true },
 );
+watch(
+  () => route.params,
+  () => {
+    const productName = computed(() => productGetters.getName(product.value));
+    const icon = 'sell';
+    setPageMeta(productName.value, icon);
+  },
+  { immediate: true },
+);
+
+// FS Xselling
+const itemId = productGetters.getItemId(product.value);
+// the param for useProducts is your state key, if you want to have multiple item lists, this identifier must be unique
+
+const { fetchProducts: fetchCrossSelling, data: crossSellingItems } = useProducts(productId + 'Similar');
+
+fetchCrossSelling({
+  itemId: productGetters.getItemId(product.value),
+  type: 'cross_selling',
+  crossSellingRelation: 'Similar',
+});
 </script>
