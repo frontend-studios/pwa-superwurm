@@ -43,22 +43,33 @@
             Passendes Zubehör
           </h2>
           <NuxtLazyHydrate when-visible>
-            <ProductSlider v-if="crossSellingItems" :items="crossSellingItems.products"></ProductSlider>
+            <!-- <ProductSlider v-if="crossSellingItems" :items="crossSellingItems.products"></ProductSlider> -->
 
             <div v-if="crossSellingItems?.products?.length">
-              <div
-                v-for="(product, index) in crossSellingItems.products"
-                :key="index"
-                class="cmp-xselling-item flex align-center justify-between"
-              >
-                <p class="hidden">{{ product }}</p>
-                <a :href="'/' + product.texts.urlPath">
-                  <img :src="product.images?.all?.[0]?.urlPreview" :alt="product.texts.name1" />
-                </a>
-                <a :href="'/' + product.texts.urlPath">
-                  <span class="">{{ product.texts.name1 }}</span>
-                </a>
-              </div>
+              <UiProductCard
+                v-for="product in crossSellingItems.products"
+                :key="productGetters.getId(product)"
+                :product="product"
+                :name="productGetters.getName(product)"
+                :slug="productGetters.getSlug(product) + `-${productGetters.getId(product)}`"
+                :image-url="addModernImageExtension(productGetters.getSecondPreviewImage(product))"
+                :image-alt="
+                  productImageGetters.getImageAlternate(productImageGetters.getFirstImage(product)) ||
+                  productGetters.getName(product) ||
+                  ''
+                "
+                :image-title="
+                  productImageGetters.getImageName(productImageGetters.getFirstImage(product)) ||
+                  productGetters.getName(product) ||
+                  ''
+                "
+                :image-height="productGetters.getImageHeight(product) || 600"
+                :image-width="productGetters.getImageWidth(product) || 600"
+                :rating-count="productGetters.getTotalReviews(product)"
+                :rating="productGetters.getAverageRating(product, 'half')"
+                is-from-slider
+                class="xselling-item"
+              />
             </div>
           </NuxtLazyHydrate>
         </section>
@@ -69,12 +80,19 @@
     <UiReviewModal />
     <ProductLegalDetailsDrawer v-if="open" :product="product" />
   </NuxtLayout>
+  <!-- <p class="hidden">{{ product }}</p>
+                <a :href="'/' + product.texts.urlPath">
+                  <img :src="product.images?.all?.[0]?.urlPreview" :alt="product.texts.name1" />
+                </a>
+                <a :href="'/' + product.texts.urlPath">
+                  <span class="">{{ product.texts.name1 }}</span>
+                </a> -->
 </template>
 
 <script setup lang="ts">
 import { SfIconChevronRight } from '@storefront-ui/vue';
 import type { Product } from '@plentymarkets/shop-api';
-import { productGetters, reviewGetters, categoryTreeGetters } from '@plentymarkets/shop-api';
+import { productGetters, reviewGetters, categoryTreeGetters, productImageGetters } from '@plentymarkets/shop-api';
 
 definePageMeta({
   layout: false,
@@ -88,6 +106,7 @@ const currentImageUrl = ref(imageUrl);
 const { t } = useI18n();
 const route = useRoute();
 
+const { addModernImageExtension } = useModernImage();
 const { setCurrentProduct } = useProducts();
 const { setProductMetaData, setProductRobotsMetaData, setProductCanonicalMetaData } = useStructuredData();
 const { buildProductLanguagePath } = useLocalization();

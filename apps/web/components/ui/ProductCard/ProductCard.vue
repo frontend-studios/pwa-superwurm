@@ -115,6 +115,20 @@
           </span>
         </div>
       </div>
+
+      <UiButton
+        v-if="productGetters.canBeAddedToCartFromCategoryPage(product)"
+        size="sm"
+        class="min-w-[80px] w-fit"
+        data-testid="add-to-basket-short"
+        :disabled="loading"
+        @click="addWithLoader(Number(productGetters.getId(product)))"
+      >
+        <template v-if="!loading" #prefix>
+          <SfIconShoppingCart size="sm" />
+        </template>
+        <SfLoaderCircular v-if="loading" class="flex justify-center items-center" size="sm" />
+      </UiButton>
     </div>
   </div>
 </template>

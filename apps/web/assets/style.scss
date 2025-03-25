@@ -437,16 +437,19 @@ header {
   }
   .item-image {
     background-color: #fbf9f0;
-    border-top-left-radius: $border-radius / 2;
-    border-top-right-radius: $border-radius / 2;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     img {
       mix-blend-mode: multiply;
     }
   }
   .thumb-content {
-    border-bottom-left-radius: $border-radius / 2;
-    border-bottom-right-radius: $border-radius / 2;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     background-color: #fbf9f0;
+    button {
+      display: none;
+    }
   }
   &.fs-new {
     &:after {
@@ -476,6 +479,80 @@ header {
     .prices * {
       color: white;
     }
+  }
+}
+
+.xselling-item.product-card {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 1280px) {
+    flex-direction: row;
+  }
+  margin-bottom: 1rem;
+  align-items: center;
+
+  .item-image {
+    padding-top: 0;
+    border-radius: 12px;
+    width: 95px;
+    height: 95px;
+    @media (min-width: 1280px) {
+      width: 75px;
+      height: 75px;
+    }
+    margin-right: 1rem;
+    overflow: visible;
+    a {
+      max-width: 100%;
+      max-height: 100%;
+
+      img {
+        // mix-blend-mode: multiply;
+        // max-width: 75px;
+        // max-height: 75px;
+      }
+    }
+  }
+  .thumb-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    @media (min-width: 1280px) {
+      flex-wrap: nowrap;
+      margin-bottom: 0;
+    }
+    background: transparent;
+    align-items: center;
+    padding: 0;
+    justify-content: space-between;
+    a {
+      margin: 0;
+      flex: 1 0 100%;
+      @media (min-width: 1280px) {
+        flex: 1 0 70%;
+      }
+    }
+    .justify-between.flex.flex-row.items-end.mt-auto {
+      margin-top: 0;
+      margin-right: 0.5rem;
+      flex: 0 0 20%;
+      justify-content: flex-end;
+    }
+    .availability {
+      display: none;
+    }
+    button {
+      display: block;
+      padding: 1rem;
+      flex: 0 0 10%;
+
+      min-width: unset;
+      border-radius: $border-radius;
+    }
+  }
+  &:hover {
+    box-shadow: unset;
   }
 }
 
