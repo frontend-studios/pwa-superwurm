@@ -108,14 +108,14 @@
                 <UiButton
                   :tag="NuxtLink"
                   size="sm"
-                  variant="tertiary"
+                  variant="secondary"
                   :to="localePath(generateOrderDetailsLink(order))"
                 >
                   {{ t('account.ordersAndReturns.details') }}
                 </UiButton>
                 <UiDropdown class="relative">
                   <template #trigger>
-                    <UiButton variant="tertiary">
+                    <UiButton variant="secondary">
                       <SfIconMoreHoriz size="sm" />
                     </UiButton>
                   </template>
