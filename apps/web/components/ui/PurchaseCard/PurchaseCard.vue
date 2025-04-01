@@ -135,7 +135,7 @@
                     >
                       <template #prefix>
                         <div v-if="!loading" class="flex row items-center">
-                          <SfIconShoppingCart size="sm" />
+                          <SfIconShoppingCart size="sm" class="mr-2" />
                           {{ t('addToCart') }}
                         </div>
                         <div v-else>
@@ -148,7 +148,7 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-3 gap-2">
+            <div class="grid grid-cols-4 gap-2">
               <div
                 class="text-secondary-500 border-25 w-full text-center hover:text-white hover:bg-secondary-500 social-item"
               >
@@ -181,6 +181,18 @@
                     <span class="font-bold flex items-center justify-center"
                       ><SfIconInstagram class="mr-2" size="base" />
                       <span v-if="viewport.isGreaterOrEquals('sm')">Instagram</span>
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="text-secondary-500 border-25 w-full text-center hover:text-white hover:bg-secondary-500 social-item"
+              >
+                <a href="https://www.tiktok.com/@superwurm.de" target="_blank">
+                  <div class="py-2 px-1">
+                    <span class="font-bold flex items-center justify-center"
+                      ><img src="https://placehold.co/25x25" alt="tiktok" class="mr-2" />
+                      <span v-if="viewport.isGreaterOrEquals('sm')">TikTok</span>
                     </span>
                   </div>
                 </a>

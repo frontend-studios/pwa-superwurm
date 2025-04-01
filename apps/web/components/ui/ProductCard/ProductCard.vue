@@ -1,5 +1,7 @@
 <template>
   <div
+    @mouseover="showHoverImage"
+    @mouseleave="showDefaultImage"
     :class="[
       hasNewProperty
         ? 'hover:shadow-lg border-25 flex flex-col product-card relative fs-new'
@@ -34,8 +36,6 @@
           :height="getHeight()"
           class="object-contain rounded-md aspect-square w-full"
           data-testid="image-slot"
-          @mouseover="showHoverImage"
-          @mouseleave="showDefaultImage"
         />
       </SfLink>
 
@@ -47,75 +47,79 @@
     </div>
 
     <div class="thumb-content typography-text-sm px-2 pt-2 pb-5 flex flex-col flex-auto">
-      <div class="new mx-auto" v-if="hasNewProperty">
-        <span class="text-white custom-font text-3xl">Jetzt Neu!</span>
-      </div>
-
       <SfLink
         :tag="NuxtLink"
+        rel="preload"
         :to="productPath"
-        class="no-underline line-clamp-2 font-bold text-secondary-500 mb-2"
-        variant="secondary"
+        class="no-underline hover:no-underline flex flex-col flex-auto"
       >
-        {{ name }}
+        <div class="new mx-auto" v-if="hasNewProperty">
+          <span class="text-white custom-font text-3xl">Jetzt Neu!</span>
+        </div>
+
+        <span class="text-secondary-500 item-title font-bold line-clamp-2">{{ name }}</span>
+        <LowestPrice :product="product" />
+        <div v-if="showBasePrice" class="mb-2">
+          <BasePriceInLine
+            :base-price="basePrice"
+            :unit-content="unitContent"
+            :unit-name="unitName"
+            class="text-secondary-500"
+          />
+        </div>
+
+        <div class="flex flex-row items-end mt-auto" :class="hasNewProperty ? 'justify-center' : 'justify-between'">
+          <div v-if="!hasNewProperty" class="availability whitespace-nowrap">
+            <p class="text-xs availability-preview text-center tt-wrap relativee flex items-center">
+              <SfIconCircle
+                class="mr-1"
+                size="xs"
+                :class="[
+                  'availability-' + product.variation.availability.id,
+                  { 'text-primary-500': product.variation.availability.id === 1 },
+                  { 'text-yellow-500': product.variation.availability.id === 2 },
+                  { 'text-orange-500': product.variation.availability.id === 3 },
+                  { 'text-red-500': product.variation.availability.id === 4 },
+                  { 'text-black': product.variation.availability.id === 5 },
+                ]"
+              />
+              <span class="hidden md:inline font-bold text-secondary-500">
+                {{
+                  [1].includes(product.variation.availability.id)
+                    ? 'Auf Lager'
+                    : [2].includes(product.variation.availability.id)
+                      ? 'Kurzfristig verfügbar'
+                      : [3].includes(product.variation.availability.id)
+                        ? 'Lieferzeit ca. 2 Wochen'
+                        : [4].includes(product.variation.availability.id)
+                          ? 'Lieferzeit ca. 4 Wochen'
+                          : [5].includes(product.variation.availability.id)
+                            ? 'Auf Anfrage'
+                            : [6].includes(product.variation.availability.id)
+                              ? 'Nicht auf Lager'
+                              : [7, 8].includes(product.variation.availability.id)
+                                ? 'Vergriffen'
+                                : product.variation.availability.names.name
+                }}
+              </span>
+            </p>
+          </div>
+          <div class="prices flex flex-wrap justify-end flex-col-reverse justify-start h-100">
+            <span
+              class="block custom-font font-bold text-lg leading-4 text-secondary-500 text-right"
+              data-testid="product-card-vertical-price"
+            >
+              <span v-if="!productGetters.canBeAddedToCartFromCategoryPage(product)" class="mr-1 text-xs">
+                {{ t('account.ordersAndReturns.orderDetails.priceFrom') }}
+              </span>
+              <span class="text-2xl leading-none">{{ n(price, 'currency') }}</span>
+            </span>
+            <span v-if="crossedPrice" :class="hasNewProperty ? 'text-center' : 'text-right'" class="line-through">
+              {{ n(crossedPrice, 'currency') }}
+            </span>
+          </div>
+        </div>
       </SfLink>
-      <LowestPrice :product="product" />
-      <div v-if="showBasePrice" class="mb-2">
-        <BasePriceInLine :base-price="basePrice" :unit-content="unitContent" :unit-name="unitName" />
-      </div>
-
-      <div class="flex flex-row items-end mt-auto" :class="hasNewProperty ? 'justify-center' : 'justify-between'">
-        <div v-if="!hasNewProperty" class="availability whitespace-nowrap">
-          <p class="text-xs availability-preview text-center tt-wrap relativee flex items-center">
-            <SfIconCircle
-              class="mr-1"
-              size="xs"
-              :class="[
-                'availability-' + product.variation.availability.id,
-                { 'text-primary-500': product.variation.availability.id === 1 },
-                { 'text-yellow-500': product.variation.availability.id === 2 },
-                { 'text-orange-500': product.variation.availability.id === 3 },
-                { 'text-red-500': product.variation.availability.id === 4 },
-                { 'text-black': product.variation.availability.id === 5 },
-              ]"
-            />
-            <span class="hidden md:inline font-bold text-secondary-500">
-              {{
-                [1].includes(product.variation.availability.id)
-                  ? 'Auf Lager'
-                  : [2].includes(product.variation.availability.id)
-                    ? 'Kurzfristig verfügbar'
-                    : [3].includes(product.variation.availability.id)
-                      ? 'Lieferzeit ca. 2 Wochen'
-                      : [4].includes(product.variation.availability.id)
-                        ? 'Lieferzeit ca. 4 Wochen'
-                        : [5].includes(product.variation.availability.id)
-                          ? 'Auf Anfrage'
-                          : [6].includes(product.variation.availability.id)
-                            ? 'Nicht auf Lager'
-                            : [7, 8].includes(product.variation.availability.id)
-                              ? 'Vergriffen'
-                              : product.variation.availability.names.name
-              }}
-            </span>
-          </p>
-        </div>
-        <div class="prices flex flex-wrap justify-end flex-col-reverse justify-start h-100">
-          <span
-            class="block custom-font font-bold text-lg leading-4 text-secondary-500 text-right"
-            data-testid="product-card-vertical-price"
-          >
-            <span v-if="!productGetters.canBeAddedToCartFromCategoryPage(product)" class="mr-1 text-xs">
-              {{ t('account.ordersAndReturns.orderDetails.priceFrom') }}
-            </span>
-            <span class="text-2xl leading-none">{{ n(price, 'currency') }}</span>
-          </span>
-          <span v-if="crossedPrice" :class="hasNewProperty ? 'text-center' : 'text-right'" class="line-through">
-            {{ n(crossedPrice, 'currency') }}
-          </span>
-        </div>
-      </div>
-
       <UiButton
         v-if="productGetters.canBeAddedToCartFromCategoryPage(product)"
         size="sm"

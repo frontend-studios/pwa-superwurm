@@ -20,13 +20,15 @@
                 <SfIconCheck size="xs" class="text-white" />
                 <span class="text-sm font-medium text-white ml-1">Bester Service</span>
               </li>
-              <li class="mr-2 flex items-center">
-                <SfIconStarFilled size="xs" class="text-orange-400" />
-                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
-                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
-                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
-                <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
-                <span class="text-sm font-medium text-white">4,3</span>
+              <li class="mr-2 flex items-center relative z-10">
+                <a href="/#bewertung">
+                  <SfIconStarFilled size="xs" class="text-orange-400" />
+                  <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                  <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                  <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                  <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
+                  <span class="text-sm font-medium text-white">4,3</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -144,6 +146,7 @@
                                 :tag="NuxtLink"
                                 size="sm"
                                 :href="localePath(generateCategoryLink(child))"
+                                :noClass="true"
                                 class="typography-text-sm py-1.5"
                               >
                                 {{ categoryTreeGetters.getName(child) }}

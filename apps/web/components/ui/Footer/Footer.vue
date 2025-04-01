@@ -17,21 +17,36 @@
             <div class="social-item">
               <a href="https://www.facebook.com/Wurmfarm/" target="_blank">
                 <div class="p-3">
-                  <span class="font-bold flex items-center justify-center"><SfIconFacebook size="base" /> </span>
+                  <span class="font-bold flex items-center justify-center"
+                    ><SfIconFacebook alt="Facebook" size="base" />
+                  </span>
                 </div>
               </a>
             </div>
             <div class="social-item">
               <a href="https://www.youtube.com/user/SuperwurmTV" target="_blank">
                 <div class="p-3">
-                  <span class="font-bold flex items-center justify-center"><SfIconYoutube size="base" /> </span>
+                  <span class="font-bold flex items-center justify-center"
+                    ><SfIconYoutube alt="Youtube" size="base" />
+                  </span>
                 </div>
               </a>
             </div>
             <div class="social-item">
               <a href="https://www.instagram.com/superwurm.de/" target="_blank">
                 <div class="p-3">
-                  <span class="font-bold flex items-center justify-center"><SfIconInstagram size="base" /> </span>
+                  <span class="font-bold flex items-center justify-center"
+                    ><SfIconInstagram alt="Instagram" size="base" />
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div class="social-item">
+              <a href="https://www.tiktok.com/@superwurm.de" target="_blank">
+                <div class="p-3">
+                  <span class="font-bold flex items-center justify-center"
+                    ><img src="https://placehold.co/25x25" alt="tiktok" />
+                  </span>
                 </div>
               </a>
             </div>
@@ -116,8 +131,8 @@
         </div>
         <ul class="list-disc text-sm list-inside">
           <li>Schneller Versand in Deutschland & Österreich</li>
-          <li>Versand mit DHL Express-Versand möglich</li>
-          <li>Versandfertig in 24h</li>
+          <li>Versand von Mo-Do nach ganz Europa</li>
+          <li>Für Versand am selben Tag - bis 12 Uhr bestellen</li>
         </ul>
       </div>
       <div class="">
@@ -151,7 +166,7 @@
         <ul class="text-white text-sm flex flex-wrap flex-col md:flex-row justify-between">
           <li class="mb-3 md:mb-0"><a href="/legal-disclosure">Impressum</a></li>
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/privacy-policy">Datenschutz</a></li>
-          <li class="mb-3 md:mb-0 md:ml-3"><a href="/zahlung-versand">Zahlung und Versand</a></li>
+          <li class="mb-3 md:mb-0 md:ml-3"><a href="/zahlung-versand">Zahlung & Versand</a></li>
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/cancellation-rights">Widerrufsrecht</a></li>
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/gtc">AGB</a></li>
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/os-plattform">OS-Plattform</a></li>
@@ -163,9 +178,6 @@
         <p>
           * Alle Preise verstehen sich inkl. MwSt. zzgl. Versandkosten. Alle Angebote sind freibleibend zzgl.
           Versandkosten und bei Nachnahme Übermittlungsentgelt. Irrtümer, Druckfehler und Preisänderungen vorbehalten.
-          <br />
-          Umsetzung:
-          <a href="https://www.frontend-studios.de/" rel="noopener" class="underline">Frontend Studios GmbH</a>
         </p>
       </div>
     </div>

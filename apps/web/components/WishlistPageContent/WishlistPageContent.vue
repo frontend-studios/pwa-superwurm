@@ -43,6 +43,7 @@
             :unit-content="productGetters.getUnitContent(product)"
             :unit-name="productGetters.getUnitName(product)"
             :show-base-price="productGetters.showPricePerUnit(product)"
+            class="wishlist-product"
           >
             <template #wishlistButton>
               <WishlistButton discard square class="absolute top-0 right-0 mr-2 mb-2 bg-white" :product="product" />

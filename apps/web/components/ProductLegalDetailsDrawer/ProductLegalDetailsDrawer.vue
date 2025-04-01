@@ -45,6 +45,7 @@
           :aria-controls="`tabpanel-${index}`"
           :disabled="tab.disabled"
           @click="setActiveTab(index)"
+          class="hover:text-white"
         >
           {{ tab.label }}
         </UiButton>

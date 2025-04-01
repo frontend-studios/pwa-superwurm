@@ -49,7 +49,7 @@
           :tag="NuxtLink"
           :to="localePath(item.link)"
           variant="secondary"
-          class="uppercase text-secondary-500 font-semibold no-underline hover:underline active:underline whitespace-nowrap"
+          class="text-secondary-500 font-semibold no-underline hover:underline active:underline whitespace-nowrap"
         >
           {{ item.name }}
         </SfLink>

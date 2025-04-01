@@ -18,7 +18,7 @@
         <!-- Modal toggle -->
         <UiButton
           @click="openContactModal"
-          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
+          class="group relative z-10 text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
           variant="tertiary"
           square
         >

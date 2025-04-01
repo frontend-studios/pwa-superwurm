@@ -83,7 +83,7 @@
         <UiButton
           data-testid="quick-checkout-cart-button"
           size="lg"
-          class="w-full mb-3"
+          class="w-full mb-3 quick-checkout-cart-button"
           variant="secondary"
           @click="goToPage(paths.cart)"
         >
@@ -97,6 +97,15 @@
           @click="goToPage(paths.checkout)"
         >
           {{ t('goToCheckout') }}
+        </UiButton>
+        <UiButton
+          :aria-label="$t('closeDialog')"
+          data-testid="quick-checkout-close"
+          square
+          variant="tertiary"
+          @click="close"
+        >
+          Weiter einkaufen
         </UiButton>
         <OrDivider v-if="isPaypalAvailable" class="my-4" />
         <PayPalExpressButton class="w-full text-center" type="CartPreview" @on-approved="isOpen = false" />
