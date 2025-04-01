@@ -823,13 +823,14 @@ const cartTotalPrice = computed(() => {
   return cart.value?.items?.reduce((total, { quantity, price }) => total + quantity * price, 0) ?? 0;
 });
 
+cartItemsCount.value = cart.value?.items?.reduce((count, { quantity }) => count + quantity, 0) ?? 0;
+// Beobachte Änderungen an `cart.value?.items`, um `cartItemsCount` zu aktualisieren
 watch(
   () => cart.value?.items,
   (cartItems) => {
-    // Berechne die Anzahl der Artikel im Warenkorb
     cartItemsCount.value = cartItems?.reduce((count, { quantity }) => count + quantity, 0) ?? 0;
   },
-  { deep: true }, // Tiefes Beobachten, falls sich die Struktur von cart.items ändert
+  { deep: true },
 );
 
 watch(
