@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="orderItem.typeId !== 6"
-    class="relative flex border-b-[1px] border-neutral-200 hover:shadow-lg last:mb-0 p-4 w-full"
+    class="relative flex border-b-[1px] border-secondary-500 hover:shadow-lg last:mb-0 p-4 w-full"
     data-testid="cart-product-card"
   >
     <SfLink
@@ -17,7 +17,7 @@
             '/_nuxt-plenty/images/placeholder.png'
           "
           :alt="orderGetters.getItemName(orderItem)"
-          class="h-auto border rounded-md border-neutral-200"
+          class="h-auto border rounded-md border-secondary-500"
           width="300"
           height="300"
           loading="lazy"

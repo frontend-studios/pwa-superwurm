@@ -7,13 +7,13 @@
   >
     <div v-if="cart" class="lg:grid lg:grid-cols-12 lg:gap-x-6">
       <div class="col-span-6 xl:col-span-7 mb-10 lg:mb-0">
-        <hr id="top-contact-information-divider" class="w-screen md:w-auto -mx-4 md:mx-0 bg-secondary-500" />
+        <hr id="top-contact-information-divider" class="w-screen md:w-auto -mx-4 md:mx-0 border-secondary-500" />
         <ContactInformation id="contact-information" />
-        <hr id="top-shipping-divider" class="w-screen md:w-auto -mx-4 md:mx-0 bg-secondary-500" />
+        <hr id="top-shipping-divider" class="w-screen md:w-auto -mx-4 md:mx-0 border-secondary-500" />
         <AddressContainer id="shipping-address" :key="0" :type="AddressType.Shipping" />
-        <hr id="top-billing-divider" class="w-screen md:w-auto -mx-4 md:mx-0 bg-secondary-500" />
+        <hr id="top-billing-divider" class="w-screen md:w-auto -mx-4 md:mx-0 border-secondary-500" />
         <AddressContainer id="billing-address" :key="1" :type="AddressType.Billing" />
-        <hr id="bottom-billing-divider" class-name="w-screen md:w-auto -mx-4 md:mx-0 bg-secondary-500" />
+        <hr id="bottom-billing-divider" class-name="w-screen md:w-auto -mx-4 md:mx-0 border-secondary-500" />
         <div class="relative" :class="{ 'pointer-events-none opacity-50': disableShippingPayment }">
           <ShippingMethod :disabled="disableShippingPayment" @update:shipping-method="handleShippingMethodUpdate" />
           <SfLoaderCircular
@@ -21,7 +21,7 @@
             class="absolute mt-5 right-0 left-0 m-auto z-[999]"
             size="2xl"
           />
-          <hr class="w-screen md:w-auto -mx-4 md:mx-0 bg-secondary-500" />
+          <hr class="w-screen md:w-auto -mx-4 md:mx-0 border-secondary-500" />
           <CheckoutPayment :disabled="disableShippingPayment" @update:active-payment="handlePaymentMethodUpdate" />
         </div>
       </div>
