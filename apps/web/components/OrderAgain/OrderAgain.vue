@@ -27,7 +27,7 @@
           <div
             v-for="item in orderGetters.getItems(order)"
             :key="item.id"
-            class="relative flex border-neutral-200 border-b p-4"
+            class="relative flex border-secondary-500 border-b p-4"
           >
             <div class="relative overflow-hidden flex-shrink-0 rounded-md w-24 h-24 sm:h-40 sm:w-40">
               <NuxtImg

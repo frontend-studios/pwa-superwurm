@@ -48,9 +48,9 @@
                 :tag="NuxtLink"
                 :to="localePath(link)"
                 :class="[
-                  'first-of-type:py-4 md:first-of-type:px-4 md:first-of-type:py-2 rounded-md active:bg-primary-100 !text-neutral-900',
+                  'first-of-type:py-4 md:first-of-type:px-4 md:first-of-type:py-2 rounded-md active:bg-primary-400 !text-neutral-900',
                   {
-                    'font-medium bg-primary-100': router.currentRoute.value.path === localePath(link),
+                    'font-medium bg-primary-400': router.currentRoute.value.path === localePath(link),
                   },
                 ]"
               >
@@ -63,7 +63,7 @@
           <UiDivider />
           <ul>
             <SfListItem
-              class="py-4 md:py-2 mt-4 rounded-md active:bg-primary-100 !text-neutral-900"
+              class="py-4 md:py-2 mt-4 rounded-md active:bg-primary-400 !text-neutral-900"
               data-testid="account-logout-button"
               @click="logOut"
             >

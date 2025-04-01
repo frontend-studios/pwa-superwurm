@@ -773,7 +773,8 @@ footer {
 }
 
 //Plenty Vorschau ausblenden
-.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-\[52px\] {
+.sticky.top-0.bg-white.h-\[52px\].shadow-\[0px_10px_5px_1px_rgba\(229\,231\,235\,1\)\].md\:z-20,
+aside.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-screen.w-\[54px\].min-w-\[54px\].border-r.order-first.mr-3 {
   display: none;
 }
 
@@ -815,7 +816,7 @@ footer {
 }
 .order-success-page {
   .bg-neutral-100 {
-    background: white;
+    background: transparent;
   }
 }
 

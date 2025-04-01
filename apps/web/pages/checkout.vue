@@ -34,6 +34,7 @@
           <Coupon />
           <OrderSummary v-if="cart" :cart="cart" class="mt-4">
             <CheckoutExportDeliveryHint v-if="cart.isExportDelivery" />
+            <CheckoutGeneralTerms />
             <div v-if="selectedPaymentId === paypalPaymentId">
               <PayPalExpressButton
                 :disabled="!termsAccepted || disableBuyButton"
@@ -76,7 +77,6 @@
               <template v-else>{{ t('buy') }}</template>
             </UiButton>
             <ModuleComponentRendering area="checkout.afterBuyButton" />
-            <CheckoutGeneralTerms />
           </OrderSummary>
         </div>
       </div>

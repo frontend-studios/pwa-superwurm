@@ -1,6 +1,6 @@
 <template>
   <div v-for="(variation, variationId, key) in props.offer.variations" :key="variationId">
-    <div class="relative flex border-neutral-200 border-b min-w-[320px] p-4 last:mb-0">
+    <div class="relative flex border-secondary-200 border-b min-w-[320px] p-4 last:mb-0">
       <div class="overflow-hidden rounded-md w-[140px] sm:w-[176px] mb-2">
         <SfLink
           :tag="NuxtLink"
@@ -14,7 +14,7 @@
             width="300"
             height="300"
             loading="lazy"
-            class="w-full h-auto border rounded-md border-neutral-200"
+            class="w-full h-auto border rounded-md border-secondary-200"
           />
         </SfLink>
       </div>
