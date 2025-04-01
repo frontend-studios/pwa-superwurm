@@ -1,5 +1,5 @@
 <template>
-  <div class="text-sm md:pb-0 mt-3">
+  <div class="text-sm md:pb-0 mb-3">
     <div class="flex items-center">
       <SfCheckbox
         id="terms-checkbox"
