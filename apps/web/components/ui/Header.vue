@@ -410,7 +410,8 @@
         variant="tertiary"
         square
       >
-        <p class="cartItemsCount">{{ cartItemsCount }}</p>
+        <p class="cartItemsCount p-5" v-if="cartItemsCount > 0">Hier ist die Null</p>
+        <p class="cartItemsCount v-els p-5" v-else>HIER IST MEHR ALS NULL</p>
         <template #prefix>
           <svg
             v-if="cartItemsCount >= 0"
