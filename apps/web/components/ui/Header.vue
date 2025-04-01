@@ -410,7 +410,7 @@
         variant="tertiary"
         square
       >
-        <p class="cartItemsCount p-5" v-if="(cartItemsCount = 0)">Hier ist die 0 Null</p>
+        <p class="cartItemsCount p-5" v-if="cartItemsCount == 0">Hier ist die 0 Null</p>
         <p class="cartItemsCount v-els p-5" v-else>MEHR ALS NULL</p>
         <template #prefix>
           <svg
@@ -826,12 +826,10 @@ const cartTotalPrice = computed(() => {
 watch(
   () => cart.value?.items,
   (cartItems) => {
-    // Anzahl der Artikel berechnen
+    // Berechne die Anzahl der Artikel im Warenkorb
     cartItemsCount.value = cartItems?.reduce((count, { quantity }) => count + quantity, 0) ?? 0;
-
-    // Entferne diese Zeile, da cartTotalPrice automatisch aktualisiert wird:
-    // cartTotalPrice.value = cartItems?.reduce((total, { quantity, price }) => total + quantity * price, 0) ?? 0;
   },
+  { deep: true }, // Tiefes Beobachten, falls sich die Struktur von cart.items ändert
 );
 
 watch(
