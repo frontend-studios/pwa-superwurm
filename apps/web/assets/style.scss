@@ -785,6 +785,7 @@ footer {
   .quick-checkout-cart-button {
     &:hover {
       background-color: #3fac48;
+      color: #fff;
     }
   }
 }
@@ -815,5 +816,17 @@ footer {
 .order-success-page {
   .bg-neutral-100 {
     background: white;
+  }
+}
+
+.checkout {
+  .shipping-method-list {
+    label {
+      background: transparent;
+      border: 1px solid #5d4a33;
+      &:hover {
+        border: 1px solid #3fac48;
+      }
+    }
   }
 }

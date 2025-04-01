@@ -9,10 +9,6 @@
           />
           Dein Browser unterstützt kein HTML5-Video.
         </video>
-        <div class="controls hidden">
-          <button onclick="document.getElementById('introVideo').play()">Play</button>
-          <button onclick="document.getElementById('introVideo').pause()">Stop</button>
-        </div>
         <div class="wrapper absolute">
           <span class="mb-0 block font-bold">SUPERWURM</span>
           <span class="custom-font text-4xl xl:text-7xl font-bold block">Deutschlands größte Wurmfarm</span>

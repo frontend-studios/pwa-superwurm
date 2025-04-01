@@ -1,5 +1,5 @@
 <template>
-  <main data-testid="checkout-layout">
+  <main class="checkout" data-testid="checkout-layout">
     <NuxtLazyHydrate when-visible>
       <NarrowContainer class="px-4 md:px-0 mb-20">
         <div class="flex items-center justify-between mt-8 mb-10 md:px-0">

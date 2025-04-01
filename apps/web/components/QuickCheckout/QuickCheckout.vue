@@ -102,6 +102,8 @@
           :aria-label="$t('closeDialog')"
           data-testid="quick-checkout-close"
           square
+          :noClass="true"
+          class="inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed py-3 leading-6 px-6 gap-3 text-primary-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-1 ring-inset ring-primary-500 shadow hover:shadow-md active:shadow hover:ring-primary-800 active:ring-primary-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50 w-full mb-3 quick-checkout-cart-button mt-3"
           variant="tertiary"
           @click="close"
         >
