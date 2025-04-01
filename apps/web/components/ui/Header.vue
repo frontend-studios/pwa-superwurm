@@ -147,6 +147,7 @@
           variant="tertiary"
           square
         >
+          <p class="cartItemsCount">{{ cartItemsCount }}</p>
           <template #prefix>
             <svg
               v-if="cartItemsCount >= 0"
@@ -382,6 +383,7 @@
         variant="tertiary"
         square
       >
+        <p class="cartItemsCount">{{ cartItemsCount }}</p>
         <template #prefix>
           <svg
             v-if="cartItemsCount >= 0"
