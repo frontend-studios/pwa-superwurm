@@ -45,7 +45,10 @@
               <a href="https://www.tiktok.com/@superwurm.de" target="_blank">
                 <div class="p-3">
                   <span class="font-bold flex items-center justify-center"
-                    ><img src="https://placehold.co/25x25" alt="tiktok" />
+                    ><img
+                      src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/TikTok_SocialMediaIcon.png"
+                      alt="tiktok"
+                    />
                   </span>
                 </div>
               </a>

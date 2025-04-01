@@ -186,8 +186,8 @@
               v-else
               version="1.1"
               viewBox="0 0 120 115"
-              height="115px"
-              width="120px"
+              width="113px"
+              class="inline-block fill-current w-6 h-6"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -448,8 +448,8 @@
             v-else
             version="1.1"
             viewBox="0 0 120 115"
-            height="115px"
-            width="120px"
+            width="113px"
+            class="inline-block fill-current w-6 h-6"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             xmlns="http://www.w3.org/2000/svg"
           >

@@ -156,7 +156,11 @@
           <a href="https://www.tiktok.com/@superwurm.de" target="_blank">
             <div class="py-2">
               <span class="font-bold flex items-center justify-center"
-                ><img src="https://placehold.co/25x25" alt="tiktok" class="mr-2" />
+                ><img
+                  src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/TikTok_SocialMediaIcon.png"
+                  alt="tiktok"
+                  class="mr-2"
+                />
                 <span v-if="viewport.isGreaterOrEquals('sm')">TikTok</span>
               </span>
             </div>
