@@ -35,7 +35,7 @@
       :is-selected="Number(userAddressGetters.getId(checkoutAddress)) === Number(userAddressGetters.getId(address))"
       :is-default="primaryAddressId === Number(userAddressGetters.getId(address))"
       :show-divider="Number(userAddressGetters.getId(checkoutAddress)) !== Number(userAddressGetters.getId(address))"
-      class="group hover:bg-primary-50 cursor-pointer"
+      class="group hover:bg-primary-400 cursor-pointer"
       @click="handleSetCheckoutAddress(address)"
       @on-delete="handleDeleteAddress(address)"
       @make-default="handleSetDefaultAddress(address)"

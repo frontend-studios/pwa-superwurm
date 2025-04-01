@@ -51,7 +51,7 @@
             <div class="price-box flex justify-between mt-5 flex-wrap lg:flex-nowrap relative">
               <ul class="single-usp flex flex-col w-full">
                 <li><SfIconCheck size="xs" class="mr-1" />Top Preise</li>
-                <li><SfIconCheck size="xs" class="mr-1" />gleichbleibende Qualität</li>
+                <li><SfIconCheck size="xs" class="mr-1" />Gleichbleibende Qualität</li>
                 <li><SfIconCheck size="xs" class="mr-1" />Bester Service</li>
               </ul>
 

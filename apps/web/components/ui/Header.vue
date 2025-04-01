@@ -83,6 +83,7 @@
         >
           <template #prefix>
             <SfIconFavorite />
+            {{ wishlistItemIds.length }}
           </template>
         </UiButton>
 
@@ -630,7 +631,8 @@
         data-testid="wishlist-page-navigation"
       >
         <template #prefix>
-          <SfIconFavorite />
+          <SfIconFavoriteFilled v-if="wishlistItemIds.length > 0" />
+          <SfIconFavorite v-else />
         </template>
       </UiButton>
     </template>
@@ -691,6 +693,7 @@ import {
   SfListItem,
   SfModal,
   SfIconFavorite,
+  SfIconFavoriteFilled,
   useDisclosure,
   SfIconCall,
   SfIconEmail,

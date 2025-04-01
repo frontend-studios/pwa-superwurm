@@ -614,7 +614,7 @@ header {
         list-style: none;
         background-image: url(https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/worm.png);
         background-repeat: no-repeat;
-        background-position: left center;
+        background-position: 0 5px;
         background-size: 20px;
         color: rgb(var(--colors-2-secondary-500));
         margin-bottom: 3px;
@@ -774,8 +774,9 @@ footer {
 
 //Plenty Vorschau ausblenden
 .sticky.top-0.bg-white.h-\[52px\].shadow-\[0px_10px_5px_1px_rgba\(229\,231\,235\,1\)\].md\:z-20,
-aside.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-screen.w-\[54px\].min-w-\[54px\].border-r.order-first.mr-3 {
-  display: none;
+aside.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-screen.w-\[54px\].min-w-\[54px\].border-r.order-first.mr-3,
+.sticky.top-0.bg-white.h-\[52px\].shadow-\[0px_10px_5px_1px_rgba\(229\,231\,235\,1\)\].lg\:z-20.md\:z-10 {
+  display: none !important;
 }
 
 .quick-checkout-modal,
