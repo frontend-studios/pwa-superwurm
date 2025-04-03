@@ -197,12 +197,15 @@ header {
             border-radius: 25px;
             font-size: 14px;
             color: #fbf9f0;
+            &:hover {
+              background: #1a6224;
+            }
           }
           ul {
             li {
               a {
                 &:hover {
-                  background-color: lighten(#47bb5a, 10%);
+                  background: #1a6224;
                   color: #fff;
                 }
               }

@@ -45,14 +45,14 @@
               </g>
             </g>
           </svg>
-          <span class="hidden md:inline text-sm">Kundensupport</span>
+          <span class="hidden md:inline text-sm">Service & Automaten</span>
         </UiButton>
         <!-- Main modal -->
         <UiModal
           v-if="viewport.isGreaterOrEquals('md') && isContactModalOpen"
           v-model="isContactModalOpen"
           tag="section"
-          class="h-full md:w-[500px] md:h-fit m-0 p-0 overflow-y-auto"
+          class="h-full md:w-[750px] max-w-xl md:h-fit m-0 p-0 overflow-y-auto contact-modal z-40"
         >
           <header>
             <UiButton
@@ -66,8 +66,42 @@
             </UiButton>
           </header>
           <div class="p-4">
-            <p id="h3 contact-modal-title" class="font-bold typography-headline-4 mb-4">Contact Header</p>
-            <p>Lorem Ipsum zeug</p>
+            <p class="pt-2 custom-font text-secondary-500 text-xl">Öffnungszeiten:</p>
+            <ul>
+              <li>Montag: 08:00 – 13:30</li>
+              <li>Dienstag: 08:00 – 13:30</li>
+              <li>Mittwoch: 08:00 – 13:30</li>
+              <li>Donnerstag: 08:00 – 13:30</li>
+              <li>Freitag - Sonntag: Geschlossen</li>
+            </ul>
+
+            <p class="mt-5 custom-font text-secondary-500 text-xl">Kontakt:</p>
+            <ul>
+              <li class="mb-2">
+                WhatsApp oder Telefon:
+                <a href="tel:+4915225432222" class="underline hover:text-primary-500">+49 1522 5432222</a>
+              </li>
+              <li class="mb-2">
+                E-Mail:
+                <a href="mailto:info@superwurm.de" class="underline hover:text-primary-500">info@superwurm.de</a>
+              </li>
+            </ul>
+
+            <p class="mt-5 custom-font text-secondary-500 text-xl">
+              Adresse der Hauptzentrale (Abholung an der Tür möglich)
+            </p>
+            <p>
+              <span class="font-semibold">Superwurm GmbH & Co. KG</span> <br />
+              Marktplatz 6 <br />
+              52391 Vettweiß
+            </p>
+
+            <p class="mt-5 custom-font text-secondary-500 text-xl">Adressen unserer 24/7 Köderautomaten:</p>
+            <ul>
+              <li class="mb-2">Dechant-Bohnekamp-Straße 116, 52349 Düren</li>
+              <li class="mb-2">An der Rur 17, 52428 Jülich</li>
+              <li>Weitere folgen...</li>
+            </ul>
           </div>
         </UiModal>
 
@@ -784,7 +818,7 @@ import {
   SfIconFavorite,
   SfIconFavoriteFilled,
   useDisclosure,
-  SfIconCall,
+  SfIconContactSupport,
   SfIconEmail,
 } from '@storefront-ui/vue';
 import LanguageSelector from '~/components/LanguageSelector/LanguageSelector.vue';

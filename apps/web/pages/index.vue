@@ -4,7 +4,7 @@
       <a href="#asdasd">
         <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
           <source
-            src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/image_video_komp.mp4"
+            src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/Superwurm_Website.mp4"
             type="video/mp4"
           />
           Dein Browser unterstützt kein HTML5-Video.
@@ -173,14 +173,16 @@
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-10">
         <div class="mx-3 lg:mx-0 mt-5 lg:mt-0 lg:mb-10 flex justify-between items-center">
           <div>
-            <p class="mb-0 block text-secondary-500 font-bold">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
-            <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
+            <p class="mb-0 block text-secondary-500 font-bold">Bestseller</p>
+            <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">
+              Alle Highlights auf einen Blick!
+            </p>
           </div>
           <div>
             <a
               href=""
               class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
-              ><SfIconArrowForward class="mr-2" size="base" />Zu den Topsellern</a
+              ><SfIconArrowForward class="mr-2" size="base" />Zu den Bestsellern</a
             >
           </div>
         </div>
@@ -214,14 +216,16 @@
       <section class="max-w-screen-2xl mx-auto relative w-full items mb-5 md:mb-10">
         <div class="mx-3 lg:mx-0 mt-5 lg:mt-0 lg:mb-10 flex justify-between items-center">
           <div>
-            <p class="mb-0 block text-secondary-500 font-bold">TOPSELLER, BELIEBT UND EMPFEHLUNGEN</p>
-            <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">FÜR DICH ZUSAMMENGESTELLT</p>
+            <p class="mb-0 block text-secondary-500 font-bold">KOMPOST- UND GARTENWÜRMER</p>
+            <p class="custom-font text-secondary-500 text-2xl md:text-4xl font-bold block">
+              Für lockeren Boden und starken Kompost
+            </p>
           </div>
           <div>
             <a
               href=""
               class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
-              ><SfIconArrowForward class="mr-2" size="base" />Zu den Topsellern</a
+              ><SfIconArrowForward class="mr-2" size="base" />Zu den Würmern</a
             >
           </div>
         </div>
@@ -266,7 +270,7 @@
           class="flex overflow-x-scroll lg:grid lg:gap-2 lg:grid-cols-5 lg:overflow-auto scrollbar-hidden ml-3 lg:ml-0"
         >
           <div
-            v-for="{ stars, name, date, text } in feedback"
+            v-for="{ stars, name, text } in feedback"
             :key="name"
             class="feedback border-25 bg-white p-3 mb-3 md:mb-0 mr-2 lg:mr-0"
           >
@@ -277,8 +281,8 @@
                 <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
                 <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
                 <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" v-if="stars === 5" />
+                <span class="text-xs text-gray-400 ml-2">{{ name }}</span>
               </div>
-              <span class="text-xs text-gray-400">{{ name }} {{ date }}</span>
               <SfIconCheckCircle class="text-primary-500" size="sm" />
             </div>
             <div class="text text-sm text-secondary-500">
@@ -314,8 +318,8 @@ const customProductsCategoryIdBottom = ref('');
 watch(
   () => categoryTree.value,
   async () => {
-    const categoryIdTop = 472; // Hier die gewünschte category.id setzen
-    const categoryIdBottom = 500; // Neue ID für customProductsCategoryIdBottom
+    const categoryIdTop = 847; // Hier die gewünschte category.id setzen
+    const categoryIdBottom = 848; // Neue ID für customProductsCategoryIdBottom
     customProductsCategoryId.value = categoryIdTop.toString();
     customProductsCategoryIdBottom.value = categoryIdBottom.toString();
   },
@@ -407,31 +411,31 @@ const feedback = [
     stars: 5,
     name: 'T M',
     date: 'am 04.02.2024',
-    text: 'elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.olor sit amet.',
+    text: 'Schöne gesunde und kräftige Dendrobena. Nach 2 Wochen finden sich bereits jede Menge Kokons im Substrat.Das Futter ist nach 2 Tagen aufgebraucht und zeugt von gesunden Appetit.',
   },
   {
     stars: 5,
-    name: 'Simon',
+    name: 'Marion B',
     date: 'am 19.10.2024',
-    text: 'elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.olor sit amet, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+    text: 'Ich habe eine kleine Menge Regenwürmer bestellt und die kleinen Helfer zügig erhalten. Alle sind wohlauf , Dank der guten Verpackung und obwohl die Aussentemperaturen um 0Grad liegen. Da kann ich nur sagen: gerne wieder und empfehlenswert.',
   },
   {
     stars: 5,
-    name: 'Sylvia',
+    name: 'Petra V',
     date: 'am 02.04.2024',
-    text: 'elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.olor sit amet, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+    text: 'Wir kaufen seit einigen Jahren den Wurmhumus. Nutzen wir im gesamten Garten als Dünger, Bodenverbesserer. Suuuuper.',
   },
   {
     stars: 5,
-    name: 'Michael',
+    name: 'Schildkröten Ibbenbüren',
     date: 'am 04.02.2024',
-    text: 'elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.olor sit amet, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+    text: 'Wir haben ein Abo und erhalten mehrmals im Monat 400 Würmer. Das funktioniert einwandfrei und die Qualität der Würmer ist super. Unsere Schildkröten freuen sich jedes Mal unheimlich auf die Lieferung. Vielen lieben Dank für die Zusammenarbeit.',
   },
   {
     stars: 5,
-    name: 'Bruno',
+    name: 'Mar Vin',
     date: 'am 04.02.2024',
-    text: 'elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.olor sit amet, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+    text: 'Freundliche Mitarbeiter, faire Preise und die Qualität ist immer top 👍',
   },
 ];
 
