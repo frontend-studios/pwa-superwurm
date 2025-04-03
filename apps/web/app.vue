@@ -42,6 +42,7 @@
 
 <script setup lang="ts">
 import type { Locale } from '#i18n';
+import { useExternalScripts } from '~/composables/useExternalScripts/useExternalScripts';
 
 const { $pwa } = useNuxtApp();
 const bodyClass = ref('');
@@ -59,9 +60,46 @@ const isPreview = ref(false);
 const config = useRuntimeConfig().public;
 const showConfigurationDrawer = config.showConfigurationDrawer;
 
-onMounted(() => {
+const { loadScript, addInlineScript } = useExternalScripts();
+
+onMounted(async () => {
   const pwaCookie = useCookie('pwa');
   isPreview.value = !!pwaCookie.value || (showConfigurationDrawer as boolean);
+
+  try {
+    await loadScript('https://eu1-config.doofinder.com/2.x/a76684b8-5230-4d3c-8afe-1ce1e34195fd.js').then(() => {
+    });
+    addInlineScript(`
+      document.addEventListener('DOMContentLoaded', function () {
+      (function (e, t, n, c, r, a, i) {
+        e.Newsletter2GoTrackingObject = r;
+        e[r] = e[r] || function () {
+          (e[r].q = e[r].q || []).push(arguments);
+        };
+        e[r].l = 1 * new Date();
+        a = t.createElement(n);
+        i = t.getElementsByTagName(n)[0];
+        a.async = 1;
+        a.src = c;
+        i.parentNode.insertBefore(a, i);
+      })(window, document, 'script', 'https://static.newsletter2go.com/utils.js', 'n2g');
+
+      var config = {
+        container: { type: 'div', class: '', style: '' },
+        row: { type: 'div', class: '', style: 'margin-top: 15px;' },
+        columnLeft: { type: 'div', class: '', style: '' },
+        columnRight: { type: 'div', class: '', style: '' },
+        label: { type: 'label', class: '', style: '' },
+      };
+
+      n2g('create', 'uwzoausj-nxdo3t8z-8xn');
+      n2g('subscribe:createForm', config, 'footer_newsletter2go');
+    });
+    `);
+  } catch (error) {
+    //eslint-disable-next-line no-console
+    console.error('Error loading global scripts:', error);
+  }
 });
 
 await setInitialDataSSR();
