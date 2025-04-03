@@ -49,7 +49,7 @@
         </UiButton>
         <!-- Main modal -->
         <UiModal
-          v-if="viewport.isGreaterOrEquals('md') && isContactModalOpen"
+          v-if="isContactModalOpen"
           v-model="isContactModalOpen"
           tag="section"
           class="h-full md:w-[750px] max-w-xl md:h-fit m-0 p-0 overflow-y-auto contact-modal z-40"
@@ -163,11 +163,12 @@
         </SfDropdown>
         <UiButton
           v-else-if="viewport.isLessThan('lg')"
-          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
+          class="BUTTON166 group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           variant="tertiary"
+          :tag="NuxtLink"
+          :to="'/login'"
           :aria-label="t('auth.login.openLoginForm')"
           square
-          @click="navigateToLogin"
         >
           <SfIconPerson />
         </UiButton>

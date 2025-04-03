@@ -758,6 +758,15 @@ footer {
     }
   }
 }
+div#footer_newsletter2go {
+  button {
+    background: rgb(63 172 72) !important;
+    margin-top: 0 !important;
+  }
+  div div div label {
+    display: none;
+  }
+}
 .sub-footer {
   > div {
     border-bottom-left-radius: $border-radius;
@@ -837,5 +846,15 @@ aside.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-screen.w-\
         border: 1px solid #3fac48;
       }
     }
+  }
+}
+
+.payment-page {
+  p,
+  ul {
+    margin-bottom: 1rem;
+  }
+  * {
+    color: rgb(var(--colors-2-secondary-500) / var(--tw-text-opacity, 1));
   }
 }

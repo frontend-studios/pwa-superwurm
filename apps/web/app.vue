@@ -62,15 +62,27 @@ const showConfigurationDrawer = config.showConfigurationDrawer;
 
 const { loadScript, addInlineScript } = useExternalScripts();
 
-onMounted(async () => {
+onMounted(() => {
   const pwaCookie = useCookie('pwa');
   isPreview.value = !!pwaCookie.value || (showConfigurationDrawer as boolean);
 
   try {
-    await loadScript('https://eu1-config.doofinder.com/2.x/a76684b8-5230-4d3c-8afe-1ce1e34195fd.js').then(() => {
-    });
-    addInlineScript(`
+    loadScript('https://eu1-config.doofinder.com/2.x/a76684b8-5230-4d3c-8afe-1ce1e34195fd.js').then(() => {});
+    addInlineScript(
+      `
+    
+    if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function () {
+        
+        executeNewsletterScript();
+      });
+    } else {
+      
+      executeNewsletterScript();
+    }
+
+    function executeNewsletterScript() {
+      
       (function (e, t, n, c, r, a, i) {
         e.Newsletter2GoTrackingObject = r;
         e[r] = e[r] || function () {
@@ -84,6 +96,7 @@ onMounted(async () => {
         i.parentNode.insertBefore(a, i);
       })(window, document, 'script', 'https://static.newsletter2go.com/utils.js', 'n2g');
 
+      
       var config = {
         container: { type: 'div', class: '', style: '' },
         row: { type: 'div', class: '', style: 'margin-top: 15px;' },
@@ -92,10 +105,18 @@ onMounted(async () => {
         label: { type: 'label', class: '', style: '' },
       };
 
-      n2g('create', 'uwzoausj-nxdo3t8z-8xn');
-      n2g('subscribe:createForm', config, 'footer_newsletter2go');
-    });
-    `);
+      const targetElement = document.getElementById('footer_newsletter2go');
+      if (targetElement) {
+        
+        n2g('create', 'uwzoausj-nxdo3t8z-8xn');
+        n2g('subscribe:createForm', config, 'footer_newsletter2go');
+      } else {
+        console.error('Target element does not exist');
+      }
+    }
+    `,
+      'n2g_script',
+    );
   } catch (error) {
     //eslint-disable-next-line no-console
     console.error('Error loading global scripts:', error);
