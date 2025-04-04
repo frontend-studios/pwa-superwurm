@@ -330,11 +330,26 @@ const viewport = useViewport();
 
 const getImageUrl = () => {
   switch (viewport.breakpoint.value) {
+    case '4xl': {
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
+    }
+    case '3xl': {
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
+    }
+    case '2xl': {
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
+    }
+    case 'xl': {
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
+    }
     case 'lg': {
       return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
     }
     case 'md': {
       return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
+    }
+    case 'sm': {
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_mobile.jpg';
     }
     default: {
       return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_mobile.jpg';
