@@ -1,19 +1,17 @@
 <template>
   <div class="fs-homepage px-1 md:px-md-0">
     <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
-      <a href="#asdasd">
-        <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
-          <source
-            src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/Superwurm_Website.mp4"
-            type="video/mp4"
-          />
-          Dein Browser unterstützt kein HTML5-Video.
-        </video>
-        <div class="wrapper absolute">
-          <span class="mb-0 block font-bold">SUPERWURM</span>
-          <span class="custom-font text-4xl xl:text-7xl font-bold block">Deutschlands größte Wurmfarm</span>
-        </div>
-      </a>
+      <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
+        <source
+          src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/Superwurm_Website.mp4"
+          type="video/mp4"
+        />
+        Dein Browser unterstützt kein HTML5-Video.
+      </video>
+      <div class="wrapper absolute">
+        <span class="mb-0 block font-bold">SUPERWURM</span>
+        <span class="custom-font text-4xl xl:text-7xl font-bold block">Deutschlands größte Wurmfarm</span>
+      </div>
     </div>
 
     <div class="max-w-screen-2xl relative mx-auto my-5 lg:my-10 text-center">
@@ -180,9 +178,9 @@
           </div>
           <div>
             <a
-              href=""
+              href="/haelterung-zubehoer"
               class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
-              ><SfIconArrowForward class="mr-2" size="base" />Zu den Bestsellern</a
+              ><SfIconArrowForward class="mr-2" size="base" />Weitere Highlights</a
             >
           </div>
         </div>
@@ -223,7 +221,7 @@
           </div>
           <div>
             <a
-              href=""
+              href="/futterwuermer-zoo/futterwuermer"
               class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
               ><SfIconArrowForward class="mr-2" size="base" />Zu den Würmern</a
             >
@@ -333,13 +331,13 @@ const viewport = useViewport();
 const getImageUrl = () => {
   switch (viewport.breakpoint.value) {
     case 'lg': {
-      return 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/7salebanner.png';
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
     }
     case 'md': {
-      return 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/7salebanner.png';
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_desktop.jpg';
     }
     default: {
-      return 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/7salebanner.png';
+      return 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/maden_mobile.jpg';
     }
   }
 };
