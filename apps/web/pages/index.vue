@@ -26,7 +26,7 @@
     <NuxtLazyHydrate when-visible>
       <div class="max-w-screen-2xl relative mx-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-2">
         <div class="relative hero md:row-span-2 md:col-span-2 mb-2 md:mb-0">
-          <a href="/angeln"
+          <a href="/angelwuermer"
             ><img
               class="border-25"
               src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/angelwuermer-fischer-boot-nebel.png"
@@ -39,7 +39,7 @@
               <span class="custom-font text-4xl xl:text-7xl font-bold block lg:mb-7"> Der perfekte Köder</span>
               <span class="block font-bold">Fange mehr - Entdecke unsere hochwertigen Angelwürmer!</span>
               <button
-                href="/angeln"
+                href="/angelwuermer"
                 class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
                 <span>Zu den Angelwürmern!</span>
@@ -69,7 +69,7 @@
           </a>
         </div>
         <div class="single-cat primary mb-2 md:mb-0">
-          <a href="/futterwuermer-zoo/futterwuermer"
+          <a href="/futterwuermer"
             ><img
               class="border-25"
               src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/futterwuermer-schale-natur.png"
@@ -80,7 +80,7 @@
             <div class="cat-wrapper absolute">
               <span class="custom-font text-4xl xl:text-6xl font-bold block">Futter würmer</span>
               <button
-                href="/futterwuermer-zoo/futterwuermer"
+                href="/futterwuermer"
                 class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
                 <span>Zu den Futterwürmern!</span>
@@ -196,15 +196,15 @@
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full mb-5 md:mb-10">
         <div class="lazy-image-container">
-          <a href="/futterwuermer-zoo/futter-insekten/getrocknete-mehlwuermer">
-            <NuxtImg :src="getImageUrl()" alt="Lazy loaded image" class="w-full border-25" loading="lazy" />
+          <a href="/garten-kompost/kompostwuermer">
+            <NuxtImg :src="getImageUrl()" alt="Kompostwürmer" class="w-full border-25" loading="lazy" />
             <div class="wrapper absolute">
-              <p class="custom-font text-custom text-4xl lg:text-7xl font-bold mb-0">Mehlwürmer</p>
+              <p class="custom-font text-custom text-4xl lg:text-7xl font-bold mb-0">Maden</p>
               <button
-                href="/futterwuermer-zoo/futter-insekten/getrocknete-mehlwuermer"
+                href="/garten-kompost/kompostwuermer"
                 class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
-                <span>Jetzt sparen!</span>
+                <span>Zu unseren Maden!</span>
               </button>
             </div>
           </a>
@@ -350,7 +350,7 @@ const categories = [
   {
     title: 'Mehl',
     title2nd: 'würmer',
-    link: '/futterwuermer-zoo',
+    link: '/futterwuermer-zoo/futter-insekten/getrocknete-mehlwuermer',
     image:
       'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/getrocknete-mehlwuermer-schale.png',
     btntext: 'Zu den Mehlwürmern!',
@@ -359,7 +359,7 @@ const categories = [
   {
     title: 'Wurm',
     title2nd: 'zucht',
-    link: '/futterwuermer-zoo/regenwurm-kokons',
+    link: '/wurmzucht',
     image:
       'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/wurmzucht-haende-erde-wuermer.png',
     btntext: 'Alles zur Wurmzucht!',
@@ -396,12 +396,12 @@ const bottom_categories = [
     alt: 'Futterwürmer',
   },
   {
-    title: 'getrocknete',
-    title2nd: 'Mehlwürmer',
-    link: '/haelterung-zubehoer/sonstiges/getrocknete-mehlwuermer/',
-    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/6mehlwuermer.png',
-    btntext: 'Zu den Mehrwürmern!',
-    alt: 'getrocknete Mehlwürmer',
+    title: 'Zubehör',
+    title2nd: 'Artikel',
+    link: '/haelterung-zubehoer',
+    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/zubehoer_artikel.jpg',
+    btntext: 'Zu unserem Zubehör!',
+    alt: 'Zubehörartikel für die Wurmzucht',
   },
 ];
 

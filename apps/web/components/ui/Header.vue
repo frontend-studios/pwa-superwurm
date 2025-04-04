@@ -88,7 +88,8 @@
             </ul>
 
             <p class="mt-5 custom-font text-secondary-500 text-xl">
-              Adresse der Hauptzentrale (Abholung an der Tür möglich)
+              Adresse der Hauptzentrale<br />
+              (Abholung an der Tür möglich)
             </p>
             <p>
               <span class="font-semibold">Superwurm GmbH & Co. KG</span> <br />
@@ -131,7 +132,7 @@
             <UiButton
               variant="tertiary"
               class="relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 rounded-md"
-              :class="{ 'bg-primary-700': isAccountDropdownOpen }"
+              :class="{ 'bg-primary-700 text-white': isAccountDropdownOpen }"
               data-testid="account-dropdown-button"
               @click="accountDropdownToggle()"
             >
@@ -163,7 +164,7 @@
         </SfDropdown>
         <UiButton
           v-else-if="viewport.isLessThan('lg')"
-          class="BUTTON166 group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
+          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           variant="tertiary"
           :tag="NuxtLink"
           :to="'/login'"
@@ -766,7 +767,7 @@
     v-if="viewport.isGreaterOrEquals('md') && isAuthenticationOpen"
     v-model="isAuthenticationOpen"
     tag="section"
-    class="h-full md:w-[500px] md:h-fit m-0 p-0 overflow-y-auto"
+    class="login-modal h-full md:w-[500px] md:h-fit m-0 p-0 overflow-y-auto"
   >
     <header>
       <UiButton

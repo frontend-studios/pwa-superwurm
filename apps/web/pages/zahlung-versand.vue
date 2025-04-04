@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-screen-2xl relative mx-auto payment-page">
+  <div class="max-w-screen-2xl relative mx-auto p-5 overflow-x-auto no-preflight text-secondary-500 payment-page">
     <p><strong>Hier erhalten Sie Informationen über die angebotenen Zahlungs- und Versandarten.</strong></p>
     <p>
       <strong><br /></strong>
@@ -173,7 +173,10 @@
       auch Sie müssen diese bei der Bestellaufgabe nicht angeben. Weitere Informationen zur Zahlung mit Amazon Pay
       finden Sie auf Websites von Drittanbietern.
     </p>
-    <p>Weitere Informationen finden Sie auf der <a href="https://pay.amazon.com/de">Amazon Pay-Website</a>.</p>
+    <p>
+      Weitere Informationen finden Sie auf der
+      <a href="https://pay.amazon.com/de" target="_blank">Amazon Pay-Website</a>.
+    </p>
     <h4><strong>Barzahlung bei Selbstabholung:</strong></h4>
     <p>Als Selbstabholer haben Sie die Möglichkeit, Ware vor Ort gegen Barzahlung einzukaufen.</p>
   </div>

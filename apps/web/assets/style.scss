@@ -140,8 +140,8 @@ $border-radius: 25px !default;
 
 @font-face {
   font-family: 'RLAqvaTRIAL';
-  src: url('https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/fonts/trial/RLAqvaTRIAL-Black.ttf')
-    format('truetype');
+  src: url('https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/fonts/RLAqva-Black.woff2')
+    format('woff2');
   font-weight: bold;
   font-style: normal;
 }
@@ -762,6 +762,12 @@ div#footer_newsletter2go {
   button {
     background: rgb(63 172 72) !important;
     margin-top: 0 !important;
+    border-radius: 25px !important;
+  }
+  input {
+    border-radius: 5px !important;
+    width: 100%;
+    max-width: 250px;
   }
   div div div label {
     display: none;
@@ -854,7 +860,8 @@ aside.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-screen.w-\
   ul {
     margin-bottom: 1rem;
   }
-  * {
-    color: rgb(var(--colors-2-secondary-500) / var(--tw-text-opacity, 1));
-  }
+}
+
+.login-modal {
+  background: #eeeadb;
 }

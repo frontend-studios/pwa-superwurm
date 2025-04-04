@@ -38,14 +38,15 @@
             </p>
           </div>
         </section>
-        <section class="grid-in-right-bottom md:mt-xl fs-xselling overflow-x-scroll scrollbar-hidden p-4 xl:px-6">
+        <section
+          class="grid-in-right-bottom md:mt-xl fs-xselling overflow-x-scroll scrollbar-hidden p-4 xl:px-6"
+          v-if="crossSellingItems?.products?.length"
+        >
           <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap my-3 lg:my-6">
             Passendes Zubehör
           </h2>
           <NuxtLazyHydrate when-visible>
-            <!-- <ProductSlider v-if="crossSellingItems" :items="crossSellingItems.products"></ProductSlider> -->
-
-            <div v-if="crossSellingItems?.products?.length">
+            <div>
               <UiProductCard
                 v-for="product in crossSellingItems.products"
                 :key="productGetters.getId(product)"
