@@ -5,7 +5,7 @@
         class="max-w-screen-2xl mx-auto flex justify-between items-center flex-wrap md:flex-nowrap"
         data-testid="navbar-top"
       >
-        <div class="flex items-center">
+        <div class="hidden sm:flex items-center">
           <div>
             <ul class="flex">
               <li class="mr-2 hidden xl:block">
