@@ -637,7 +637,7 @@ header {
     background-color: #fbf8f0;
     .single-usp,
     .single-prices {
-      @media (min-width: 768px) and (max-width: 1024px) {
+      @media (min-width: 768px) and (max-width: 1023px) {
         flex: 1 0 50%;
       }
     }
@@ -799,6 +799,9 @@ div#footer_newsletter2go {
   bottom: 10px;
   left: 10px;
   z-index: 2;
+  @media (min-width: 768px) {
+    bottom: 55px;
+  }
 }
 /* Live System */
 .cat-505,
