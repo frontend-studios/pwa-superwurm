@@ -606,7 +606,7 @@ header {
 }
 
 .grid-cols-product-page {
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Zwei Spalten */
     grid-template-rows: auto auto auto; /* Drei Zeilen */
@@ -633,10 +633,7 @@ header {
   }
   .buy-box {
     background-color: #fbf8f0;
-    .single-usp {
-      li {
-      }
-    }
+
     .single-wish {
       @media (max-width: 768px) {
         position: absolute;
