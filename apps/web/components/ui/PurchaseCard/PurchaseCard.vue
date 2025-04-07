@@ -48,7 +48,7 @@
           </div>
 
           <div class="buy-box border-25 p-5">
-            <div class="price-box flex justify-between mt-5 flex-wrap lg:flex-nowrap relative">
+            <div class="price-box flex justify-between mt-5 flex-wrap xl:flex-nowrap relative">
               <ul class="single-usp flex flex-col w-full">
                 <li><SfIconCheck size="xs" class="mr-1" />Top Preise</li>
                 <li><SfIconCheck size="xs" class="mr-1" />Gleichbleibende Qualität</li>
@@ -194,7 +194,7 @@
                       ><img
                         src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/TikTok_SocialMediaIcon.png"
                         alt="tiktok"
-                        class="mr-2"
+                        class="mr-2 flex lg:hidden xl:flex"
                       />
                       <span v-if="viewport.isGreaterOrEquals('sm')">TikTok</span>
                     </span>
