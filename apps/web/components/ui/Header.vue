@@ -1,7 +1,7 @@
 <template>
   <MegaMenu :categories="categoryTree">
     <template #navbar-content>
-      <nav class="flex md:flex-row md:flex-nowrap items-center">
+      <nav class="flex md:flex-row md:flex-nowrap items-center w-full md:w-auto justify-between">
         <UiButton
           v-if="viewport.isLessThan('lg')"
           variant="tertiary"
@@ -45,7 +45,7 @@
               </g>
             </g>
           </svg>
-          <span class="hidden md:inline text-sm">Service & Automaten</span>
+          <span class="hidden xl:inline text-sm">Service & Automaten</span>
         </UiButton>
         <!-- Main modal -->
         <UiModal

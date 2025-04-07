@@ -217,7 +217,7 @@ header {
   }
   .opensearch {
     @media (min-width: 1024px) {
-      width: 325px;
+      width: 300px;
     }
     span {
       border-radius: 25px;
@@ -529,12 +529,14 @@ header {
   .thumb-content {
     background: transparent;
     padding: 0;
+    margin-bottom: 2rem;
     flex-direction: row;
+    align-items: center;
+
     a {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
       @media (min-width: 1280px) {
         flex-wrap: nowrap;
         margin-bottom: 0;
@@ -796,11 +798,11 @@ div#footer_newsletter2go {
 }
 
 //Plenty Vorschau ausblenden
-.sticky.top-0.bg-white.h-\[52px\].shadow-\[0px_10px_5px_1px_rgba\(229\,231\,235\,1\)\].md\:z-20,
-aside.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-screen.w-\[54px\].min-w-\[54px\].border-r.order-first.mr-3,
-.sticky.top-0.bg-white.h-\[52px\].shadow-\[0px_10px_5px_1px_rgba\(229\,231\,235\,1\)\].lg\:z-20.md\:z-10 {
-  display: none !important;
-}
+// .sticky.top-0.bg-white.h-\[52px\].shadow-\[0px_10px_5px_1px_rgba\(229\,231\,235\,1\)\].md\:z-20,
+// aside.sticky.top-0.bg-white.z-\[1\].md\:z-\[10\].lg\:z-\[160\].mb-3.h-screen.w-\[54px\].min-w-\[54px\].border-r.order-first.mr-3,
+// .sticky.top-0.bg-white.h-\[52px\].shadow-\[0px_10px_5px_1px_rgba\(229\,231\,235\,1\)\].lg\:z-20.md\:z-10 {
+//   display: none !important;
+// }
 
 .quick-checkout-modal,
 .contact-information-form-modal {

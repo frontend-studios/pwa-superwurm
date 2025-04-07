@@ -311,7 +311,7 @@
             als Kunden gewinnen. Nutzen Sie unser attraktives Angebot zu Ihrem Vorteil.
           </p>
           <p class="flex justify-center my-2">
-            <img src="https://www.superwurm.de/images/ceres/stempel.gif" />
+            <img src="/images/ceres/stempel.gif" />
             <br />
           </p>
           <p>
@@ -441,7 +441,7 @@ const bottom_categories = [
     link: '/garten-kompost/terraverm-wurmhumus',
     image:
       'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/terraverm-wurmhumus-schaufel.png',
-    btntext: 'Zum Terraverm Wurmhumus!',
+    btntext: 'Zum Wurmhumus!',
     alt: 'Terraverm Wurmhumus',
   },
   {
