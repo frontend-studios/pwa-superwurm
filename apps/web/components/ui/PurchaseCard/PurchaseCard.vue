@@ -55,7 +55,7 @@
                 <li><SfIconCheck size="xs" class="mr-1" />Bester Service</li>
               </ul>
 
-              <div class="flex flex-col items-end w-full">
+              <div class="single-prices flex flex-col items-end w-full">
                 <WishlistButton
                   :product="product"
                   :quantity="quantitySelectorValue"
