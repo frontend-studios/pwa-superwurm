@@ -311,7 +311,7 @@
             als Kunden gewinnen. Nutzen Sie unser attraktives Angebot zu Ihrem Vorteil.
           </p>
           <p class="flex justify-center my-2">
-            <img src="https://www.superwurm.de/images/ceres/stempel.gif" />
+            <img src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/24years.gif" />
             <br />
           </p>
           <p>
