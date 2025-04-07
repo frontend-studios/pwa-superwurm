@@ -185,6 +185,14 @@
       </div>
     </div>
   </div>
+  <div class="whatsapp">
+    <a aria-label="WhatsApp Chat" href="https://wa.me/+4915225432222" target="_blank">
+      <img
+        alt="WhatsApp Chat"
+        src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/SUPERWURM_Shop/Hauptseite/Logos/WhatsAppButtonGreenMedium.svg"
+      />
+    </a>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -782,7 +782,12 @@ div#footer_newsletter2go {
     z-index: 0;
   }
 }
-
+.whatsapp {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+}
 /* Live System */
 .cat-505,
 .cat-507,

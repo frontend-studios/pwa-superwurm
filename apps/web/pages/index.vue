@@ -290,6 +290,50 @@
         </div>
       </section>
     </NuxtLazyHydrate>
+
+    <NuxtLazyHydrate when-visible>
+      <section class="max-w-screen-2xl mx-auto relative mt-2 flex justify-center about">
+        <p class="custom-font text-primary-500 text-2xl md:text-4xl font-bold block">24 Jahre SUPERWURM</p>
+      </section>
+      <section
+        class="max-w-screen-2xl mx-auto relative mt-2 mb-5 px-3 lg:px-0 lg:mb-10 flex flex-wrap md:grid md:grid-cols-2 gap-2 about text-secondary-500"
+      >
+        <div>
+          <p>
+            <strong
+              >Wir liefern Kompostwürmer, Angelwürmer, Futterwürmer sowie Wurmhumus. Auf unserer Wurm-Farm züchten wir
+              Riesen-Rotwürmer.</strong
+            >
+            <br />Für Handel, Privat und Vereine.
+          </p>
+          <p>
+            Als spezialisiertes Unternehmen für Kompostwürmer, Angelwürmer und Futterwürmer würden wir auch Sie gerne
+            als Kunden gewinnen. Nutzen Sie unser attraktives Angebot zu Ihrem Vorteil.
+          </p>
+          <p class="flex justify-center my-2">
+            <img src="https://www.superwurm.de/images/ceres/stempel.gif" />
+            <br />
+          </p>
+          <p>
+            *Lebendgarantie gilt nur für Bestellungen innerhalb Deutschlands auf Dendrobena. Bei Temperaturen über 25°C
+            wird nur auf eigenes Risiko versendet. Auslandsbestellungen laufen auf eigenes Risiko.
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong>Das Angebot:</strong> <br />Der Riesen-Rotwurm ist ein hervorragender Angelwurm und besticht durch
+            seine Eigenschaften. Gerne und zunehmend wird er ebenso zur Kompostierung eingesetzt. Als Gartenwurm
+            belüftet er den Boden, baut Schwermetalle ab, erzeugt den wertvollen Wurmhumus und dient so als natürlicher
+            Bodenverbesserer. Für viele Tiere im Terrarium oder Aquarium, aber auch für Vögel, stellt der Riesen-Rotwurm
+            eine sinnvolle Nahrungsergänzung dar.
+          </p>
+          <p>
+            Für Garten: Kompostwürmer, Gartenwürmer, Wurmhumus <br />Für Angeln: Riesen-Rotwürmer (Dendrobena);
+            Kanadische Tauwürmer <br />Für Zoo: Futterwürmer <br />Für Jagd: Ablenkfütterung
+          </p>
+        </div>
+      </section>
+    </NuxtLazyHydrate>
   </div>
 </template>
 
