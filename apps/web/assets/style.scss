@@ -893,3 +893,14 @@ button.inline-flex.items-center.justify-center.font-medium.text-base.focus-visib
 #shipping-address.bg-primary-50.rounded-md {
   background-color: #eeecea !important;
 }
+
+.tiktok {
+  svg {
+    fill: #5d4a33;
+  }
+  &:hover {
+    svg {
+      fill: #e5e7eb;
+    }
+  }
+}
