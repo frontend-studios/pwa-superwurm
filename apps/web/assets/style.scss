@@ -237,6 +237,9 @@ header {
       }
     }
   }
+  .basket-icons {
+    max-width: 21px;
+  }
 }
 .fs-mobile-menu {
   li.cat-404,
@@ -435,6 +438,16 @@ header {
     }
     @media (min-width: 1024px) {
       flex: 0;
+    }
+  }
+  .tiktok {
+    svg {
+      fill: #e5e7eb;
+    }
+    &:hover {
+      svg {
+        fill: #5d4a33;
+      }
     }
   }
 }
@@ -671,6 +684,16 @@ header {
         border-radius: $border-radius;
         &:hover {
           background-color: #1a6224;
+        }
+      }
+    }
+    .tiktok {
+      svg {
+        fill: #e5e7eb;
+      }
+      &:hover {
+        svg {
+          fill: #5d4a33;
         }
       }
     }
