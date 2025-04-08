@@ -41,7 +41,7 @@
                 <img
                   src="https://cdn02.plentymarkets.com/ln590pyonzot/plugin/34/superwurmdevtools/images/2015_gruen.png"
                   class="ml-2 max-h-7"
-                  alt="Der Umwelt zu liebe"
+                  alt="Der Umwelt zur liebe"
                 />
               </span>
             </div>

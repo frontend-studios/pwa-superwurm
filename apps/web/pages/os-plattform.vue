@@ -17,7 +17,7 @@ definePageMeta({
 });
 const { setPageMeta } = usePageMeta();
 
-const { data, fetchCategoryTemplate } = useCategoryTemplate();
+const { categoryTemplateData, fetchCategoryTemplate } = useCategoryTemplate();
 const runtimeConfig = useRuntimeConfig();
 await fetchCategoryTemplate(Number(runtimeConfig.public.shippingTextCategoryId));
 const { t } = useI18n();
@@ -25,5 +25,5 @@ const { t } = useI18n();
 const icon = 'page';
 setPageMeta(t('orderConfirmation.shipping'), icon);
 
-const text = computed(() => data?.value?.data);
+const text = computed(() => categoryTemplateData?.value?.data);
 </script>

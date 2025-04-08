@@ -22,6 +22,7 @@
             size="2xl"
           />
           <hr class="w-screen md:w-auto -mx-4 md:mx-0 border-secondary-500" />
+          <PreferredDelivery v-if="countryHasDelivery" />
           <CheckoutPayment :disabled="disableShippingPayment" @update:active-payment="handlePaymentMethodUpdate" />
         </div>
       </div>
@@ -121,6 +122,7 @@ const { shippingPrivacyAgreement } = useAdditionalInformation();
 const { emit } = usePlentyEvent();
 const { checkboxValue: termsAccepted } = useAgreementCheckbox('checkoutGeneralTerms');
 const { isGuest, isAuthorized, validGuestEmail, backToContactInformation } = useCustomer();
+const { countryHasDelivery } = useCheckoutAddress(AddressType.Shipping);
 const {
   cart,
   cartIsEmpty,

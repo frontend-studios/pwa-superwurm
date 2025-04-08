@@ -149,7 +149,7 @@
           </a>
         </div>
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item tiktok"
         >
           <a href="https://www.tiktok.com/@superwurm.de" target="_blank">
             <div class="py-2">
@@ -194,7 +194,7 @@
         </div>
 
         <div class="thumbs">
-          <BlocksProductRecommendedProducts :text="{}" :category-id="customProductsCategoryId" />
+          <RecommendedProducts :category-id="customProductsCategoryId" />
         </div>
       </section>
     </NuxtLazyHydrate>
@@ -237,7 +237,7 @@
         </div>
 
         <div class="thumbs">
-          <BlocksProductRecommendedProducts :text="{}" :category-id="customProductsCategoryIdBottom" />
+          <RecommendedProducts :category-id="customProductsCategoryIdBottom" />
         </div>
       </section>
     </NuxtLazyHydrate>
@@ -505,24 +505,14 @@ const feedback = [
 ];
 
 //neu nach Update
-import { watchDebounced } from '@vueuse/core';
+const { isClicked, clickedBlockIndex, isTablet, blockHasData, tabletEdit, changeBlockPosition } = useBlockManager();
+
 const { t } = useI18n();
-const {
-  isClicked,
-  clickedBlockIndex,
-  isTablet,
-  isPreview,
-  blockHasData,
-  tabletEdit,
-  deleteBlock,
-  changeBlockPosition,
-  isLastBlock,
-  togglePlaceholder,
-} = useBlockManager();
+const { settingsIsDirty } = useSiteConfiguration();
 
-const { settingsIsDirty, openDrawerWithView, updateNewBlockPosition } = useSiteConfiguration();
+const { data, getBlocks } = useCategoryTemplate();
 
-const { data, fetchPageTemplate, dataIsEmpty, initialBlocks } = useHomepage();
+const dataIsEmpty = computed(() => data.value.length === 0);
 
 const { isEditingEnabled, disableActions } = useEditor();
 const { getRobots, setRobotForStaticPage } = useRobots();
@@ -531,15 +521,8 @@ const { setPageMeta } = usePageMeta();
 
 const icon = 'home';
 setPageMeta(t('homepage.title'), icon);
-const openBlockList = (index: number, position: number) => {
-  const insertIndex = (position === -1 ? index : index + 1) || 0;
-  togglePlaceholder(index, position === -1 ? 'top' : 'bottom');
-  updateNewBlockPosition(insertIndex);
-  openDrawerWithView('blocksList');
-};
 
-await getRobots();
-setRobotForStaticPage('Homepage');
+await getBlocks('index', 'immutable');
 
 onMounted(() => {
   isEditingEnabled.value = false;
@@ -559,13 +542,6 @@ const handleBeforeUnload = (event: BeforeUnloadEvent) => {
   event.preventDefault();
 };
 
-fetchPageTemplate();
-
-watchDebounced(
-  () => data.value.blocks,
-  () => {
-    isEditingEnabled.value = !deepEqual(initialBlocks.value, data.value.blocks);
-  },
-  { debounce: 100, deep: true },
-);
+getRobots();
+setRobotForStaticPage('Homepage');
 </script>

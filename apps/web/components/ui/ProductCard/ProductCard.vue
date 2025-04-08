@@ -11,6 +11,7 @@
   >
     <div class="relative overflow-hidden item-image pt-5">
       <UiBadges
+        :use-tags="useTagsOnCategoryPage"
         :class="['absolute', isFromWishlist ? 'mx-2' : 'm-2']"
         :product="product"
         :use-availability="isFromWishlist"
@@ -57,7 +58,7 @@
           <span class="text-white custom-font text-3xl">Jetzt Neu!</span>
         </div>
 
-        <span class="text-secondary-500 item-title font-bold line-clamp-2">{{ name }}</span>
+        <span class="text-secondary-500 item-title font-bold line-clamp-2" v-html="name" />
         <LowestPrice :product="product" />
         <div v-if="showBasePrice" class="mb-2">
           <BasePriceInLine
@@ -179,16 +180,18 @@ const {
   isFromSlider = false,
 } = defineProps<ProductCardProps>();
 
-const { data: categoryTree } = useCategoryTree();
+//const { data: categoryTree } = useCategoryTree();
 const { openQuickCheckout } = useQuickCheckout();
 const { addToCart } = useCart();
 const { price, crossedPrice } = useProductPrice(product);
 const { send } = useNotification();
 const loading = ref(false);
 
-const path = computed(() => productGetters.getCategoryUrlPath(product, categoryTree.value));
-const productSlug = computed(() => productGetters.getSlug(product) + `_${productGetters.getItemId(product)}`);
-const productPath = computed(() => localePath(`${path.value}/${productSlug.value}`));
+const config = useRuntimeConfig();
+const useTagsOnCategoryPage = config.public.useTagsOnCategoryPage;
+const productPath = computed(() =>
+  localePath(`/${productGetters.getUrlPath(product)}_${productGetters.getItemId(product)}`),
+);
 const getWidth = () => {
   if (imageWidth && imageWidth > 0 && imageUrl.includes(defaults.IMAGE_LINK_SUFIX)) {
     return imageWidth;

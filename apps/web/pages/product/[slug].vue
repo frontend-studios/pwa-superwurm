@@ -74,7 +74,7 @@
             </div>
           </NuxtLazyHydrate>
         </section>
-        <!-- <BlocksProductRecommendedProducts :text="{}" :category-id="productGetters.getCategoryIds(product)[0]" /> -->
+        <!-- <RecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" /> -->
       </div>
     </NarrowContainer>
 

@@ -187,8 +187,15 @@
         >
           <template #prefix>
             <img
-              :src="cartImageSrc"
-              :alt="cartItemsCount === 0 ? 'Warenkorb' : 'voller Warenkorb'"
+              v-if="cartItemsCount == 0"
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/header/basket-hover.png"
+              alt="Warenkorb"
+              class="basket-icons"
+            />
+            <img
+              v-else
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/header/basket-full-hover.png"
+              alt="voller Warenkorb"
               class="basket-icons"
             />
 

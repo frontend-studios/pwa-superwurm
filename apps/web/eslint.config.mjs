@@ -1,5 +1,5 @@
 import withNuxt from './.nuxt/eslint.config.mjs';
-import { architecture, ecma } from "@vue-storefront/eslint-config";
+import { architecture, ecma } from '@vue-storefront/eslint-config';
 
 export default withNuxt(
   {
@@ -13,7 +13,7 @@ export default withNuxt(
     maxLinesPerFunction: 1000, // target: 100
     maxStatements: 150, // target: 15
     maxNestedCallbacks: 30, // target: 3
-    maxParams: 4
+    maxParams: 4,
   }),
   ecma({
     withImport: false,
@@ -22,7 +22,7 @@ export default withNuxt(
     /**
      * Rules from other plugins
      * Consider reintroducing in the future
-     * 
+     *
      * etc/no-implicit-any-catch
      * etc/throw-error
      * promise/no-nesting
@@ -42,6 +42,13 @@ export default withNuxt(
       'vue/no-multiple-template-root': ['off'],
       'vue/no-v-html': ['off'],
       'vue/html-self-closing': ['error', { html: { void: 'always' } }],
-    }
+      'vuejs-accessibility/click-events-have-key-events': 'off',
+      'vuejs-accessibility/form-control-has-label': 'off',
+      'vuejs-accessibility/label-has-for': 'off',
+      'vuejs-accessibility/mouse-events-have-key-events': 'off',
+      'vuejs-accessibility/no-autofocus': 'off',
+      'vuejs-accessibility/no-redundant-roles': 'off',
+      'vuejs-accessibility/no-static-element-interactions': 'off',
+    },
   },
 );
