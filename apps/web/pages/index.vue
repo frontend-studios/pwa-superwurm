@@ -293,7 +293,7 @@
 
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative mt-2 flex justify-center about">
-        <p class="custom-font text-primary-500 text-2xl md:text-4xl font-bold block">24 Jahre SUPERWURM</p>
+        <p class="custom-font text-primary-500 text-2xl md:text-4xl font-bold block">25 Jahre SUPERWURM</p>
       </section>
       <section
         class="max-w-screen-2xl mx-auto relative mt-2 mb-5 px-3 lg:px-0 lg:mb-10 flex flex-wrap md:grid md:grid-cols-2 gap-2 about text-secondary-500"
