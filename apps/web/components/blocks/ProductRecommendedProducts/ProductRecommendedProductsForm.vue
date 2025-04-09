@@ -44,7 +44,7 @@
     <div class="p-2">
       <UiFormLabel>Category ID</UiFormLabel>
       <SfInput
-        :model-value="recommendedBlock.categoryId""recommendedBlock.categoryId"
+        :model-value="recommendedBlock.categoryId"
         data-testid="recommended-form-categoryid"
         name="category Id"
         type="text"
