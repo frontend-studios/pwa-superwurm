@@ -200,7 +200,7 @@
     </NuxtLazyHydrate>
 
     <NuxtLazyHydrate when-visible>
-      <section class="max-w-screen-2xl mx-auto relative w-full mb-5 md:mb-10">
+      <section class="max-w-screen-2xl mx-auto relative w-full mb-5 md:mb-10 hero">
         <div class="lazy-image-container">
           <a href="/garten-kompost/kompostwuermer">
             <NuxtImg :src="getImageUrl()" alt="Kompostwürmer" class="w-full border-25" loading="lazy" />
@@ -453,11 +453,11 @@ const bottom_categories = [
     alt: 'Terraverm Wurmhumus',
   },
   {
-    title: 'Futter',
-    title2nd: 'würmer',
-    link: '/futterwuermer-zoo/futterwuermer',
-    image: 'https://cdn02.plentymarkets.com/5kg2d8h6ucou/frontend/SuperwurmPWAAssets/5futterwuermer.png',
-    btntext: 'Zu den Futterwürmern!',
+    title: 'Merch &',
+    title2nd: 'Sticker',
+    link: '/merch',
+    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/Merch-Sticker.jpg',
+    btntext: 'Zum Merch',
     alt: 'Futterwürmer',
   },
   {
