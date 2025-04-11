@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="default" :breadcrumbs="breadcrumbs">
-    <NarrowContainer :class="['mb-20 md:px-0', { 'px-4': !isRoot }]" data-testid="account-layout">
+    <NarrowContainer class="my-account" :class="['mb-20 md:px-0', { 'px-4': !isRoot }]" data-testid="account-layout">
       <h1
         v-if="viewport.isGreaterOrEquals('md') || (viewport.isLessThan('md') && isRoot)"
         class="mt-4 mb-10 md:my-10 mx-4 md:mx-0 font-bold typography-headline-3 md:typography-headline-2"

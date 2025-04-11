@@ -136,7 +136,7 @@
 
           <UiModal
             v-model="openModal"
-            class="h-full w-full overflow-auto md:w-[700px] md:h-fit"
+            class="h-full w-full overflow-auto md:w-[700px] md:h-fit login-modal"
             aria-labelledby="address-modal-title"
           >
             <UiButton square variant="tertiary" class="absolute right-2 top-2" @click="toggleModal">

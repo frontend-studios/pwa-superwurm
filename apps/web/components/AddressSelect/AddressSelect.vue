@@ -14,11 +14,11 @@
     v-if="!disabled"
     v-model="isOpen"
     tag="section"
-    class="h-full w-full overflow-auto md:w-[600px] md:h-fit"
+    class="h-full w-full overflow-auto md:w-[600px] md:h-fit login-modal"
     aria-labelledby="address-modal-title"
     data-testid="checkout-pick-address-modal"
   >
-    <header>
+    <header class="bg-white">
       <UiButton square variant="tertiary" class="absolute right-2 top-2" @click="close">
         <SfIconClose />
       </UiButton>

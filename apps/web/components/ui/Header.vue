@@ -99,8 +99,12 @@
 
             <p class="mt-5 custom-font text-secondary-500 text-xl">Adressen unserer 24/7 Köderautomaten:</p>
             <ul>
-              <li class="mb-2">Dechant-Bohnekamp-Straße 116, 52349 Düren</li>
-              <li class="mb-2">An der Rur 17, 52428 Jülich</li>
+              <li class="mb-2">
+                <b class="block text-secondary-500">Köderautomat Düren</b>Dechant-Bohnekamp-Straße 116, 52349 Düren
+              </li>
+              <li class="mb-2">
+                <b class="block text-secondary-500">Köderautomat Jülich</b>An der Rur 17, 52428 Jülich
+              </li>
               <li>Weitere folgen...</li>
             </ul>
           </div>
@@ -167,7 +171,7 @@
           class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           variant="tertiary"
           :tag="NuxtLink"
-          :to="'/login'"
+          @click="navigateToLogin"
           :aria-label="t('auth.login.openLoginForm')"
           square
         >
@@ -302,7 +306,7 @@
   </MegaMenu>
   <LanguageSelector />
   <UiModal
-    v-if="viewport.isGreaterOrEquals('md') && isAuthenticationOpen"
+    v-if="isAuthenticationOpen"
     v-model="isAuthenticationOpen"
     tag="section"
     class="login-modal h-full md:w-[500px] md:h-fit m-0 p-0 overflow-y-auto"

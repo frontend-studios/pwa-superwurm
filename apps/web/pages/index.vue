@@ -27,7 +27,7 @@
           <a href="/angelwuermer"
             ><img
               class="border-25"
-              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/angelwuermer-fischer-boot-nebel.png"
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/angelwuermer-fischer-boot-nebel.png"
               alt="Ein Fischer in einem kleinen Boot auf einem ruhigen See, umgeben von Nebel, perfekt für das Angeln mit Angelwürmern."
               width="1024"
               height="1024"
@@ -50,7 +50,7 @@
           <a href="/garten-kompost/gartenwuermer"
             ><img
               class="border-25"
-              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/gartenwuermer-erde-pflanzen.png"
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/gartenwuermer-erde-pflanzen.png"
               alt="Rote Würmer in fruchtbarer Erde zwischen frischen, grünen Pflanzen – ideale Gartenwürmer für gesunden Boden."
               width="500"
               height="360"
@@ -70,7 +70,7 @@
           <a href="/futterwuermer"
             ><img
               class="border-25"
-              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/futterwuermer-schale-natur.png"
+              src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/futterwuermer-schale-natur.png"
               alt="Eine Schale mit lebenden Futterwürmern in natürlicher Umgebung, perfekt als Nahrungsquelle für Reptilien und Vögel."
               width="500"
               height="360"
@@ -114,7 +114,7 @@
     <div class="max-w-screen-2xl mx-auto relative social-icons mb-5 md:mb-10">
       <div class="grid grid-cols-4 gap-2 bg-secondary-500 border-25 md:bg-transparent md:rounded-none">
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item focus-within:text-secondary-500 active:text-secondary-500"
         >
           <a href="https://www.facebook.com/Wurmfarm/" target="_blank">
             <div class="py-2">
@@ -126,7 +126,7 @@
           </a>
         </div>
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item focus-within:text-secondary-500 active:text-secondary-500"
         >
           <a href="https://www.youtube.com/user/SuperwurmTV" target="_blank">
             <div class="py-2">
@@ -137,7 +137,7 @@
           </a>
         </div>
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item focus-within:text-secondary-500 active:text-secondary-500"
         >
           <a href="https://www.instagram.com/superwurm.de/" target="_blank">
             <div class="py-2">
@@ -149,7 +149,7 @@
           </a>
         </div>
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item tiktok"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item tiktok focus-within:text-secondary-500 active:text-secondary-500"
         >
           <a href="https://www.tiktok.com/@superwurm.de" target="_blank">
             <div class="py-2">
@@ -186,7 +186,7 @@
           </div>
           <div>
             <a
-              href="/haelterung-zubehoer"
+              href="/bestseller"
               class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
               ><SfIconArrowForward class="mr-2" size="base" />Weitere Highlights</a
             >
@@ -202,12 +202,12 @@
     <NuxtLazyHydrate when-visible>
       <section class="max-w-screen-2xl mx-auto relative w-full mb-5 md:mb-10 hero">
         <div class="lazy-image-container">
-          <a href="/garten-kompost/kompostwuermer">
+          <a href="/angeln/maden">
             <NuxtImg :src="getImageUrl()" alt="Kompostwürmer" class="w-full border-25" loading="lazy" />
             <div class="wrapper absolute">
               <p class="custom-font text-custom text-4xl lg:text-7xl font-bold mb-0">Maden</p>
               <button
-                href="/garten-kompost/kompostwuermer"
+                href="/angeln/maden"
                 class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
                 <span>Zu unseren Maden!</span>
@@ -229,7 +229,7 @@
           </div>
           <div>
             <a
-              href="/futterwuermer-zoo/futterwuermer"
+              href="/kompost-und-gartenwuermer"
               class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 show-all py-4 px-5 hidden md:block text-sm font-bold"
               ><SfIconArrowForward class="mr-2" size="base" />Zu den Würmern</a
             >
@@ -268,7 +268,8 @@
     </NuxtLazyHydrate>
 
     <NuxtLazyHydrate when-visible>
-      <section class="max-w-screen-2xl relative w-full mx-auto mb-5 lg:mb-10" id="bewertung">
+      <div class="anchor" id="bewertung"></div>
+      <section class="max-w-screen-2xl relative w-full mx-auto mb-5 lg:mb-10">
         <p class="custom-font text-secondary-500 text-2xl lg:text-3xl font-bold block mx-3 lg:mx-0 mb-5 lg:mb-10">
           "ECHT WURMIG!" - DAS SAGEN UNSERE KUNDEN
         </p>
@@ -417,7 +418,7 @@ const categories = [
     title2nd: 'würmer',
     link: '/futterwuermer-zoo/futter-insekten/getrocknete-mehlwuermer',
     image:
-      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/getrocknete-mehlwuermer-schale.png',
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/getrocknete-mehlwuermer-schale.png',
     btntext: 'Zu den Mehlwürmern!',
     alt: 'Eine Holzschale voller getrockneter Mehlwürmer, eine proteinreiche Futterquelle für Wildvögel und Haustiere.',
   },
@@ -426,7 +427,7 @@ const categories = [
     title2nd: 'zucht',
     link: '/wurmzucht',
     image:
-      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/wurmzucht-haende-erde-wuermer.png',
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/wurmzucht-haende-erde-wuermer.png',
     btntext: 'Alles zur Wurmzucht!',
     alt: 'Hände graben in dunkler, feuchter Erde voller aktiver Würmer – das perfekte Bild für die Wurmzucht.',
   },
@@ -435,7 +436,7 @@ const categories = [
     title2nd: 'würmer',
     link: '/garten-kompost/kompostwuermer',
     image:
-      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/kompostwuermer-erde-organisch.png',
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/kompostwuermer-erde-organisch.png',
     btntext: 'Zu den Kompostwürmern!',
     alt: 'Rote Kompostwürmer in nährstoffreichem Boden mit organischen Abfällen – für eine nachhaltige Kompostierung',
   },
@@ -448,7 +449,7 @@ const bottom_categories = [
     title2nd: 'Wurmhumus',
     link: '/garten-kompost/terraverm-wurmhumus',
     image:
-      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/terraverm-wurmhumus-schaufel.png',
+      'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/terraverm-wurmhumus-schaufel.png',
     btntext: 'Zum Wurmhumus!',
     alt: 'Terraverm Wurmhumus',
   },
@@ -456,8 +457,8 @@ const bottom_categories = [
     title: 'Merch &',
     title2nd: 'Sticker',
     link: '/merch',
-    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/Merch-Sticker.jpg',
-    btntext: 'Zum Merch',
+    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/Merch-Sticker.png',
+    btntext: 'Zum Merch!',
     alt: 'Futterwürmer',
   },
   {

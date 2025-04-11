@@ -67,61 +67,85 @@ onMounted(() => {
   const pwaCookie = useCookie('pwa');
   isPreview.value = !!pwaCookie.value || (showConfigurationDrawer as boolean);
 
-  try {
-    loadScript('https://eu1-config.doofinder.com/2.x/a76684b8-5230-4d3c-8afe-1ce1e34195fd.js').then(() => {});
+  // Funktion zum Laden des Doofinder Skripts
+
+  loadScript('https://eu1-config.doofinder.com/2.x/a76684b8-5230-4d3c-8afe-1ce1e34195fd.js');
+  // Funktion zur Ausführung des Newsletter-Formulars
+  const runNewsletterForm = () => {
     addInlineScript(
       `
-    
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function () {
-        
-        executeNewsletterScript();
-      });
-    } else {
-      
-      executeNewsletterScript();
-    }
+      function waitForElement(selector, callback, timeout = 5000) {
+        const interval = 100;
+        const maxAttempts = timeout / interval;
+        let attempts = 0;
 
-    function executeNewsletterScript() {
-      
-      (function (e, t, n, c, r, a, i) {
-        e.Newsletter2GoTrackingObject = r;
-        e[r] = e[r] || function () {
-          (e[r].q = e[r].q || []).push(arguments);
+        const checkExist = setInterval(() => {
+          const el = document.querySelector(selector);
+          if (el) {
+            clearInterval(checkExist);            
+            callback(el);
+          } else if (++attempts >= maxAttempts) {
+            clearInterval(checkExist);
+            console.error('Element wurde innerhalb des Timeouts nicht gefunden:', selector);
+          }
+        }, interval);
+      }
+
+      function executeNewsletterScript() {        
+        (function (e, t, n, c, r, a, i) {
+          e.Newsletter2GoTrackingObject = r;
+          e[r] = e[r] || function () {
+            (e[r].q = e[r].q || []).push(arguments);
+          };
+          e[r].l = 1 * new Date();
+          a = t.createElement(n);
+          i = t.getElementsByTagName(n)[0];
+          a.async = 1;
+          a.src = c;
+          i.parentNode.insertBefore(a, i);
+        })(window, document, 'script', 'https://static.newsletter2go.com/utils.js', 'n2g');
+
+        var config = {
+          container: { type: 'div', class: '', style: '' },
+          row: { type: 'div', class: '', style: 'margin-top: 15px;' },
+          columnLeft: { type: 'div', class: '', style: '' },
+          columnRight: { type: 'div', class: '', style: '' },
+          label: { type: 'label', class: '', style: '' },
         };
-        e[r].l = 1 * new Date();
-        a = t.createElement(n);
-        i = t.getElementsByTagName(n)[0];
-        a.async = 1;
-        a.src = c;
-        i.parentNode.insertBefore(a, i);
-      })(window, document, 'script', 'https://static.newsletter2go.com/utils.js', 'n2g');
-
-      
-      var config = {
-        container: { type: 'div', class: '', style: '' },
-        row: { type: 'div', class: '', style: 'margin-top: 15px;' },
-        columnLeft: { type: 'div', class: '', style: '' },
-        columnRight: { type: 'div', class: '', style: '' },
-        label: { type: 'label', class: '', style: '' },
-      };
-
-      const targetElement = document.getElementById('footer_newsletter2go');
-      if (targetElement) {
         
         n2g('create', 'uwzoausj-nxdo3t8z-8xn');
         n2g('subscribe:createForm', config, 'footer_newsletter2go');
-      } else {
-        console.error('Target element does not exist');
       }
-    }
-    `,
+
+      if (document.readyState === 'loading') {        
+        document.addEventListener('DOMContentLoaded', () => {
+          waitForElement('#footer_newsletter2go', () => {            
+            executeNewsletterScript();
+          });
+        });
+      } else {        
+        waitForElement('#footer_newsletter2go', () => {
+          executeNewsletterScript();
+        });
+      }
+      `,
       'n2g_script',
     );
-  } catch (error) {
-    //eslint-disable-next-line no-console
-    console.error('Error loading global scripts:', error);
-  }
+  };
+
+  // Initial load: Formular bei initialem Laden einfügen
+  runNewsletterForm();
+
+  // Reagiere auf Routenänderungen: Formular nach dem Seitenwechsel erneut einfügen
+  const router = useRouter();
+  const route = useRoute();
+
+  // Watch für Routenänderungen, damit das Skript bei jeder Routenänderung ausgeführt wird
+  watch(route, () => {
+    setTimeout(() => {
+      runNewsletterForm();
+    }, 500); // Verzögerung, um sicherzustellen, dass der DOM nach der Routenänderung vollständig aktualisiert ist
+  });
 });
 
 await setInitialDataSSR();

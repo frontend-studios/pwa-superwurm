@@ -40,6 +40,15 @@
         />
       </SfLink>
 
+      <slot name="wishlistButton">
+        <WishlistButton
+          square
+          class="inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed p-1.5 gap-1.5 text-primary-500 hover:bg-primary-400 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 disabled:bg-transparent absolute top-2 right-2 bg-white"
+          :product="product"
+          :class="['hidden', isFromWishlist]"
+        />
+      </slot>
+
       <div v-if="specialProperty" class="property-badge absolute">
         <span class="badge-content uppercase text-xs font-semibold p-0.5 pr-2">
           {{ specialProperty?.values?.value || 'BELIEBT' }}

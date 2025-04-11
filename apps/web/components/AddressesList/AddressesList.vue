@@ -31,7 +31,7 @@
       v-model="isOpen"
       tag="section"
       role="dialog"
-      class="h-full w-full overflow-auto md:w-[600px] md:h-fit"
+      class="h-full w-full overflow-auto md:w-[600px] md:h-fit login-modal"
       aria-labelledby="address-modal-title"
     >
       <header>

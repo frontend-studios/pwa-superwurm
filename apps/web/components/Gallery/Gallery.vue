@@ -37,6 +37,81 @@
         </span>
       </div>
     </div>
+    <div class="md:-order-1 overflow-hidden flex-shrink-0 basis-auto">
+      <SfScrollable
+        ref="thumbsReference"
+        wrapper-class="hidden md:inline-flex"
+        direction="vertical"
+        class="flex-row w-full items-center md:flex-col md:h-full md:px-0 md:scroll-pl-4 snap-y snap-mandatory flex gap-0.5 md:gap-0.5 overflow-auto scrollbar-hidden"
+        :active-index="activeIndex"
+        :prev-disabled="activeIndex === 0"
+        :next-disabled="activeIndex === images.length - 1"
+      >
+        <template #previousButton>
+          <UiButton
+            variant="secondary"
+            size="sm"
+            square
+            class="absolute !rounded-full bg-white z-10 top-4 rotate-90 disabled:!hidden !ring-neutral-500 !text-neutral-500"
+            :class="{ hidden: firstVisibleThumbnailIntersected }"
+            :aria-label="$t('gallery.prev')"
+          >
+            <template #prefix>
+              <SfIconChevronLeft />
+            </template>
+          </UiButton>
+        </template>
+
+        <button
+          v-for="(image, index) in images"
+          :key="`imagebutton-${index}-thumbnail`"
+          :ref="(el) => assignReference(el, index)"
+          type="button"
+          :aria-current="activeIndex === index"
+          :aria-label="$t('gallery.thumb', index)"
+          class="w-20 relative shrink-0 pb-1 snap-start cursor-pointer transition-colors flex-grow-0"
+          @click="onChangeIndex(index)"
+          @focus="onChangeIndex(index)"
+        >
+          <NuxtImg
+            :alt="productImageGetters.getImageAlternate(image) || productImageGetters.getCleanImageName(image) || ''"
+            class="object-contain"
+            :width="80"
+            :height="80"
+            :src="productImageGetters.getImageUrlPreview(image)"
+            :quality="80"
+            loading="lazy"
+          />
+        </button>
+
+        <template #nextButton>
+          <UiButton
+            variant="secondary"
+            size="sm"
+            square
+            class="absolute !rounded-full bg-white z-10 bottom-4 rotate-90 disabled:!hidden !ring-neutral-500 !text-neutral-500"
+            :class="{ hidden: lastVisibleThumbnailIntersected }"
+            :aria-label="$t('gallery.next')"
+          >
+            <template #prefix>
+              <SfIconChevronRight />
+            </template>
+          </UiButton>
+        </template>
+      </SfScrollable>
+      <div class="flex md:hidden gap-0.5" role="group">
+        <button
+          v-for="(image, index) in images"
+          :key="productImageGetters.getImageUrl(image)"
+          type="button"
+          :aria-current="activeIndex === index"
+          :aria-label="$t('gallery.thumb', index + 1)"
+          class="relative shrink-0 pb-1 border-b-4 cursor-pointer transition-colors flex-grow"
+          :class="[activeIndex === index ? 'border-primary-500' : 'border-neutral-200']"
+          @click="onChangeIndex(index)"
+        />
+      </div>
+    </div>
   </div>
   <NuxtLazyHydrate when-visible>
     <transition name="fade-overlay">
@@ -91,6 +166,12 @@ const activeIndex = ref(0);
 const lightboxOpen = ref(false);
 const lightboxIndex = ref(0);
 
+const thumbsReference = ref<HTMLElement>();
+const firstThumbReference = ref<HTMLButtonElement>();
+const lastThumbReference = ref<HTMLButtonElement>();
+const firstVisibleThumbnailIntersected = ref(true);
+const lastVisibleThumbnailIntersected = ref(true);
+
 const onChangeIndex = (index: number) => {
   stop();
   activeIndex.value = clamp(index, 0, props.images.length - 1);
@@ -120,5 +201,15 @@ const nextImage = () => {
   if (lightboxIndex.value < props.images.length - 1) {
     lightboxIndex.value++;
   }
+};
+const assignReference = (element: Element | ComponentPublicInstance | null, index: number) => {
+  if (!element) return;
+
+  if (index === props.images.length - 1) {
+    lastThumbReference.value = element as HTMLButtonElement;
+    return;
+  }
+
+  if (index === 0) firstThumbReference.value = element as HTMLButtonElement;
 };
 </script>

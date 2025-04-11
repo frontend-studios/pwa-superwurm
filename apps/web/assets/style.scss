@@ -871,9 +871,9 @@ div#footer_newsletter2go {
   }
 }
 
-#address-modal-title {
-  background-color: #fff;
-}
+// #address-modal-title {
+//   background-color: #fff;
+// }
 
 /* Order Confirmation Page */
 #order-items {
@@ -909,6 +909,16 @@ div#footer_newsletter2go {
 .login-modal {
   background: #eeeadb;
 }
+//Muss xtra bleiben
+.login-modal {
+  height: fit-content;
+  @media (max-width: 640px) {
+    width: 90%;
+  }
+}
+.mobile-menu {
+  background: #eeeadb;
+}
 
 button.inline-flex.items-center.justify-center.font-medium.text-base.focus-visible\:outline.focus-visible\:outline-offset.rounded-md.disabled\:text-disabled-500.disabled\:bg-disabled-300.disabled\:shadow-none.disabled\:ring-0.disabled\:cursor-not-allowed.py-2.leading-6.px-4.gap-2.text-primary-500.hover\:bg-primary-400.hover\:text-primary-800.active\:bg-primary-200.active\:text-primary-900.disabled\:bg-transparent.relative.text-secondary-500.hover\:text-white.active\:text-white.hover\:bg-primary-800.active\:bg-primary-700.rounded-md.bg-primary-700 {
   color: white;
@@ -926,5 +936,26 @@ button.inline-flex.items-center.justify-center.font-medium.text-base.focus-visib
     svg {
       fill: #e5e7eb;
     }
+  }
+}
+
+#bewertung {
+  display: block;
+  position: relative;
+  top: -10rem;
+  visibility: hidden;
+}
+
+.my-account span.text-base.font-normal.text-neutral-500.line-through.text-right {
+  display: none;
+}
+
+.wishlistRemoveButton {
+  margin: 7px;
+}
+
+.recommendedProductsModal {
+  .product-card {
+    width: 100%;
   }
 }

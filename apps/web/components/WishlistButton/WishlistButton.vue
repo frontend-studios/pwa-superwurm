@@ -6,7 +6,7 @@
         ? t('removeProductFromWishlist', { label: productName })
         : t('addProductToWishlist', { label: productName })
     "
-    class="single-wish font-bold mb-0 text-secondary-500 text-sm flex flex-row-reverse"
+    class="single-wish font-bold mb-0 text-secondary-500 text-sm flex flex-row-reverse hover:underline"
     :noClass="true"
     :disabled="wishlistLoading"
     data-testid="wishlist-trigger"
@@ -14,7 +14,7 @@
   >
     <SfLoaderCircular v-if="actionLoading" class="flex justify-center items-center ml-1" size="sm" />
     <template v-else>
-      <SfIconClose v-if="isCloseButton" size="sm" class="ml-1" />
+      <SfIconClose v-if="isCloseButton" size="sm" class="ml-1 wishlistRemoveButton" />
       <SfIconFavoriteFilled v-else-if="isWishlistItem(variationId)" size="sm" class="ml-1" />
       <SfIconFavorite v-else size="sm" class="ml-1" />
       <slot />

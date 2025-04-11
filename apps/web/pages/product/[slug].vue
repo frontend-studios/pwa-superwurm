@@ -74,20 +74,12 @@
             </div>
           </NuxtLazyHydrate>
         </section>
-        <!-- <RecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" /> -->
       </div>
     </NarrowContainer>
 
     <UiReviewModal />
     <ProductLegalDetailsDrawer v-if="open" :product="product" />
   </NuxtLayout>
-  <!-- <p class="hidden">{{ product }}</p>
-                <a :href="'/' + product.texts.urlPath">
-                  <img :src="product.images?.all?.[0]?.urlPreview" :alt="product.texts.name1" />
-                </a>
-                <a :href="'/' + product.texts.urlPath">
-                  <span class="">{{ product.texts.name1 }}</span>
-                </a> -->
 </template>
 
 <script setup lang="ts">

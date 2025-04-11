@@ -116,6 +116,12 @@
         <PayPalPayLaterBanner placement="payment" :amount="totals.total" />
       </div>
     </div>
+
+    <NuxtLazyHydrate when-visible>
+      <div class="recommendedProductsModal">
+        <RecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" />
+      </div>
+    </NuxtLazyHydrate>
   </UiModal>
 </template>
 

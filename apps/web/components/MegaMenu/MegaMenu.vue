@@ -184,12 +184,12 @@
       </div>
 
       <template v-else>
-        <div v-if="isOpen" class="v-else fixed z-[50] inset-0 bg-neutral-500 bg-opacity-50" />
+        <div v-if="isOpen" class="fixed z-[50] inset-0 bg-neutral-500 bg-opacity-50" />
         <SfDrawer
           ref="drawerReference"
           v-model="isOpen"
           placement="left"
-          class="right-12 max-w-96 bg-white overflow-y-auto z-[1000]"
+          class="right-12 max-w-96 overflow-y-auto z-[1000] mobile-menu"
         >
           <nav class="fs-mobile-menu">
             <div class="flex items-center justify-between px-4 xl:px-0 py-2 max-w-screen-2xl mx-auto">
