@@ -121,6 +121,9 @@ apple-pay-button {
 /* Dan */
 $color-neutral: #eeeadb !default;
 $border-radius: 25px !default;
+html {
+  overflow-x: hidden;
+}
 
 @font-face {
   font-family: 'DynaPuff';
@@ -297,6 +300,7 @@ header {
   }
 
   .video-container {
+    pointer-events: none;
     video {
       width: 100%;
       height: auto;
@@ -844,6 +848,7 @@ div#footer_newsletter2go {
 .quick-checkout-modal,
 .contact-information-form-modal {
   background: #eeeadb !important;
+  max-width: 100%;
 }
 .quick-checkout-modal {
   .quick-checkout-cart-button {
