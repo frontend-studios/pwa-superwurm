@@ -100,6 +100,7 @@
                     </template>
                   </i18n-t>
                 </div>
+                {{ product.variation.availability.id }}
                 <UiBadges :product="product" :use-availability="true" />
               </div>
             </div>

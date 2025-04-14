@@ -118,6 +118,7 @@
     </div>
 
     <NuxtLazyHydrate when-visible>
+      <p class="font-bold text-lg leading-6 md:text-xl text-secondary-500 mb-1">Wird oft zusammen gekauft</p>
       <div class="recommendedProductsModal">
         <RecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" />
       </div>

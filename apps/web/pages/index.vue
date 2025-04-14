@@ -465,7 +465,7 @@ const bottom_categories = [
     title: 'Zubehör',
     title2nd: 'Artikel',
     link: '/haelterung-zubehoer',
-    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/zubehoer_artikel.jpg',
+    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/zubehoer_artikel.jpg',
     btntext: 'Zu unserem Zubehör!',
     alt: 'Zubehörartikel für die Wurmzucht',
   },
