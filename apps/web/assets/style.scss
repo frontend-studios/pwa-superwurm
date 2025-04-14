@@ -250,6 +250,14 @@ header {
   li.cat-Händler.\&.Versender {
     display: none;
   }
+  .mobile-menu-button {
+    background-color: #3fac48;
+    margin-right: 7px;
+    border-radius: 12px;
+    svg {
+      color: #eeeadb;
+    }
+  }
 }
 
 .fs-homepage {
@@ -406,6 +414,11 @@ header {
           z-index: 1;
           pointer-events: none;
         }
+      }
+    }
+    img {
+      @media (min-width: 1200px) {
+        max-height: 796.5px;
       }
     }
   }
@@ -916,7 +929,7 @@ div#footer_newsletter2go {
 }
 //Muss xtra bleiben
 .login-modal {
-  height: fit-content;
+  max-height: 100%;
   @media (max-width: 640px) {
     width: 90%;
   }

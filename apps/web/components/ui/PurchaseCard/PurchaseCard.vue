@@ -116,7 +116,7 @@
                       { 'text-black': product.variation.availability.id === 8 },
                     ]"
                   />
-                  <span class="hidden md:inline font-bold text-secondary-500">
+                  <span class="inline font-bold text-secondary-500">
                     {{
                       [1].includes(product.variation.availability.id)
                         ? 'Auf Lager'

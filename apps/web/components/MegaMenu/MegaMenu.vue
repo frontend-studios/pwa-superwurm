@@ -242,7 +242,10 @@
                           <SfCounter class="ml-2">{{ categoryTreeGetters.getCount(node) }}</SfCounter>
                         </div>
                       </NuxtLink>
-                      <div class="flex justify-center items-center h-8 w-16" @click="goNext(node.id)">
+                      <div
+                        class="flex justify-center items-center h-8 w-16 mobile-menu-button"
+                        @click="goNext(node.id)"
+                      >
                         <SfIconChevronRight class="text-neutral-500" />
                       </div>
                     </div>
