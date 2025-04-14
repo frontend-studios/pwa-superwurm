@@ -27,7 +27,7 @@
                   <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
                   <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
                   <SfIconStarFilled size="xs" class="text-orange-400 -ml-1" />
-                  <span class="text-sm font-medium text-white">4,3</span>
+                  <span class="text-sm font-medium text-white">4,8</span>
                 </a>
               </li>
             </ul>

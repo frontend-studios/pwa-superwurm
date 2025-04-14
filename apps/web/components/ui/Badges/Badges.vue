@@ -29,34 +29,9 @@
           :class="[
             'availability-' + product.variation.availability.id,
             { 'text-primary-500': product.variation.availability.id === 1 },
-            { 'text-yellow-500': product.variation.availability.id === 2 },
-            { 'text-orange-500': product.variation.availability.id === 3 },
-            { 'text-red-500': product.variation.availability.id === 4 },
-            { 'text-black': product.variation.availability.id === 5 },
-            { 'text-black': product.variation.availability.id === 6 },
-            { 'text-black': product.variation.availability.id === 7 },
-            { 'text-black': product.variation.availability.id === 8 },
           ]"
         />
-        <span class="hidden md:inline font-bold text-secondary-500">
-          {{
-            [1].includes(product.variation.availability.id)
-              ? 'Auf Lager'
-              : [2].includes(product.variation.availability.id)
-                ? 'Kurzfristig verfügbar'
-                : [3].includes(product.variation.availability.id)
-                  ? 'Lieferzeit ca. 2 Wochen'
-                  : [4].includes(product.variation.availability.id)
-                    ? 'Lieferzeit ca. 4 Wochen'
-                    : [5].includes(product.variation.availability.id)
-                      ? 'Auf Anfrage'
-                      : [6].includes(product.variation.availability.id)
-                        ? 'Nicht auf Lager'
-                        : [7, 8].includes(product.variation.availability.id)
-                          ? 'Vergriffen'
-                          : product.variation.availability.names.name
-          }}
-        </span>
+        {{ productGetters.getAvailabilityName(product) }}
       </li>
     </ul>
   </div>

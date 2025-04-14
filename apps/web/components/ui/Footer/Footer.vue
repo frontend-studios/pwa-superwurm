@@ -79,7 +79,7 @@
             <SfIconStarFilled size="xs" class="text-black -ml-1" />
             <SfIconStarFilled size="xs" class="text-black -ml-1" />
             <div>
-              <span class="font-semibold">4.9</span>/5, basierend auf <span class="font-semibold">61</span> Bewertungen
+              <span class="font-semibold">4,8</span>/5, basierend auf <span class="font-semibold">61</span> Bewertungen
             </div>
             <a
               href="https://www.google.com/search?sca_esv=3d6848995d8cd9b4&rlz=1C1CHBD_deDE892DE892&tbm=lcl&sxsrf=AHTn8zra5aAkQiN_OMOl8LAGlBmVTUD8gQ:1742562473685&q=Superwurm+GmbH+%26+Co.+KG+Rezensionen&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2tjQzMTQxMza3BFImhqYGBkYbGBlfMSoHlxakFpWXFuUquOcmeSioKTjn6yl4uysEpVal5hVn5uel5i1iJUYVAKmEYxNmAAAA&rldimm=3964146379414415002&hl=de-DE&sa=X&ved=2ahUKEwiOv_iJn5uMAxU1zQIHHUUWJeMQ9fQKegQIRBAF&biw=1920&bih=945&dpr=1#lkt=LocalPoiReviews"
