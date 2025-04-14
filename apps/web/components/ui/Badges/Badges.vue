@@ -33,6 +33,9 @@
             { 'text-orange-500': product.variation.availability.id === 3 },
             { 'text-red-500': product.variation.availability.id === 4 },
             { 'text-black': product.variation.availability.id === 5 },
+            { 'text-black': product.variation.availability.id === 6 },
+            { 'text-black': product.variation.availability.id === 7 },
+            { 'text-black': product.variation.availability.id === 8 },
           ]"
         />
         <span class="hidden md:inline font-bold text-secondary-500">

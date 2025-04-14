@@ -457,7 +457,7 @@ const bottom_categories = [
     title: 'Merch &',
     title2nd: 'Sticker',
     link: '/merch',
-    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/Merch-Sticker.png',
+    image: 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/final_images/merch_sticker_notext.png',
     btntext: 'Zum Merch!',
     alt: 'Futterwürmer',
   },
