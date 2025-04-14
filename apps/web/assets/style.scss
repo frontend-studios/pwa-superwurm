@@ -825,6 +825,9 @@ div#footer_newsletter2go {
   div div div label {
     display: none;
   }
+  form:not(:first-of-type) {
+    display: none !important;
+  }
 }
 .sub-footer {
   > div {
