@@ -424,8 +424,11 @@ header {
   }
   .social-icons {
     .social-item {
-      &:hover {
-        background-color: $color-neutral;
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: #eeeadb;
+        color: #5d4a33;
       }
     }
   }

@@ -114,7 +114,7 @@
     <div class="max-w-screen-2xl mx-auto relative social-icons mb-5 md:mb-10">
       <div class="grid grid-cols-4 gap-2 bg-secondary-500 border-25 md:bg-transparent md:rounded-none">
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item focus-within:text-secondary-500 active:text-secondary-500"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 active:text-secondary-500 social-item"
         >
           <a href="https://www.facebook.com/Wurmfarm/" target="_blank">
             <div class="py-2">
@@ -126,7 +126,7 @@
           </a>
         </div>
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item focus-within:text-secondary-500 active:text-secondary-500"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 active:text-secondary-500 social-item"
         >
           <a href="https://www.youtube.com/user/SuperwurmTV" target="_blank">
             <div class="py-2">
@@ -137,7 +137,7 @@
           </a>
         </div>
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item focus-within:text-secondary-500 active:text-secondary-500"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 active:text-secondary-500 social-item"
         >
           <a href="https://www.instagram.com/superwurm.de/" target="_blank">
             <div class="py-2">
@@ -149,7 +149,7 @@
           </a>
         </div>
         <div
-          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 social-item tiktok focus-within:text-secondary-500 active:text-secondary-500"
+          class="bg-secondary-500 border-25 w-full text-center text-custom border-secondary-500 border-2 hover:text-secondary-500 active:text-secondary-500 social-item tiktok"
         >
           <a href="https://www.tiktok.com/@superwurm.de" target="_blank">
             <div class="py-2">
