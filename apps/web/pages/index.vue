@@ -1,7 +1,7 @@
 <template>
   <div class="fs-homepage px-1 md:px-md-0">
     <div class="max-w-screen-2xl relative mx-auto border-25 video-container">
-      <video id="introVideo" class="border-25 mb-2" autoplay loop muted>
+      <video id="introVideo" class="border-25 mb-2" autoplay loop muted controlsList="nodownload">
         <source
           src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_images/Superwurm_Website.mp4"
           type="video/mp4"
