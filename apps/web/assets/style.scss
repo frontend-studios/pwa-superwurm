@@ -260,7 +260,6 @@ header {
     }
   }
 }
-
 .fs-homepage {
   .single-cat {
     flex: 0 0 83%;
@@ -307,9 +306,7 @@ header {
       }
     }
   }
-
   .video-container {
-    pointer-events: none;
     video {
       width: 100%;
       height: auto;
