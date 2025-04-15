@@ -16,9 +16,9 @@
 
     <div class="max-w-screen-2xl relative mx-auto my-5 lg:my-10 text-center">
       <span class="mb-0 block font-bold text-secondary-500 xl:text-2xl">Willkommen bei Superwurm</span>
-      <span class="custom-font text-4xl text-secondary-500 xl:text-5xl font-bold block"
-        >Finde die perfekten Produkte für deinen Garten, <br />deine Tiere und dein Hobby
-      </span>
+      <h1 class="custom-font text-4xl text-secondary-500 xl:text-5xl font-bold block">
+        Finde die perfekten Produkte für deinen Garten, <br />deine Tiere und dein Hobby
+      </h1>
     </div>
 
     <NuxtLazyHydrate when-visible>

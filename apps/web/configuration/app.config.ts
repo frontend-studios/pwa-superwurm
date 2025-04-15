@@ -8,7 +8,9 @@ export const appConfiguration = {
       { name: 'shop-name', content: process.env.STORENAME || 'SUPERWURM' },
       {
         name: 'description',
-        content: process.env.METADESC || 'SUPERWURM | Angelwürmer, Garten-/ Kompostwürmer, Futterwürmer',
+        content:
+          process.env.METADESC ||
+          'Kompostwürmer, Angelwürmer, Futterwürmer, Nützlinge und Wurmhumus mit Lebendgarantie für Bestellungen in Deutschland – jetzt online kaufen!',
       },
       {
         name: 'keywords',
