@@ -21,6 +21,10 @@ import { SfSelect } from '@storefront-ui/vue';
 const { getFacetsFromURL, updateSorting } = useCategoryFilter();
 const options = ref([
   {
+    label: 'positionDown',
+    value: 'item.position_asc',
+  },
+  {
     label: 'nameA-Z',
     value: 'texts.name1_asc',
   },
@@ -43,10 +47,6 @@ const options = ref([
   {
     label: 'reviewsDown',
     value: 'item.feedbackDecimal_desc',
-  },
-  {
-    label: 'Position Absteigend',
-    value: 'item.position_asc',
   },
 ]);
 const selected = ref(options.value[0].value);

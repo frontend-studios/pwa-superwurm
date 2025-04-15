@@ -915,7 +915,8 @@
     "priceDown": "Preis ⬇",
     "priceUp": "Preis ⬆",
     "reviewsDown": "Kundenbewertung ⬇",
-    "reviewsUp": "Kundenbewertung ⬆"
+    "reviewsUp": "Kundenbewertung ⬆",
+    "positionDown": "Topseller"
   },
   "storefrontError": {
     "offer": {
