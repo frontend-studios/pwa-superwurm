@@ -44,6 +44,10 @@ const options = ref([
     label: 'reviewsDown',
     value: 'item.feedbackDecimal_desc',
   },
+  {
+    label: 'Position Absteigend',
+    value: 'item.position_asc',
+  },
 ]);
 const selected = ref(options.value[0].value);
 
