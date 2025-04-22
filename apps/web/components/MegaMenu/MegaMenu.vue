@@ -1,12 +1,5 @@
 <template>
   <header ref="referenceRef" :class="headerClass" class="mb-2 w-full top-0 z-20">
-    <div class="w-full mx-auto border-0 bg-red-700 py-1 px-4 xl:px-0">
-      <p class="text-center text-white font-medium text-sm">
-        Liebe Kunden, der Versand von Rotwürmern erfolgt noch bis zum 16.04.2025. Nach Ostern versenden wir wieder wie
-        gewohnt!
-      </p>
-    </div>
-
     <div class="w-full mx-auto border-0 bg-primary-500 border-neutral-200 py-1 px-4 xl:px-0">
       <div
         class="max-w-screen-2xl mx-auto flex justify-between items-center flex-wrap md:flex-nowrap"
