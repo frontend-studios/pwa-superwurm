@@ -495,6 +495,11 @@ header {
     button {
       display: none;
     }
+    .availability {
+      .availability-7 {
+        fill: #d4021d;
+      }
+    }
   }
   &.fs-new {
     &:after {
@@ -671,6 +676,11 @@ header {
     .single-prices {
       @media (min-width: 768px) and (max-width: 1023px) {
         flex: 1 0 50%;
+      }
+      .availability-preview {
+        .availability-7 {
+          fill: #d4021d;
+        }
       }
     }
     .single-usp {

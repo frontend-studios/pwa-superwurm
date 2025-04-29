@@ -15,7 +15,15 @@
             {{ $t('listSettings') }}
           </UiButton>
         </div>
-
+        <UiPagination
+          v-if="totalProducts > 0"
+          :key="`${totalProducts}-${itemsPerPage}`"
+          :current-page="getFacetsFromURL().page ?? 1"
+          :total-items="totalProducts"
+          :page-size="itemsPerPage"
+          :max-visible-pages="maxVisiblePages"
+          class="mb-4"
+        />
         <section
           v-if="products?.length"
           class="grid grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-3 3xl:grid-cols-4 mb-10 md:mb-5"

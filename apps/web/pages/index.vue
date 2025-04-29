@@ -61,7 +61,7 @@
                 href="/garten-kompost/gartenwuermer"
                 class="btn border-25 bg-custom text-secondary-500 font-bold px-4 py-3 mt-4 hover:text-white hover:bg-secondary-500 border-2"
               >
-                <span>Zu den Gartenwürmer!</span>
+                <span>Zu den Gartenwürmern!</span>
               </button>
             </div>
           </a>

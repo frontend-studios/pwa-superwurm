@@ -70,6 +70,7 @@ onMounted(() => {
   // Funktion zum Laden des Doofinder Skripts
 
   loadScript('https://eu1-config.doofinder.com/2.x/a76684b8-5230-4d3c-8afe-1ce1e34195fd.js');
+
   // Funktion zur Ausführung des Newsletter-Formulars
   const runNewsletterForm = () => {
     addInlineScript(
