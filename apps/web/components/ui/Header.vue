@@ -13,7 +13,7 @@
           <SfIconSearch />
         </UiButton>
 
-        <UiSearch class="opensearch flex-1 mr-2 z-20" v-if="viewport.isGreaterOrEquals('lg')" />
+        <UiSearch class="opensearch flex-1 mr-2 z-20" v-if="viewport.isGreaterOrEquals('lg')" @click="close()" />
 
         <!-- Modal toggle -->
         <UiButton
@@ -372,6 +372,7 @@ const isLogin = ref(true);
 const { data: cart } = useCart();
 const { wishlistItemIds } = useWishlist();
 const cartItemsCount = ref(0);
+const { close } = useMegaMenu();
 
 const NuxtLink = resolveComponent('NuxtLink');
 const { t, localeCodes } = useI18n();
@@ -393,7 +394,7 @@ onNuxtReady(() => {
   cartItemsCount.value = cart.value?.items?.reduce((price, { quantity }) => price + quantity, 0) ?? 0;
 });
 
-const { isOpen, open, close } = useDisclosure();
+const { isOpen, open } = useDisclosure();
 const cartTotalPrice = computed(() => {
   return cart.value?.items?.reduce((total, { quantity, price }) => total + quantity * price, 0) ?? 0;
 });
