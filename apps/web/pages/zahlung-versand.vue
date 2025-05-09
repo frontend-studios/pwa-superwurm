@@ -25,6 +25,24 @@
       Bitte beachten Sie, dass wir aufgrund der komplexen Preisgestaltung und Staffelungen hier keine ausführlichen
       Angaben über internationale Versandkosten machen können.
     </p>
+
+    <p>
+      <strong>Schweizer Kunden aufgepasst - Versandkosten sparen!</strong><br />
+
+      Um die Versandkosten für Sie zu reduzieren haben Sie die Möglichkeit sich vor Ihrer Bestellung unter
+      www.europaketshop.ch ein kostenfreies Kundenkonto anzulegen. <br />Bitte nutzen Sie anschließend bei Ihrer
+      Bestellung die Lieferadresse vom Europaketshop und geben Ihren vollständigen Namen und die 5-stellige Kundennummer
+      vom Europaketshop an. Wir versenden Ihr Paket kostengünstig an die von Ihnen gewählte Europaketshop-Filiale.
+      Sobald Ihre Ware dort eintrifft, erhalten Sie umgehend eine E-Mail oder SMS und können die Pakete innerhalb von 30
+      Tagen gegen Zahlung einer geringen Lagergebühr in Ihrer Filiale abholen.
+    </p>
+    <a href="https://www.europaketshop.ch" target="_blank" class="link-to-eps">
+      <img
+        src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/Banner-EPSXXLhell.jpg"
+        alt="EuroPaketShop"
+      />
+    </a>
+
     <p>
       <strong>Lieferfristen (Deutschland):<br /></strong>Soweit im Angebot nichts anderes angegeben ist, erfolgt die
       Lieferung unserer Waren innerhalb von 2-5 Werktagen Regellaufzeit. Bitte beachten Sie, dass Regellaufzeiten keine
