@@ -26,8 +26,19 @@ export const usePaymentMethods: UsePaymentMethodsReturn = () => {
   const fetchPaymentMethods: FetchPaymentMethods = async () => {
     state.value.loading = true;
     const { data, error } = await useAsyncData(() => useSdk().plentysystems.getPaymentProviders());
+
+    const integratedPayPalKeys = ['PAYPAL', 'PAYPAL_UNBRANDED_CARD', 'PAYPAL_GOOGLE_PAY', 'PAYPAL_APPLE_PAY'];
+    const originalList = data.value?.data?.list ?? [];
+    const filteredPaymentList = originalList.filter((provider) => {
+      const isUnsupportedPlentyPayPal =
+        provider.key === 'plentyPayPal' && !integratedPayPalKeys.includes(provider.paymentKey);
+
+      return !isUnsupportedPlentyPayPal;
+    });
+
     useHandleError(error.value);
     state.value.data = data.value?.data ?? state.value.data;
+    state.value.data.list = filteredPaymentList ?? state.value.data.list;
     state.value.loading = false;
 
     return state.value.data;
