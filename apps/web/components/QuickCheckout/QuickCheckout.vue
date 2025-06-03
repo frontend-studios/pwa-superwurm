@@ -3,7 +3,7 @@
     v-if="isOpen"
     v-model="isOpen"
     tag="section"
-    class="h-full md:h-fit m-0 p-0 lg:w-[1000px] overflow-y-auto quick-checkout-modal"
+    class="h-full md:h-fit m-0 p-0 lg:w-[1000px] overflow-y-auto"
     aria-label="quick-checkout-modal"
     @mousemove="endTimer()"
   >
@@ -14,7 +14,7 @@
       <div class="absolute right-2 top-2 flex items-center">
         <span v-if="hasTimer" class="mr-2 text-gray-400">{{ timer }}s</span>
         <UiButton
-          :aria-label="$t('closeDialog')"
+          :aria-label="t('closeDialog')"
           data-testid="quick-checkout-close"
           square
           variant="tertiary"
@@ -65,7 +65,7 @@
                 target="_blank"
                 class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
               >
-                {{ $t('delivery') }}
+                {{ t('delivery') }}
               </SfLink>
             </template>
           </i18n-t>
@@ -78,14 +78,17 @@
           <p class="font-medium text-base">{{ t('quickCheckout.cartContains', cartItemsCount) }}</p>
           <div class="grid grid-cols-2">
             <p class="text-base">{{ t('quickCheckout.subTotal') }}:</p>
-            <p data-testid="subtotal" class="font-medium text-right">{{ n(totals.subTotal, 'currency') }}</p>
+            <p v-if="showNetPrices" data-testid="subtotal" class="font-medium text-right">
+              {{ format(cartGetters.getItemSumNet(cart)) }}
+            </p>
+            <p v-else data-testid="subtotal" class="font-medium text-right">{{ format(totals.subTotal) }}</p>
           </div>
         </div>
 
         <UiButton
           data-testid="quick-checkout-cart-button"
           size="lg"
-          class="w-full mb-3 quick-checkout-cart-button"
+          class="w-full mb-3"
           variant="secondary"
           @click="goToPage(paths.cart)"
         >
@@ -96,33 +99,15 @@
           data-testid="quick-checkout-checkout-button"
           size="lg"
           class="w-full mb-4 md:mb-0"
-          @click="goToPage(paths.checkout)"
+          @click="goToCheckout()"
         >
           {{ t('goToCheckout') }}
-        </UiButton>
-        <UiButton
-          :aria-label="$t('closeDialog')"
-          data-testid="quick-checkout-close"
-          square
-          :noClass="true"
-          class="inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed py-3 leading-6 px-6 gap-3 text-primary-500 hover:bg-primary-400 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-1 ring-inset ring-primary-500 shadow hover:shadow-md active:shadow hover:ring-primary-800 active:ring-primary-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50 w-full mb-3 quick-checkout-cart-button mt-3"
-          variant="tertiary"
-          @click="close"
-        >
-          Weiter einkaufen
         </UiButton>
         <OrDivider v-if="isPaypalAvailable" class="my-4" />
         <PayPalExpressButton class="w-full text-center" type="CartPreview" @on-approved="isOpen = false" />
         <PayPalPayLaterBanner placement="payment" :amount="totals.total" />
       </div>
     </div>
-
-    <NuxtLazyHydrate when-visible>
-      <p class="font-bold text-lg leading-6 md:text-xl text-secondary-500 mb-1">Wird oft zusammen gekauft</p>
-      <div class="recommendedProductsModal">
-        <RecommendedProducts :category-id="productGetters.getCategoryIds(product)[0]" />
-      </div>
-    </NuxtLazyHydrate>
   </UiModal>
 </template>
 
@@ -136,7 +121,8 @@ import { paths } from '~/utils/paths';
 
 defineProps<QuickCheckoutProps>();
 
-const { t, n } = useI18n();
+const { t } = useI18n();
+const { format } = usePriceFormatter();
 
 const { showNetPrices } = useCustomer();
 
@@ -146,6 +132,7 @@ const { isAvailable: isPaypalAvailable, loadConfig } = usePayPal();
 const { addModernImageExtension } = useModernImage();
 const { isOpen, timer, startTimer, endTimer, closeQuickCheckout, hasTimer, quantity } = useQuickCheckout();
 const cartItemsCount = computed(() => cart.value?.items?.reduce((price, { quantity }) => price + quantity, 0) ?? 0);
+const { isAuthorized } = useCustomer();
 
 onMounted(() => {
   startTimer();
@@ -163,6 +150,8 @@ const totals = computed(() => {
     vats: totalsData.totalVats,
   };
 });
+
+const goToCheckout = () => (isAuthorized.value ? goToPage(paths.checkout) : goToPage(paths.guestLogin));
 
 const goToPage = (path: string) => {
   closeQuickCheckout();

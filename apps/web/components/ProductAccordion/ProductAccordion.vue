@@ -1,7 +1,7 @@
 <template>
   <div data-testid="product-accordion" class="product-details">
     <h2 class="custom-font text-3xl text-secondary-500 font-semibold whitespace-nowrap my-3 lg:my-6">
-      {{ $t('productDetails') }}
+      {{ t('productDetails') }}
     </h2>
 
     <div class="no-preflight" v-html="productGetters.getDescription(product)" />
@@ -17,6 +17,7 @@ import type { ProductAccordionPropsType } from '~/components/ProductAccordion/ty
 const props = defineProps<ProductAccordionPropsType>();
 
 const { product } = toRefs(props);
+const { t } = useI18n();
 
 const productDetailsOpen = ref(true);
 const technicalDataOpen = ref(false);

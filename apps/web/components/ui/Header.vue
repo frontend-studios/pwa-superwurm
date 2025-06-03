@@ -56,7 +56,7 @@
         >
           <header>
             <UiButton
-              :aria-label="$t('closeDialog')"
+              :aria-label="t('closeDialog')"
               square
               variant="tertiary"
               class="absolute right-2 top-2"
@@ -313,7 +313,7 @@
   >
     <header>
       <UiButton
-        :aria-label="$t('closeDialog')"
+        :aria-label="t('closeDialog')"
         square
         variant="tertiary"
         class="absolute right-2 top-2"
@@ -335,7 +335,7 @@
       aria-labelledby="search-modal-title"
     >
       <header class="mb-4">
-        <UiButton square variant="tertiary" class="absolute right-4 top-2" @click="searchModalClose">
+        <UiButton square variant="tertiary" class="absolute right-4 top-2" @click="searchModalClose" :aria-label="t('closeDialog')">
           <SfIconClose class="text-neutral-500" />
         </UiButton>
         <h3 id="search-modal-title" class="absolute left-6 top-4 font-bold typography-headline-4 mb-4">
@@ -372,10 +372,12 @@ const isLogin = ref(true);
 const { data: cart } = useCart();
 const { wishlistItemIds } = useWishlist();
 const cartItemsCount = ref(0);
+const { iconColor, headerBackgroundColor } = useSiteConfiguration();
 const { close } = useMegaMenu();
 
 const NuxtLink = resolveComponent('NuxtLink');
-const { t, localeCodes } = useI18n();
+// const { t, localeCodes } = useI18n();
+const { t } = useI18n();
 const route = useRoute();
 const localePath = useLocalePath();
 const { isOpen: isAccountDropdownOpen, toggle: accountDropdownToggle } = useDisclosure();
@@ -389,6 +391,7 @@ const viewport = useViewport();
 const runtimeConfig = useRuntimeConfig();
 const showConfigurationDrawer = runtimeConfig.public.showConfigurationDrawer;
 const { isEditing, disableActions } = useEditor();
+const isActive = computed(() => isLanguageSelectOpen);
 
 onNuxtReady(() => {
   cartItemsCount.value = cart.value?.items?.reduce((price, { quantity }) => price + quantity, 0) ?? 0;

@@ -34,8 +34,8 @@
         </div>
 
         <div
-          class="h-auto line-clamp-2 mt-1 font-normal typography-text-sm no-preflight"
-          v-html="productBundleGetters.getBundleItemDescription(item)"
+          class="h-auto line-clamp-3 mt-1 font-normal typography-text-sm no-preflight"
+          v-html="productBundleGetters.getBundleItemShortDescription(item)"
         />
       </div>
       <div v-else>

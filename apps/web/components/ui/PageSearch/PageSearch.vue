@@ -96,11 +96,13 @@ const openPages = () => {
   emit('close');
 };
 </script>
+
 <style scoped>
 :deep(.multiselect__option--highlight) {
   background-color: #f7fafc !important;
   color: #1a202c;
 }
+
 :deep(.multiselect__content-wrapper) {
   max-height: 400px !important;
 }

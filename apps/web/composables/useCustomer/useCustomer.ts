@@ -1,4 +1,5 @@
 import {
+  AddressType,
   type ApiError,
   type RegisterParams,
   type SessionResult,
@@ -155,6 +156,8 @@ export const useCustomer: UseCustomerReturn = () => {
     useHandleError(error.value);
 
     state.value.data.user = null;
+    useCheckoutAddress(AddressType.Shipping).clear();
+    useCheckoutAddress(AddressType.Billing).clear();
     checkUserState();
     useWishlist().setWishlistItemIds([]);
   };
@@ -219,6 +222,10 @@ export const useCustomer: UseCustomerReturn = () => {
     }),
   );
 
+  const missingGuestCheckoutEmail = computed(
+    () => (state.value.isGuest || (!state.value.isGuest && !state.value.isAuthorized)) && !state.value.validGuestEmail,
+  );
+
   const backToContactInformation = (): boolean => {
     const classList = ['bg-primary-50', 'rounded-md'];
     const opacityClass = 'opacity-0';
@@ -250,6 +257,7 @@ export const useCustomer: UseCustomerReturn = () => {
     loginAsGuest,
     changePassword,
     emailValidationSchema,
+    missingGuestCheckoutEmail,
     backToContactInformation,
     showNetPrices: state?.value?.data?.user?.showNetPrices,
     ...toRefs(state.value),

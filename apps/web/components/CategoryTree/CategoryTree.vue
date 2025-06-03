@@ -7,7 +7,7 @@
       class="py-2 px-4 md:px-0 mb-0 text-xl custom-font text-secondary-500 font-bold uppercase tracking-widest rounded-none select-none"
       data-testid="category-tree"
     >
-      {{ $t('category') }}
+    {{ t('category') }}
     </h6>
     <template v-if="parent">
       <CategoryTreeItem
@@ -41,6 +41,7 @@ const { data: categoryTree } = useCategoryTree();
 const { buildCategoryMenuLink } = useLocalization();
 
 const localePath = useLocalePath();
+const { t } = useI18n();
 
 const categoryTreeItem = computed(() =>
   categoryTreeGetters.findCategoryById(categoryTree.value, categoryGetters.getId(props.category)),

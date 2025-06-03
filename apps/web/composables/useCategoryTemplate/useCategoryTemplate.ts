@@ -7,8 +7,8 @@ import type {
 } from '~/composables/useCategoryTemplate/types';
 import type { Block } from '@plentymarkets/shop-api';
 
-import homepageTemplateDataDe from '~/composables/useHomepage/homepageTemplateDataDe.json';
-import homepageTemplateDataEn from '~/composables/useHomepage/homepageTemplateDataEn.json';
+import homepageTemplateDataDe from './homepageTemplateDataDe.json';
+import homepageTemplateDataEn from './homepageTemplateDataEn.json';
 
 const useLocaleSpecificHomepageTemplate = (locale: string) =>
   locale === 'de' ? (homepageTemplateDataDe as Block[]) : (homepageTemplateDataEn as Block[]);
@@ -30,7 +30,7 @@ export const useCategoryTemplate: UseCategoryTemplateReturn = () => {
 
     state.value.loading = false;
 
-    if (!data?.value?.data.length) {
+    if (!data?.value?.data.length && type === 'immutable') {
       state.value.data = useLocaleSpecificHomepageTemplate($i18n.locale.value);
     } else {
       state.value.data = data?.value?.data ?? state.value.data;

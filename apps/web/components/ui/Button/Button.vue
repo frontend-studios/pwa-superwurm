@@ -13,7 +13,8 @@
           ]
     "
     data-testid="button"
-    aria-label="button"
+    :aria-label="ariaLabel"
+    :aria-hidden="ariaHidden"
   >
     <slot v-if="$slots.prefix" name="prefix" />
     <slot />
@@ -47,6 +48,14 @@ const props = defineProps({
     default: undefined,
   },
   noClass: {
+    type: Boolean,
+    default: false,
+  },
+    ariaLabel: {
+    type: String,
+    default: '',
+  },
+  ariaHidden: {
     type: Boolean,
     default: false,
   },

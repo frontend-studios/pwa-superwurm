@@ -77,7 +77,7 @@
             <template v-for="(menuNode, index) in categoryTree" v-else :key="index">
               <li :class="`cat-${menuNode.id}`">
                 <NuxtLink :to="localePath(generateCategoryLink(menuNode))">
-                  <button
+                  <div
                     ref="triggerReference"
                     :noClass="true"
                     data-testid="category-button"
@@ -94,7 +94,7 @@
                       :class="categoryTreeGetters.getName(menuNode)"
                       >{{ categoryTreeGetters.getName(menuNode) }}</span
                     >
-                  </button>
+                </div>
                 </NuxtLink>
 
                 <div
@@ -289,6 +289,7 @@ const { t } = useI18n();
 const viewport = useViewport();
 const localePath = useLocalePath();
 const { buildCategoryMenuLink } = useLocalization();
+const { headerBackgroundColor } = useSiteConfiguration();
 const NuxtLink = resolveComponent('NuxtLink');
 const { setDrawerOpen } = useDrawerState();
 const props = defineProps<MegaMenuProps>();

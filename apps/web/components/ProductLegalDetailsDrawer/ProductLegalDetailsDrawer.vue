@@ -20,6 +20,7 @@
           square
           variant="tertiary"
           data-testid="product-legal-details-close"
+          :aria-label="t('closeDrawer')"
           class="text-white"
           @click="open = false"
         >

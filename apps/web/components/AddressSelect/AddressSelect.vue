@@ -14,23 +14,22 @@
     v-if="!disabled"
     v-model="isOpen"
     tag="section"
-    class="h-full w-full overflow-auto md:w-[600px] md:h-fit login-modal"
+    class="h-full w-full overflow-auto md:w-[600px] md:h-fit"
     aria-labelledby="address-modal-title"
     data-testid="checkout-pick-address-modal"
   >
-    <header class="bg-transparent">
-      <UiButton square variant="tertiary" class="absolute right-2 top-2" @click="close">
+    <header>
+      <UiButton
+        :aria-label="t('closePickSavedAddress')"
+        square
+        variant="tertiary"
+        class="absolute right-2 top-2"
+        @click="close"
+      >
         <SfIconClose />
       </UiButton>
-
-      <h3
-        id="address-modal-title"
-        class="text-neutral-900 text-lg md:text-2xl font-bold flex items-center justify-between"
-      >
+      <h3 id="address-modal-title" class="text-neutral-900 text-lg md:text-2xl font-bold">
         {{ t('pickSavedAddress') }}
-        <UiButton variant="secondary" class="float-right" @click="emitNewAddressEvent">
-          {{ type === AddressType.Shipping ? t('newShippingAddress') : t('newBillingAddress') }}
-        </UiButton>
       </h3>
       <h1 class="my-2 mb-6 font-semibold">{{ t('pickSavedAddressSubtitle') }}</h1>
     </header>
@@ -42,7 +41,7 @@
       :is-selected="Number(userAddressGetters.getId(checkoutAddress)) === Number(userAddressGetters.getId(address))"
       :is-default="primaryAddressId === Number(userAddressGetters.getId(address))"
       :show-divider="Number(userAddressGetters.getId(checkoutAddress)) !== Number(userAddressGetters.getId(address))"
-      class="group cursor-pointer"
+      class="group hover:bg-primary-50 cursor-pointer"
       @click="handleSetCheckoutAddress(address)"
       @on-delete="handleDeleteAddress(address)"
       @make-default="handleSetDefaultAddress(address)"

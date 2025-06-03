@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 md:px-0 flex items-center flex-col order-success-page" data-testid="order-success-page">
+  <div class="px-4 md:px-0 flex items-center flex-col" data-testid="order-success-page">
     <div class="p-4 md:p-6 flex flex-col max-w-2xl mx-auto">
       <h1 class="mt-6 mb-1 text-2xl text-center" data-testid="success-header">
         {{ !orderGetters.isReturn(order) ? t('successInfoOrderHeader') : t('successInfoReturnHeader') }}
@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="flex flex-col md:flex-row w-full md:w-auto lg:w-3/4 flex-wrap gap-x-6 order-conf">
+    <div class="flex flex-col md:flex-row w-full md:w-auto lg:w-3/4 flex-wrap gap-x-6">
       <div class="flex-1">
         <div class="border border-1 border-neutral-200 rounded bg-neutral-100 p-4 w-full my-4 text-sm">
           <OrderDetails :order="order" />
@@ -41,7 +41,7 @@
 
         <div
           v-if="!isAuthorized"
-          class="border border-1 border-neutral-200 rounded p-4 w-full mt-4 text-sm items-center flex flex-col bg-white"
+          class="border border-1 border-neutral-200 rounded bg-neutral-100 p-4 w-full mt-4 text-sm items-center flex flex-col"
         >
           <div class="font-bold text-primary-700 md:text-lg text-center mt-5">
             {{ t('orderConfirmation.saveOrderToAccount') }}
@@ -71,11 +71,17 @@
     v-if="isAuthenticationOpen"
     v-model="isAuthenticationOpen"
     tag="section"
-    class="h-full md:w-[500px] md:h-fit m-0 p-0 overflow-y-auto login-modal"
+    class="h-full md:w-[500px] md:h-fit m-0 p-0 overflow-y-auto"
     aria-labelledby="login-modal"
   >
     <header>
-      <UiButton square variant="tertiary" class="absolute right-2 top-2" @click="closeAuthentication()">
+      <UiButton
+        :aria-label="t('closeAuthentication')"
+        square
+        variant="tertiary"
+        class="absolute right-2 top-2"
+        @click="closeAuthentication()"
+      >
         <SfIconClose />
       </UiButton>
     </header>

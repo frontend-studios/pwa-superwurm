@@ -141,8 +141,10 @@ const recommendedBlock = computed(
       categoryId: '',
     }) as ProductRecommendedProductsContent,
 );
+
 const debouncedFn = useDebounceFn((event: Event) => {
   const target = event.target as HTMLInputElement;
+
   recommendedBlock.value.categoryId = target.value.toString();
 }, 1000);
 </script>

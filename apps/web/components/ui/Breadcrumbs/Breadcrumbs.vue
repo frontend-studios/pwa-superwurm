@@ -10,7 +10,7 @@
             <template #trigger>
               <UiButton
                 class="relative hidden w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
-                :aria-label="$t('breadcrumbsDropdownText')"
+                :aria-label="t('breadcrumbsDropdownText')"
                 variant="tertiary"
                 square
                 data-testid="breadcrumbs-dropdown-button"
@@ -68,7 +68,7 @@ import type { BreadcrumbsProps } from '~/components/ui/Breadcrumbs/types';
 defineProps<BreadcrumbsProps>();
 
 const localePath = useLocalePath();
-
+const { t } = useI18n();
 const dropdownOpened = ref(false);
 const close = () => {
   dropdownOpened.value = false;

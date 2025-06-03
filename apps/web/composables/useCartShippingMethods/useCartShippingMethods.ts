@@ -26,12 +26,6 @@ export const useCartShippingMethods: UseCartShippingMethodsReturn = () => {
     state.value.selectedMethod = state.value.data.list?.find(
       (method) => method.parcelServicePresetId === Number(shippingMethodId),
     );
-       if (!state.value.selectedMethod) {
-      const defaultMethod = state.value.data.list?.[0];
-      if (defaultMethod) {
-        await saveShippingMethod(defaultMethod.parcelServicePresetId);
-      }
-    }
   };
 
   /**
@@ -50,7 +44,7 @@ export const useCartShippingMethods: UseCartShippingMethodsReturn = () => {
     useHandleError(error.value);
     state.value.data = data.value?.data ?? state.value.data;
 
-    await setSelectedMethod(Number(shippingProviderGetters.getShippingProfileId(cart.value)));
+    setSelectedMethod(Number(shippingProviderGetters.getShippingProfileId(cart.value)));
 
     state.value.loading = false;
     return state.value.data;

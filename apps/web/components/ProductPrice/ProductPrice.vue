@@ -3,7 +3,7 @@
     <Price :price="priceWithProperties" :crossed-price="crossedPrice" />
     <div v-if="(productBundleGetters?.getBundleDiscount(product) ?? 0) > 0" class="m-auto">
       <UiTag :size="'sm'" :variant="'secondary'">{{
-        $t('procentageSavings', { percent: productBundleGetters.getBundleDiscount(product) })
+        t('procentageSavings', { percent: productBundleGetters.getBundleDiscount(product) })
       }}</UiTag>
     </div>
   </div>
@@ -25,6 +25,7 @@ const props = defineProps<ProductPriceProps>();
 const { getPropertiesPrice } = useProductOrderProperties();
 const { crossedPrice } = useProductPrice(props.product);
 const { lastUpdatedCartItem } = useCart();
+const { t } = useI18n();
 
 const priceWithProperties = computed(
   () =>

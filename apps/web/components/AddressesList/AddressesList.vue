@@ -19,7 +19,7 @@
 
     <div class="col-span-3 text-center">
       <h3 v-if="addresses.length === 0" class="typography-headline-3 font-bold mt-6 mb-4">
-        {{ $t('account.accountSettings.noAddresses') }}
+        {{ t('account.accountSettings.noAddresses') }}
       </h3>
       <UiButton class="!block mt-6 ml-auto mr-auto w-auto" variant="secondary" @click="editAddress">
         {{ addAddressText }}
@@ -31,7 +31,7 @@
       v-model="isOpen"
       tag="section"
       role="dialog"
-      class="h-full w-full overflow-auto md:w-[600px] md:h-fit login-modal"
+      class="h-full w-full overflow-auto md:w-[600px] md:h-fit"
       aria-labelledby="address-modal-title"
     >
       <header>
@@ -64,6 +64,7 @@ import type { AddressesListProps } from './types';
 const { type, editAddressText, addAddressText } = defineProps<AddressesListProps>();
 
 const { isOpen, open, close } = useDisclosure();
+const { t } = useI18n();
 const { saveAddress: saveShippingAddress } = useAddress(AddressType.Shipping);
 const {
   data: addresses,
