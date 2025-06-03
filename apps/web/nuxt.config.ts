@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     asyncContext: true,
   },
   appConfig: {
-    titleSuffix: process.env.STORENAME || 'PlentyONE Shop',
+    titleSuffix: process.env.STORENAME || 'SUPERWURM',
     fallbackCurrency: 'GBP',
   },
   imports: {
@@ -70,7 +70,7 @@ export default defineNuxtConfig({
       headerLogo:
         process.env.LOGO ||
         process.env.NUXT_PUBLIC_HEADER_LOGO ||
-        'https://cdn02.plentymarkets.com/mevofvd5omld/frontend/Logo/logo.svg',
+        'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Logo_horizontal_RGB_cropped.png',
       homepageCategoryId: Number(process.env.HOMEPAGE) ?? null,
       shippingTextCategoryId: Number(process.env.SHIPPINGTEXT) ?? null,
       storename: process.env.STORENAME || 'PlentyONE GmbH',
@@ -79,8 +79,8 @@ export default defineNuxtConfig({
       isHero: true,
       font: process.env.NUXT_PUBLIC_FONT || 'Red Hat Text',
       blockSize: process.env.NUXT_PUBLIC_BLOCK_SIZE || 'm',
-      primaryColor: process.env.NUXT_PUBLIC_PRIMARY_COLOR || '#062633',
-      secondaryColor: process.env.NUXT_PUBLIC_SECONDARY_COLOR || '#31687d',
+      primaryColor: process.env.NUXT_PUBLIC_PRIMARY_COLOR || '#3fac48',
+      secondaryColor: process.env.NUXT_PUBLIC_SECONDARY_COLOR || '#5d4a33',
       headerBackgroundColor:
         process.env.NUXT_PUBLIC_HEADER_BACKGROUND_COLOR || process.env.NUXT_PUBLIC_PRIMARY_COLOR || '#062633',
       iconColor: process.env.NUXT_PUBLIC_ICON_COLOR || '#ffffff',
@@ -217,9 +217,9 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
     },
     manifest: {
-      name: 'PlentyONE Shop',
-      short_name: 'PlentyONEShop',
-      theme_color: '#0C7992',
+      name: 'superwurm PWA',
+      short_name: 'superwurmPWA',
+      theme_color: '#217b2d',
       icons: [
         {
           src: 'icons/icon-192x192.png',
