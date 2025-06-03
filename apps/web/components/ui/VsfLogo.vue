@@ -3,7 +3,7 @@
     <template v-if="imageExtension === 'svg'">
       <NuxtImg
         ref="logo"
-        :src="headerLogo"
+        src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Logo_horizontal_RGB_cropped.png"
         :alt="`${{ storeName }} logo`"
         class="max-w-72 py-2 px-4"
         width="250"
@@ -15,7 +15,7 @@
       <img
         id="logo"
         ref="logo"
-        :src="headerLogo"
+        src="https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Logo_horizontal_RGB_cropped.png"
         :alt="`${{ storeName }} logo`"
         :width="imgWidth"
         :height="imgHeight"
@@ -30,7 +30,6 @@
 const runtimeConfig = useRuntimeConfig();
 const storeName = runtimeConfig.public.storeName;
 const imageExtension = runtimeConfig.public.headerLogo.split('.').pop();
-const headerLogo = 'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Logo_horizontal_RGB_cropped.png';
 
 const logo = ref<HTMLImageElement | null>(null);
 const imgWidth = ref<string>('');
