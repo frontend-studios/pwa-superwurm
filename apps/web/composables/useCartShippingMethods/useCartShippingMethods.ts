@@ -46,9 +46,11 @@ export const useCartShippingMethods: UseCartShippingMethodsReturn = () => {
 
     const { data: cart } = useCart();
 
-    const { data, error } = await useAsyncData(() => useSdk().plentysystems.getShippingProvider());
-    useHandleError(error.value);
-    state.value.data = data.value?.data ?? state.value.data;
+    // const { data, error } = await useAsyncData(() => useSdk().plentysystems.getShippingProvider());
+    const data = await useSdk().plentysystems.getShippingProvider();
+
+    // useHandleError(error.value);
+    state.value.data = data.data ?? state.value.data;
 
     await setSelectedMethod(Number(shippingProviderGetters.getShippingProfileId(cart.value)));
 
