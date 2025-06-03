@@ -22,7 +22,7 @@ export const useCartShippingMethods: UseCartShippingMethodsReturn = () => {
     selectedMethod: {} as ShippingMethod,
   }));
 
-  const setSelectedMethod: SetSelectedMethod = async (shippingMethodId: number) => {
+  const setSelectedMethod: SetSelectedMethod = (shippingMethodId: number) => {
     state.value.selectedMethod = state.value.data.list?.find(
       (method) => method.parcelServicePresetId === Number(shippingMethodId),
     );

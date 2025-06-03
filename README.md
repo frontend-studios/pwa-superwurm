@@ -2,9 +2,9 @@
 
   <a href="https://plentyone.com" target="_blank">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./images/PlentyONE_Logo_White_RGB.svg">
-      <source media="(prefers-color-scheme: light)" srcset="./images/PlentyONE_Logo_PlentyBlue_RGB.svg">
-      <img alt="PlentyONE logo" src="./images/PlentyONE_Logo_PlentyBlue_RGB.svg" height="100px">
+      <source media="(prefers-color-scheme: dark)" srcset="./docs/images/PlentyONE_Logo_White_RGB.svg">
+      <source media="(prefers-color-scheme: light)" srcset="./docs/images/PlentyONE_Logo_PlentyBlue_RGB.svg">
+      <img alt="PlentyONE logo" src="./docs/images/PlentyONE_Logo_PlentyBlue_RGB.svg" height="100px">
     </picture> 
   </a>
 
@@ -12,9 +12,9 @@
 
   <a href="https://alokai.com" target="_blank">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./images/alokai-logo-light.svg">
-      <source media="(prefers-color-scheme: light)" srcset="./images/alokai-logo-dark.svg">
-      <img alt="alokai logo" src="./images/alokai-logo-dark.svg" height="40px">
+      <source media="(prefers-color-scheme: dark)" srcset="./docs/images/alokai-logo-light.svg">
+      <source media="(prefers-color-scheme: light)" srcset="./docs/images/alokai-logo-dark.svg">
+      <img alt="alokai logo" src="./docs/images/alokai-logo-dark.svg" height="40px">
     </picture> 
   </a>
 
@@ -38,12 +38,6 @@ We recommend working with a fork of this repository. A fork allows you to easily
 
 1. [Create a fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 2. [Clone the forked repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
-
-### Create authentication token
-
-This project queries data from PlentyONE by using other NPM packages as middleware. These packages are published on the GitHub registry. To download packages from GitHub's registry, you have to authenticate.
-
-To enable authentication, create a [Personal Access Token](https://github.com/settings/tokens/new) (PAT) with the scope **read:packages**.
 
 ### Set up environment
 

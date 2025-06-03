@@ -1,5 +1,7 @@
 import withNuxt from './.nuxt/eslint.config.mjs';
-import { architecture, ecma } from '@vue-storefront/eslint-config';
+import { architecture, ecma } from "@vue-storefront/eslint-config";
+import pluginVueA11y from "eslint-plugin-vuejs-accessibility";
+import { noI18nGlobals } from './eslint-rules/no-i18n-globals.js';
 
 export default withNuxt(
   {
@@ -13,16 +15,24 @@ export default withNuxt(
     maxLinesPerFunction: 1000, // target: 100
     maxStatements: 150, // target: 15
     maxNestedCallbacks: 30, // target: 3
-    maxParams: 4,
+    maxParams: 4
   }),
   ecma({
     withImport: false,
   }),
+  ...pluginVueA11y.configs["flat/recommended"],
   {
+    plugins: {
+      'custom-rules': {
+        rules: {
+          'no-i18n-globals': noI18nGlobals
+        }
+      }
+    },
     /**
      * Rules from other plugins
      * Consider reintroducing in the future
-     *
+     * 
      * etc/no-implicit-any-catch
      * etc/throw-error
      * promise/no-nesting
@@ -49,6 +59,7 @@ export default withNuxt(
       'vuejs-accessibility/no-autofocus': 'off',
       'vuejs-accessibility/no-redundant-roles': 'off',
       'vuejs-accessibility/no-static-element-interactions': 'off',
-    },
+      'custom-rules/no-i18n-globals': 'error',
+    }
   },
 );
