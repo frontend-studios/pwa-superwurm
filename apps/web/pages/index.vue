@@ -523,8 +523,6 @@ const { setPageMeta } = usePageMeta();
 const icon = 'home';
 setPageMeta(t('homepage.title'), icon);
 
-await getBlocks('index', 'immutable');
-
 onMounted(() => {
   isEditingEnabled.value = false;
   window.addEventListener('beforeunload', handleBeforeUnload);
