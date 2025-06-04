@@ -57,6 +57,7 @@
 import storeBlack from '/assets/icons/paths/store-black.svg';
 import { SfIconWarning } from '@storefront-ui/vue';
 import type { RemoveLookupCookie } from './types';
+
 const { $isPreview } = useNuxtApp();
 
 const { t } = useI18n();
@@ -66,7 +67,6 @@ const { save: saveBlocksAndSiteSettings } = useToolbar();
 const { save: saveCategorySettings, hasChanges } = useCategorySettingsCollection();
 
 const bannerIsHidden = ref(true);
-
 const config = useRuntimeConfig().public;
 
 const hasUnsavedChanges = () => {

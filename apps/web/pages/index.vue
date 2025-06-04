@@ -347,6 +347,9 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  middleware: ['confirmation-redirect'],
+});
 // Adding SocialMedia Icons from https://docs.storefrontui.io/v2/vue/components/iconbase START
 import {
   SfIconFacebook,

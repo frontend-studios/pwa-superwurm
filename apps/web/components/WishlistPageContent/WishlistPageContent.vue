@@ -64,22 +64,7 @@
         {{ t('emptyWishlist') }}
       </h2>
     </div>
-    <div v-if="products.length > 0" class="mt-4 mb-4 typography-text-xs flex gap-1">
-      <span>{{ t('asterisk') }}</span>
-      <span v-if="showNetPrices">{{ t('itemExclVAT') }}</span>
-      <span v-else>{{ t('itemInclVAT') }}</span>
-      <i18n-t keypath="excludedShipping" scope="global">
-        <template #shipping>
-          <SfLink
-            :href="localePath(paths.shipping)"
-            target="_blank"
-            class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
-          >
-            {{ t('delivery') }}
-          </SfLink>
-        </template>
-      </i18n-t>
-    </div>
+    
   </NarrowContainer>
 </template>
 

@@ -45,6 +45,7 @@
 <script lang="ts" setup>
 import draggable from 'vuedraggable/src/vuedraggable';
 import type { DragEvent, EditablePageProps } from './types';
+
 const { $isPreview } = useNuxtApp();
 
 const props = defineProps<EditablePageProps>();

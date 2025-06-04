@@ -1,5 +1,5 @@
 <template>
-    <component :is="Toolbar" v-if="$isPreview" :style="`font-family: ${config.font}`" />
+  <component :is="Toolbar" v-if="$isPreview" :style="`font-family: ${config.font}`" />
   <div
     class="w-100 relative md:flex"
     :class="{

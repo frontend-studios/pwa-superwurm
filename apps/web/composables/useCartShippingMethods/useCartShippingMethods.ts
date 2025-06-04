@@ -1,4 +1,4 @@
-import type { ShippingProvider, ShippingMethod } from '@plentymarkets/shop-api';
+import type { ShippingProvider, ShippingMethod, ApiError } from '@plentymarkets/shop-api';
 import { shippingProviderGetters } from '@plentymarkets/shop-api';
 import type {
   UseCartShippingMethodsState,
@@ -22,16 +22,10 @@ export const useCartShippingMethods: UseCartShippingMethodsReturn = () => {
     selectedMethod: {} as ShippingMethod,
   }));
 
-  const setSelectedMethod: SetSelectedMethod = async (shippingMethodId: number) => {
+  const setSelectedMethod: SetSelectedMethod = (shippingMethodId: number) => {
     state.value.selectedMethod = state.value.data.list?.find(
       (method) => method.parcelServicePresetId === Number(shippingMethodId),
     );
-    if (!state.value.selectedMethod) {
-      const defaultMethod = state.value.data.list?.[0];
-      if (defaultMethod) {
-        await saveShippingMethod(defaultMethod.parcelServicePresetId);
-      }
-    }
   };
 
   /**
@@ -46,15 +40,16 @@ export const useCartShippingMethods: UseCartShippingMethodsReturn = () => {
 
     const { data: cart } = useCart();
 
-    // const { data, error } = await useAsyncData(() => useSdk().plentysystems.getShippingProvider());
-    const data = await useSdk().plentysystems.getShippingProvider();
+    try {
+      const { data } = await useSdk().plentysystems.getShippingProvider();
+      state.value.data = data ?? state.value.data;
+      setSelectedMethod(Number(shippingProviderGetters.getShippingProfileId(cart.value)));
+    } catch (error) {
+      useHandleError(error as ApiError);
+    } finally {
+      state.value.loading = false;
+    }
 
-    // useHandleError(error.value);
-    state.value.data = data.data ?? state.value.data;
-
-    await setSelectedMethod(Number(shippingProviderGetters.getShippingProfileId(cart.value)));
-
-    state.value.loading = false;
     return state.value.data;
   };
 
@@ -67,17 +62,19 @@ export const useCartShippingMethods: UseCartShippingMethodsReturn = () => {
    * ```
    */
   const saveShippingMethod: SaveShippingMethod = async (shippingMethodId: number) => {
-    state.value.loading = true;
-    const { error } = await useAsyncData(() =>
-      useSdk().plentysystems.setShippingProvider({
+    try {
+      state.value.loading = true;
+      await useSdk().plentysystems.setShippingProvider({
         shippingId: shippingMethodId,
-      }),
-    );
+      });
 
-    setSelectedMethod(shippingMethodId);
+      setSelectedMethod(shippingMethodId);
+    } catch (error) {
+      useHandleError(error as ApiError);
+    } finally {
+      state.value.loading = false;
+    }
 
-    useHandleError(error.value);
-    state.value.loading = false;
     return state.value.data;
   };
 

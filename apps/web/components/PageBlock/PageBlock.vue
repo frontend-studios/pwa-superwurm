@@ -84,6 +84,7 @@
 <script lang="ts" setup>
 import type { Block } from '@plentymarkets/shop-api';
 import { SfIconAdd } from '@storefront-ui/vue';
+
 const { $isPreview } = useNuxtApp();
 
 interface Props {
@@ -120,8 +121,6 @@ const getBlockComponent = computed(() => {
 const contentProps = computed(() => {
   return props.root ? { ...props.block } : { ...props.block, ...attrs };
 });
-
-
 
 const showOutline = computed(() => {
   return (
