@@ -13,7 +13,6 @@ import homepageTemplateDataEn from './homepageTemplateDataEn.json';
 const useLocaleSpecificHomepageTemplate = (locale: string) =>
   locale === 'de' ? (homepageTemplateDataDe as Block[]) : (homepageTemplateDataEn as Block[]);
 
-const { send } = useNotification();
 
 export const useCategoryTemplate: UseCategoryTemplateReturn = () => {
   const state = useState<UseCategoryTemplateState>('useCategoryTemplate', () => ({
@@ -23,7 +22,6 @@ export const useCategoryTemplate: UseCategoryTemplateReturn = () => {
     loading: false,
   }));
 
-  const { $i18n } = useNuxtApp();
 
   const getBlocks: GetBlocks = async (identifier, type) => {
     state.value.loading = true;
@@ -32,12 +30,14 @@ export const useCategoryTemplate: UseCategoryTemplateReturn = () => {
     );
 
     if (error.value) {
+      const { send } = useNotification();
       send({ type: 'negative', message: error?.value?.message });
     }
 
     state.value.loading = false;
 
     if (!data?.value?.data.length && type === 'immutable') {
+      const { $i18n } = useNuxtApp();
       state.value.data = useLocaleSpecificHomepageTemplate($i18n.locale.value);
     } else {
       state.value.data = data?.value?.data ?? state.value.data;
