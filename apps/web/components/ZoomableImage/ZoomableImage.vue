@@ -12,6 +12,7 @@
 
     <NuxtImg
       v-bind="nuxtImgProps"
+      :data-testid="`product-image-${index}`"
       @touchstart="onTouchStart"
       @touchmove="onTouchMove"
       @touchend="onTouchEnd"

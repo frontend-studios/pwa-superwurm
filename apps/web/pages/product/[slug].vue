@@ -86,18 +86,21 @@
 import { SfIconChevronRight } from '@storefront-ui/vue';
 import type { Product } from '@plentymarkets/shop-api';
 import { productGetters, reviewGetters, categoryTreeGetters, productImageGetters } from '@plentymarkets/shop-api';
+const route = useRoute();
 
 definePageMeta({
   layout: false,
   path: '/:slug*_:itemId',
   name: 'custom-single-meta',
+  validate: async (route) => {
+    return validateProductParams(route.params);
+  },
 });
 import type { ProductCardProps } from '~/components/ui/ProductCard/types';
 const { imageUrl } = defineProps<ProductCardProps>();
 const currentImageUrl = ref(imageUrl);
 
 const { t } = useI18n();
-const route = useRoute();
 
 const { addModernImageExtension } = useModernImage();
 const { setCurrentProduct } = useProducts();
@@ -162,6 +165,7 @@ watch(
 watch(
   () => categoryTree.value,
   (categoriesTree) => {
+    setProductCanonicalMetaData(product.value);
     const productCategoryId = productGetters.getParentCategoryId(product.value);
     if (categoriesTree.length > 0 && productCategoryId) {
       const categoryTree = categoriesTree.find(
@@ -171,7 +175,6 @@ watch(
         setProductMetaData(product.value, categoryTree);
         setProductRobotsMetaData(product.value);
       }
-      setProductCanonicalMetaData(product.value);
     }
   },
   { immediate: true },

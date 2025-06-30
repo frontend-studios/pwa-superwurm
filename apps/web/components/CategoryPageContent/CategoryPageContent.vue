@@ -1,5 +1,5 @@
 <template>
-  <NarrowContainer class="mb-20 px-4 md:px-0" data-testid="category-layout">    
+  <NarrowContainer class="mb-20 px-4 md:px-0" data-testid="category-layout">
     <div class="md:flex gap-6" data-testid="category-page-content">
       <CategorySidebar :is-open="isOpen" @close="close">
         <NuxtLazyHydrate when-visible>
@@ -32,15 +32,11 @@
               :rating="productGetters.getAverageRating(product, 'half')"
               :image-url="addModernImageExtension(productGetters.getCoverImage(product))"
               :image-alt="
-                'alt-' + productImageGetters.getImageAlternate(productImageGetters.getFirstImage(product)) ||
+                productImageGetters.getImageAlternate(productImageGetters.getFirstImage(product)) ||
                 productGetters.getName(product) ||
                 ''
               "
-              :image-title="
-                productImageGetters.getImageName(productImageGetters.getFirstImage(product)) ||
-                productGetters.getName(product) ||
-                ''
-              "
+              :image-title="productImageGetters.getImageName(productImageGetters.getFirstImage(product)) || ''"
               :image-height="productGetters.getImageHeight(product) || 600"
               :image-width="productGetters.getImageWidth(product) || 600"
               :slug="productGetters.getSlug(product) + `-${productGetters.getId(product)}`"
@@ -53,7 +49,7 @@
           </NuxtLazyHydrate>
         </section>
         <LazyCategoryEmptyState v-else />
-        
+
         <UiPagination
           v-if="totalProducts > 0"
           :key="`${totalProducts}-${itemsPerPage}`"

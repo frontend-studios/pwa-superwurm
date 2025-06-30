@@ -75,6 +75,7 @@
         >
           <NuxtImg
             :alt="productImageGetters.getImageAlternate(image) || productImageGetters.getCleanImageName(image) || ''"
+            :title="productImageGetters.getImageName(image) ? productImageGetters.getImageName(image) : null"
             class="object-contain"
             :width="80"
             :height="80"

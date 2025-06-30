@@ -29,7 +29,7 @@
         <NuxtImg
           :src="currentImageUrl"
           :alt="imageAlt"
-          :title="imageTitle"
+          :title="imageTitle ? imageTitle : null"
           :loading="lazy && !priority ? 'lazy' : 'eager'"
           :fetchpriority="priority ? 'high' : 'auto'"
           :preload="priority || false"
@@ -124,7 +124,11 @@
               </span>
               <span class="text-2xl leading-none">{{ format(price) }}</span>
             </span>
-            <span v-if="crossedPrice && differentPrices(price, crossedPrice)" :class="hasNewProperty ? 'text-center' : 'text-right'" class="line-through">
+            <span
+              v-if="crossedPrice && differentPrices(price, crossedPrice)"
+              :class="hasNewProperty ? 'text-center' : 'text-right'"
+              class="line-through"
+            >
               {{ format(crossedPrice) }}
             </span>
           </div>
@@ -200,7 +204,6 @@ const loading = ref(false);
 const config = useRuntimeConfig();
 const useTagsOnCategoryPage = config.public.useTagsOnCategoryPage;
 const variationId = computed(() => productGetters.getVariationId(product));
-
 
 const productPath = computed(() => {
   const basePath = `/${productGetters.getUrlPath(product)}_${productGetters.getItemId(product)}`;

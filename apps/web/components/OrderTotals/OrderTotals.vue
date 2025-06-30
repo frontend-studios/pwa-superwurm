@@ -26,7 +26,7 @@
     <p class="text-right">{{ n(orderGetters.getOrderItemOrderPropertySurcharge(additionalCost), 'currency') }}</p>
   </div>
   <UiDivider class="mt-2 mb-2" />
-  <div class="grid grid-cols-2">
+  <div v-if="orderGetters.getCouponValue(order.totals) < 0" class="grid grid-cols-2 mt-2">
     <p class="font-medium text-base" :class="{ 'font-bold text-xl': isOrderTypeOffer }">
       {{ t('orderConfirmation.total') }}:
     </p>
