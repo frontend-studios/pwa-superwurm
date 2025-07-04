@@ -1,4 +1,13 @@
 <template>
+  <div class="md:mx-4 my-6 hinweis">
+    <p class="text-neutral-900 text-md font-bold mb-4">Probleme beim Bezahlen?</p>
+    <p class="bg-warning-100 p-2 rounded-md mb-4 text-sm">
+      Wir sind für dich da! <br />
+      Schreib uns einfach über <a href="https://wa.me/+4915225432222" class="underline">WhatsApp</a> oder
+      <a href="mailto:info@superwurm.de" class="underline">E-Mail</a>, wenn du Fragen zur Zahlung hast oder etwas nicht
+      funktioniert.
+    </p>
+  </div>
   <fieldset class="md:mx-4 my-6" data-testid="checkout-payment">
     <legend class="text-neutral-900 text-lg font-bold mb-4">{{ t('checkoutPayment.heading') }}</legend>
     <div v-if="paymentMethods?.list && paymentMethods.list.length > 0" class="grid gap-4 grid-cols-2">
