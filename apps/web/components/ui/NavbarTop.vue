@@ -23,7 +23,8 @@
 import { paths } from '~/utils/paths';
 
 const localePath = useLocalePath();
-const { headerBackgroundColor } = useSiteConfiguration();
+const { getSetting: getHeaderBackgroundColor } = useSiteSettings('headerBackgroundColor');
+const headerBackgroundColor = computed(() => getHeaderBackgroundColor());
 defineProps<{
   filled?: boolean;
 }>();

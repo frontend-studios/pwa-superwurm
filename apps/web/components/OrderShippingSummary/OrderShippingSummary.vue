@@ -11,7 +11,7 @@
     </h2>
     <p>{{ shippingMethod }}</p>
   </template>
-
+  <OrderTracking :order="order" />
   <template v-if="preferredDeliveryServices">
     <h2 class="font-medium text-base mt-4">
       {{ t('PreferredDelivery.general.assistantName') }}
@@ -23,7 +23,6 @@
       </li>
     </ul>
   </template>
-
   <template v-if="orderContactWish">
     <h2 class="font-medium text-base mt-4">{{ t('customerWish') }}</h2>
     <p>{{ orderContactWish }}</p>

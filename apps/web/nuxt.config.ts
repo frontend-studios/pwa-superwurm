@@ -78,7 +78,7 @@ export default defineNuxtConfig({
         'https://cdn02.plentymarkets.com/ln590pyonzot/frontend/PWA_Superwurm/prev_logo/Superwurm_Logo_horizontal_RGB_cropped.png',
       homepageCategoryId: Number(process.env.HOMEPAGE) ?? null,
       shippingTextCategoryId: Number(process.env.SHIPPINGTEXT) ?? null,
-      storename: process.env.STORENAME || 'PlentyONE GmbH',
+      storename: process.env.STORENAME || 'Superwurm',
       noCache: process.env.NO_CACHE || '',
       configId: process.env.CONFIG_ID || '',
       isHero: true,

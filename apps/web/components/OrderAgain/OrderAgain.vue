@@ -91,7 +91,7 @@
                         v-if="
                           orderGetters.getOrderAgainOrderProperty(item, property) &&
                           productPropertyGetters.getOrderPropertyLabel(
-                            orderGetters.getOrderAgainOrderProperty(item, property),
+                            orderGetters.getOrderAgainOrderProperty(item, property)!,
                           ).surchargeType
                         "
                       >
@@ -99,15 +99,15 @@
                           t(
                             'orderProperties.vat.' +
                               productPropertyGetters.getOrderPropertyLabel(
-                                orderGetters.getOrderAgainOrderProperty(item, property),
+                                orderGetters.getOrderAgainOrderProperty(item, property)!,
                               ).surchargeType,
                           )
                         }}
                         {{
                           format(
                             productPropertyGetters.getOrderPropertySurcharge(
-                              orderGetters.getOrderAgainOrderProperty(item, property),
-                            ),                            
+                              orderGetters.getOrderAgainOrderProperty(item, property)!,
+                            ),
                           )
                         }})</span
                       >
@@ -169,7 +169,7 @@
                   <span>{{ t('account.ordersAndReturns.orderAgain.orderPropertyNotAvailableOrChanged') }}</span>
                 </UiTag>
                 <UiTag
-                  v-else-if="roundAmount(orderGetters.getOrderAgainInformationPrice(item)) > itemPrice(item)"                
+                  v-else-if="roundAmount(orderGetters.getOrderAgainInformationPrice(item)) > itemPrice(item)"
                   variant="secondary"
                   size="sm"
                   class="!font-medium"
@@ -206,7 +206,7 @@
                 target="_blank"
                 class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
               >
-              {{ t('delivery') }}
+                {{ t('delivery') }}
               </SfLink>
             </template>
           </i18n-t>

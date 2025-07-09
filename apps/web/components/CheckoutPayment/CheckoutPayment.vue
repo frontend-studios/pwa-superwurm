@@ -3,7 +3,8 @@
     <p class="text-neutral-900 text-md font-bold mb-4">Probleme beim Bezahlen?</p>
     <p class="bg-warning-100 p-2 rounded-md mb-4 text-sm">
       Wir sind für dich da! <br />
-      Schreib uns einfach über <a href="https://wa.me/+4915225432222" class="underline">WhatsApp</a> oder
+      Schreib uns einfach über
+      <a href="https://wa.me/+4915225432222" class="underline" target="_blank">WhatsApp</a> oder
       <a href="mailto:info@superwurm.de" class="underline">E-Mail</a>, wenn du Fragen zur Zahlung hast oder etwas nicht
       funktioniert.
     </p>

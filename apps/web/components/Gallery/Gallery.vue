@@ -47,8 +47,9 @@
         :prev-disabled="activeIndex === 0"
         :next-disabled="activeIndex === images.length - 1"
       >
-        <template #previousButton>
+        <template #previousButton="defaultProps">
           <UiButton
+            v-bind="defaultProps"
             variant="secondary"
             size="sm"
             square
@@ -85,8 +86,9 @@
           />
         </button>
 
-        <template #nextButton>
+        <template #nextButton="defaultProps">
           <UiButton
+            v-bind="defaultProps"
             variant="secondary"
             size="sm"
             square

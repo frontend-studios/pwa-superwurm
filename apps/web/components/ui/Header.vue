@@ -322,7 +322,12 @@
         <SfIconClose />
       </UiButton>
     </header>
-    <LoginComponent v-if="isLogin" :is-modal="true" @change-view="isLogin = false" @logged-in="closeAuthentication" />
+    <LoginComponent
+      v-if="isLogin"
+      :is-modal="true"
+      @change-view="isLogin = false"
+      @logged-in="navigateAfterAuth(true)"
+    />
     <Register v-else :is-modal="true" @change-view="isLogin = true" @registered="closeAuthentication" />
   </UiModal>
 
@@ -335,7 +340,13 @@
       aria-labelledby="search-modal-title"
     >
       <header class="mb-4">
-        <UiButton square variant="tertiary" class="absolute right-4 top-2" @click="searchModalClose" :aria-label="t('closeDialog')">
+        <UiButton
+          square
+          variant="tertiary"
+          class="absolute right-4 top-2"
+          @click="searchModalClose"
+          :aria-label="t('closeDialog')"
+        >
           <SfIconClose class="text-neutral-500" />
         </UiButton>
         <h3 id="search-modal-title" class="absolute left-6 top-4 font-bold typography-headline-4 mb-4">
@@ -372,7 +383,12 @@ const isLogin = ref(true);
 const { data: cart } = useCart();
 const { wishlistItemIds } = useWishlist();
 const cartItemsCount = ref(0);
-const { iconColor, headerBackgroundColor } = useSiteConfiguration();
+
+const { getSetting: getIconColor } = useSiteSettings('iconColor');
+const { getSetting: getHeaderBackgroundColor } = useSiteSettings('headerBackgroundColor');
+const iconColor = computed(() => getIconColor());
+const headerBackgroundColor = computed(() => getHeaderBackgroundColor());
+
 const { close } = useMegaMenu();
 
 const NuxtLink = resolveComponent('NuxtLink');
@@ -396,6 +412,13 @@ const isActive = computed(() => isLanguageSelectOpen);
 onNuxtReady(() => {
   cartItemsCount.value = cart.value?.items?.reduce((price, { quantity }) => price + quantity, 0) ?? 0;
 });
+const navigateAfterAuth = (reload: boolean) => {
+  if (reload) {
+    window.location.reload();
+  } else {
+    closeAuthentication();
+  }
+};
 
 const { isOpen, open } = useDisclosure();
 const cartTotalPrice = computed(() => {
@@ -422,7 +445,7 @@ watch(
 const logOut = async () => {
   accountDropdownToggle();
   await logout();
-  navigateTo(localePath(paths.home));
+  window.location.reload();
 };
 
 const accountDropdown = computed(() => [

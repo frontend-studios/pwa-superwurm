@@ -4,13 +4,13 @@ import { getLocales } from '../../../configuration/i18n.config';
 import { readdirSync } from 'node:fs';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const de = require('../../../i18n/lang/de.json');
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const en = require('../../../i18n/lang/en.json');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const de = require('../../../i18n/lang/de.json');
 
 describe('i18n', () => {
   it('has the same keys in English and German', () => {
-    haveEqualStructure(de, en);
+    haveEqualStructure(en, de);
   });
 
   it('has values for all English keys', () => {
@@ -34,10 +34,10 @@ describe('locale configuration', () => {
   vi.mock('node:fs');
 
   it('should create a locale configuration for each language', () => {
-    const languages = ['de.ts', 'en.ts', 'fr.ts'];
+    const languages = ['en.ts', 'de.ts', 'fr.ts'];
     const EXPECTED = [
-      { code: 'de', file: 'de.ts' },
       { code: 'en', file: 'en.ts' },
+      { code: 'de', file: 'de.ts' },
       { code: 'fr', file: 'fr.ts' },
     ];
 
