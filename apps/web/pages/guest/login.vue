@@ -16,9 +16,13 @@
         <OrDivider />
 
         <template v-if="loadedConfig && isAvailable">
-          <PayPalExpressButton class="mt-4" type="CartPreview" />
-          <PayPalPayLaterBanner placement="cart" :amount="cartGetters.getTotal(cartGetters.getTotals(cart))" />
-          <OrDivider />
+          <PayPalExpressButton class="mt-4 hidden" type="CartPreview" />
+          <PayPalPayLaterBanner
+            class="hidden"
+            placement="cart"
+            :amount="cartGetters.getTotal(cartGetters.getTotals(cart))"
+          />
+          <OrDivider class="hidden" />
         </template>
 
         <form :class="{ 'mt-4': isAvailable }" @submit.prevent="loginUser">
