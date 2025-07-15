@@ -1,5 +1,5 @@
 <template>
-  <header ref="referenceRef" :class="headerClass" class="mb-2 w-full top-0 z-20 v1-23-0">
+  <header ref="referenceRef" :class="headerClass" class="mb-2 w-full top-0 z-20 v1-25-0">
     <div class="hidden w-full mx-auto border-0 bg-red-700 py-1 px-4 xl:px-0">
       <p class="text-center text-white font-medium text-sm">
         Der Versand von Lebendware ist wegen der aktuellen Hitze vorübergehend ausgesetzt. Sobald es kühler wird,
