@@ -187,6 +187,8 @@ const { set: setShippingAddress, hasCheckoutAddress: hasShippingAddress } = useC
 const { set: setBillingAddress } = useCheckoutAddress(AddressType.Billing);
 const { addressToSave: billingAddressToSave, save: saveBillingAddress } = useAddressForm(AddressType.Billing);
 const { restrictedAddresses } = useRestrictedAddress();
+const { setShippingSkeleton } = useCheckout();
+
 const {
   isLoading: formIsLoading,
   add: showNewForm,
@@ -274,6 +276,7 @@ const validateAndSubmitForm = async () => {
 
   if (formData.valid) {
     try {
+      setShippingSkeleton(true);
       await submitForm();
     } catch (error) {
       if (error instanceof Error) {
@@ -284,6 +287,8 @@ const validateAndSubmitForm = async () => {
       } else if (error instanceof ApiError) {
         useHandleError(error);
       }
+    } finally {
+      setShippingSkeleton(false);
     }
     if (showNewForm.value) showNewForm.value = false;
   }

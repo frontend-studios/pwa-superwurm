@@ -71,7 +71,7 @@
           <ul
             class="flex items-center justify-between px-4 xl:px-0"
             @blur="
-              (event) => {
+              (event: FocusEvent) => {
                 if (!(event.currentTarget as Element).contains(event.relatedTarget as Element)) {
                   close();
                 }

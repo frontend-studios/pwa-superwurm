@@ -16,7 +16,9 @@ const checkEnvironments = (integrations: any) => {
     );
   }
 };
-
+const validateApiUrl = (url: string | undefined): string | undefined => {
+  return url?.replace(/[/\\]+$/, '');
+};
 (async () => {
   const app = await createServer(
     { integrations: config.integrations },
@@ -24,6 +26,7 @@ const checkEnvironments = (integrations: any) => {
       cors: {
         origin: 'http://localhost:3000',
         credentials: true,
+        origin: validateApiUrl(process.env.API_URL) ?? 'http://localhost:3000',
       },
       bodyParser: {
         limit: '50mb',

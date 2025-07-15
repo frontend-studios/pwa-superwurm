@@ -66,7 +66,7 @@
         <button
           v-for="(image, index) in images"
           :key="`imagebutton-${index}-thumbnail`"
-          :ref="(el) => assignReference(el, index)"
+          :ref="(el: Element | ComponentPublicInstance | null) => assignReference(el, index)"
           type="button"
           :aria-current="activeIndex === index"
           :aria-label="t('gallery.thumb', index)"
