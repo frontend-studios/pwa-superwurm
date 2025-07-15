@@ -38,7 +38,7 @@
         <div class="relative md:sticky md:top-20 h-fit" :class="{ 'pointer-events-none opacity-50': cartLoading }">
           <SfLoaderCircular v-if="cartLoading" class="absolute top-[130px] right-0 left-0 m-auto z-[999]" size="2xl" />
           <Coupon />
-          <OrderSummary v-if="cart" :cart="cart" class="mt-4">
+          <OrderSummary v-if="cart" :cart="cart" class="mt-4 mb-5">
             <CheckoutExportDeliveryHint v-if="cart.isExportDelivery" />
             <PaymentButtons />
             <ModuleComponentRendering area="checkout.afterBuyButton" />
