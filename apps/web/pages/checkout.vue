@@ -30,7 +30,6 @@
         <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0" />
         <CustomerWish />
         <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0 mb-10" />
-        <CheckoutGeneralTerms />
       </div>
       <div class="col-span-6 xl:col-span-5">
         <div v-for="(cartItem, index) in cart?.items" :key="cartItem.id">
@@ -44,6 +43,7 @@
             <PaymentButtons />
             <ModuleComponentRendering area="checkout.afterBuyButton" />
           </OrderSummary>
+          <CheckoutGeneralTerms />
         </div>
       </div>
     </div>
