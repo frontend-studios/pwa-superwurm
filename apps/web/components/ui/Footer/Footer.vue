@@ -180,7 +180,6 @@
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/zahlung-versand">Zahlung & Versand</a></li>
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/cancellation-rights">Widerrufsrecht</a></li>
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/terms-and-conditions">AGB</a></li>
-          <li class="mb-3 md:mb-0 md:ml-3"><a href="/os-plattform">OS-Plattform</a></li>
           <li class="mb-3 md:mb-0 md:ml-3"><a href="/haendler-versender">Händler und Versender</a></li>
         </ul>
       </div>
