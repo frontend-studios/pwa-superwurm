@@ -229,7 +229,7 @@ const sendContact = async () => {
     name: name?.value || '',
     email: email?.value || '',
     subject: subject?.value || '',
-    orderId: orderId?.value || '',
+    orderId: orderId?.value ? Number(orderId.value) : undefined,
     message: message.value || '',
     'cf-turnstile-response': turnstile.value,
   };

@@ -57,3 +57,5 @@ apps/web/docs/reference/**/*.md
 .vscode
 *.code-workspace
 *.tsbuildinfo
+
+apps/web/cypress.env.json
