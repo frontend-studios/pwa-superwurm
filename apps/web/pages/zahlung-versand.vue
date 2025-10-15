@@ -11,7 +11,7 @@
       vorzubeugen. Auf Wunsch und unter Berücksichtigung der Zollbestimmungen versenden wir weltweit.
     </p>
     <p>
-      <strong>Versandkosten im Inland (Deutschland):<br /></strong>Die Versandkosten betragen pauschal 5,99 € pro Paket.
+      <strong>Versandkosten im Inland (Deutschland):<br /></strong>Die Versandkosten betragen pauschal 6,99 € pro Paket.
       Pakete werden bei uns bis maximal 20 kg Gewicht gepackt. Wurmbestellungen werden bis maximal 6 kg pro Paket
       verpackt.
     </p>
