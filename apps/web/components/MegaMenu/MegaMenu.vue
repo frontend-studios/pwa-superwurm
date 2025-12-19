@@ -1,9 +1,9 @@
 <template>
   <header ref="referenceRef" :class="headerClass" class="mb-2 w-full top-0 z-20 v1-25-0">
-    <div class="hidden w-full mx-auto border-0 bg-red-700 py-1 px-4 xl:px-0">
+    <div class="w-full mx-auto border-0 bg-red-700 py-1 px-4 xl:px-0">
       <p class="text-center text-white font-medium text-sm">
-        Der Versand von Lebendware ist wegen der aktuellen Hitze vorübergehend ausgesetzt. Sobald es kühler wird,
-        versenden wir wieder wie gewohnt. Vielen Dank für Ihr Verständnis!
+        Liebe Kunden, wir wünschen euch schöne Festtage und einen guten Rutsch ins neue Jahr. Der Versand pausiert vom
+        19.12.2025 bis einschließlich 05.01.2026 und startet ab dem 06.01.2026 wieder wie gewohnt.
       </p>
     </div>
     <div class="w-full mx-auto border-0 bg-primary-500 border-neutral-200 py-1 px-4 xl:px-0">
